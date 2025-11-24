@@ -1,0 +1,674 @@
+@import url('https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* ------------------ */
+/* Navbar Styles */
+/* ------------------ */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(53, 97, 25, 0.989);
+  padding: 0.8rem 2.5rem; /* Reduced padding to decrease height */
+  z-index: 1500;
+  transition: transform 0.3s ease;
+  border-bottom: 1px solid var(--wood-light);
+  height: 60px; /* Fixed height */
+}
+
+.navbar.visible {
+  transform: translateY(0);
+}
+
+.navbar.hidden {
+  transform: translateY(-100%);
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0;
+  position: relative;
+  height: 100%;
+}
+
+/* Nav Controls - Aligned to Left */
+.nav-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-left: auto; /* Push to the right */
+}
+
+/* Language Toggle */
+.language-toggle {
+  background: var(--wood-light);
+  border: none;
+  border-radius: 20px;
+  padding: 0.4rem 0.8rem; /* Reduced padding */
+  font-size: 0.8rem; /* Smaller font */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  color: var(--primary-dark);
+  font-weight: 600;
+  font-family: 'Varela Round', sans-serif;
+}
+
+.language-toggle:hover {
+  background: var(--wood-medium);
+  transform: translateY(-1px);
+}
+
+.language-toggle i {
+  font-size: 0.8rem; /* Smaller icon */
+}
+
+/* Sign Up Button - ONLY BUTTON */
+.sign-up-btn {
+  background: var(--primary-medium);
+  color: var(--white);
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1rem; /* Reduced padding */
+  font-size: 0.85rem; /* Smaller font */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  font-family: 'Varela Round', sans-serif;
+  border: 1px solid var(--wood-light);
+}
+
+.sign-up-btn:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+/* ------------------ */
+/* HAMBURGER BUTTON */
+/* ------------------ */
+.hamburger {
+  position: relative;
+  width: 30px;
+  height: 22px;
+  display: flex !important;
+  flex-direction: column;
+  justify-content: space-between;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1600;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.hamburger span {
+  display: block !important;
+  height: 4px;
+  background: var(--wood-light);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.hamburger span.span1 {
+  width: 50%;
+}
+
+.hamburger span.span2 {
+  width: 100%;
+}
+
+.hamburger.active {
+  left: 15%;
+}
+
+.hamburger.active span:nth-child(1) {
+  width: 50%;
+  transform: rotate(-45deg) translateY(1.5px) translateX(-4.5px);
+}
+
+.hamburger.active span:nth-child(3) {
+  width: 50%;
+  transform: rotate(45deg) translateY(-1.5px) translateX(-4.5px);
+}
+
+.hamburger:focus {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+
+.hamburger:focus-visible {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+
+/* ------------------ */
+/* Side Navigation Styles */
+/* ------------------ */
+.side-nav {
+  height: 100vh;
+  width: 280px;
+  background-color: #E5E0D8;
+  border-top-right-radius: 48px;
+  border: 5px solid #849669;
+  border-left: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+  transition: transform 0.4s ease;
+  z-index: 2000;
+  transform: translateX(-100%);
+}
+
+.side-nav.open {
+  transform: translateX(0);
+}
+
+/* ------------------ */
+/* Bamboo Background */
+/* ------------------ */
+.bamboo {
+  height: 100%;
+  position: relative;
+}
+
+.bamboo img.bamboo-stalk {
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: left;
+}
+
+.bamboo img.L-1 {
+  position: absolute;
+  top: 0px;
+  left: 2.3rem;
+  width: 90px;
+  max-width: 35%;
+}
+
+.bamboo img.L-2 {
+  position: absolute;
+  bottom: 0px;
+  right: 0%;
+  width: 90px;
+  max-width: 35%;
+}
+
+/* ------------------ */
+/* Navigation Links */
+/* ------------------ */
+.nav-links {
+  position: absolute;
+  top: 40px;
+  left: 28%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  animation: slideIn 0.8s ease forwards;
+  width: 150px;
+}
+
+.wood-link {
+  position: relative;
+  display: inline-block;
+  width: 150px;
+  height: 60px;
+  text-decoration: none;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  filter: brightness(1);
+  opacity: 0;
+  animation: slideInFromLeft 0.6s ease forwards;
+}
+
+.wood-link:nth-child(1) { animation-delay: 0.1s; }
+.wood-link:nth-child(2) { animation-delay: 0.25s; }
+.wood-link:nth-child(3) { animation-delay: 0.4s; }
+.wood-link:nth-child(4) { animation-delay: 0.55s; }
+.wood-link:nth-child(5) { animation-delay: 0.7s; }
+.wood-link:nth-child(6) { animation-delay: 0.85s; }
+.wood-link:nth-child(7) { animation-delay: 1s; }
+
+.wood-link:hover {
+  transform: scale(1.05);
+}
+
+.wood-link.active .link-text {
+  color: #000000;
+  font-weight: 900;
+}
+
+.wood-link img.wood {
+  width: 100%;
+  height: 100%;
+}
+
+.wood-link .link-text {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #4B2E2E;
+  font-weight: 700;
+  font-family: 'Inknut Antiqua', serif;
+  font-size: 16px;
+  pointer-events: none;
+  text-align: center;
+  width: 100%;
+  transition: color 0.3s ease, font-weight 0.3s ease;
+}
+
+/* ------------------ */
+/* Animation keyframes */
+/* ------------------ */
+@keyframes slideIn {
+  from {
+    transform: translateX(-220px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Overlay for mobile */
+.nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1999;
+  display: none;
+}
+
+/* ------------------ */
+/* DESKTOP STYLES (Default) */
+/* ------------------ */
+@media (min-width: 1025px) {
+  .side-nav {
+    transform: translateX(-100%);
+  }
+  
+  .side-nav.open {
+    transform: translateX(0);
+  }
+  
+  .hamburger {
+    display: flex !important;
+  }
+  
+  .nav-overlay {
+    display: none;
+  }
+
+  .nav-controls {
+    margin-left: auto; /* Ensure it stays on the right */
+  }
+}
+
+/* ------------------ */
+/* LAPTOP & TABLET STYLES (1024px and below) */
+/* ------------------ */
+@media (max-width: 1024px) {
+  .side-nav {
+    transform: translateX(-100%);
+  }
+  
+  .side-nav.open {
+    transform: translateX(0);
+  }
+  
+  .hamburger {
+    display: flex !important;
+  }
+  
+  .nav-overlay {
+    display: block;
+  }
+
+  .hamburger.active {
+    left: 15%;
+  }
+
+  .nav-controls {
+    margin-left: auto;
+  }
+}
+
+/* ------------------ */
+/* MOBILE STYLES (767px and below) */
+/* ------------------ */
+@media (max-width: 767px) {
+  .navbar {
+    padding: 0.7rem 1.4rem; /* Reduced padding */
+    position: fixed;
+    transform: translateY(0) !important;
+    height: 55px; /* Smaller height on mobile */
+  }
+  
+  .nav-controls {
+    gap: 0.7rem;
+    margin-left: auto;
+  }
+  
+  .language-toggle {
+    padding: 0.3rem 0.6rem; /* Reduced padding */
+    font-size: 0.75rem; /* Smaller font */
+  }
+  
+  /* Show full language text on mobile */
+  .language-toggle .language-text {
+    display: inline;
+  }
+  
+  .sign-up-btn {
+    padding: 0.4rem 0.8rem; /* Reduced padding */
+    font-size: 0.8rem; /* Smaller font */
+  }
+  
+  .side-nav {
+    width: 300px;
+    border-top-right-radius: 24px;
+  }
+  
+  .nav-links {
+    top: 8%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 180px;
+    gap: 2.5vh;
+  }
+  
+  .wood-link {
+    width: 180px;
+    height: 65px;
+  }
+  
+  .wood-link .link-text {
+    font-size: 16px;
+  }
+  
+  .bamboo img.L-1 {
+    width: 100px;
+    left: 43px;
+    top: 0px;
+  }
+  
+  .bamboo img.L-2 {
+    width: 120px;
+    right: 0px;
+    bottom: 0px;
+  }
+}
+
+/* ------------------ */
+/* SMALL MOBILE STYLES (440px and below) */
+/* ------------------ */
+@media (max-width: 440px) {
+  .navbar {
+    padding: 0.6rem 1.2rem; /* Further reduced padding */
+    transform: translateY(0) !important;
+    height: 50px; /* Even smaller height */
+  }
+  
+  .nav-controls {
+    gap: 0.5rem;
+    margin-left: auto;
+  }
+  
+  .language-toggle {
+    padding: 0.25rem 0.5rem; /* Further reduced padding */
+    font-size: 0.7rem; /* Smaller font */
+  }
+  
+  /* Still show language text on small mobile */
+  .language-toggle .language-text {
+    display: inline;
+    font-size: 0.65rem;
+  }
+  
+  .sign-up-btn {
+    padding: 0.3rem 0.6rem; /* Further reduced padding */
+    font-size: 0.75rem; /* Smaller font */
+  }
+  
+  .side-nav {
+    width: 280px;
+  }
+  
+  .nav-links {
+    top: 8%;
+    left: 30%;
+    transform: translateX(-50%);
+    width: 160px;
+    gap: 2vh;
+  }
+  
+  .wood-link {
+    width: 160px;
+    height: 55px;
+  }
+  
+  .wood-link .link-text {
+    font-size: 14px;
+  }
+  
+  .bamboo img.L-1 {
+    width: 80px;
+    left: 52px;
+    top: 0px;
+  }
+  
+  .bamboo img.L-2 {
+    width: 100px;
+    bottom: 0px;
+  }
+  
+  .hamburger {
+    height: 22px;
+    width: 30px;
+    gap: 4px;
+  }
+
+  .hamburger span.span2 { 
+    height: 4px;
+    width: 100%; 
+  }
+  
+  .hamburger span.span1 { 
+    height: 4px;
+    width: 50%; 
+  }
+
+  .hamburger.active span:nth-child(1) {
+    width: 50%;
+    transform: rotate(-45deg) translateY(8px) translateX(-1px);
+  }
+
+  .hamburger.active span:nth-child(3) {
+    width: 50%;
+    transform: rotate(45deg) translateY(-8px) translateX(-1px);
+  }
+}
+
+/* ------------------ */
+/* Tablets 500–750px */
+/* ------------------ */
+@media (min-width: 500px) and (max-width: 750px) {
+  .navbar {
+    transform: translateY(0) !important;
+    height: 55px;
+  }
+  
+  .side-nav {
+    width: 300px;
+  }
+  
+  .nav-links {
+    top: 7%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 180px;
+    gap: 1.8rem;
+  }
+  
+  .wood-link {
+    width: 180px;
+    height: 65px;
+  }
+  
+  .wood-link .link-text {
+    font-size: 16px;
+  }
+  
+  .bamboo img.L-1 { 
+    width: 100px; 
+    left: 43px; 
+    top: 0px;
+  }
+  
+  .bamboo img.L-2 { 
+    width: 120px; 
+    right: 0px; 
+    bottom: 0px;
+  }
+  
+  .hamburger {
+    height: 22px;
+    width: 30px;
+    gap: 4px;
+  }
+
+  .hamburger span.span2 { 
+    height: 4px;
+    width: 100%; 
+  }
+  
+  .hamburger span.span1 { 
+    height: 4px;
+    width: 50%; 
+  }
+
+  .hamburger.active span:nth-child(1) {
+    width: 50%;
+    transform: rotate(-45deg) translateY(8px) translateX(-1px);
+  }
+
+  .hamburger.active span:nth-child(3) {
+    width: 50%;
+    transform: rotate(45deg) translateY(-8px) translateX(-1px);
+  }
+}
+
+/* ------------------ */
+/* Large Tablets 751–850px */
+/* ------------------ */
+@media (min-width: 751px) and (max-width: 850px) {
+  .navbar {
+    transform: translateY(0) !important;
+    height: 58px;
+  }
+  
+  .side-nav {
+    width: 320px;
+  }
+  
+  .nav-links {
+    top: 8%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 170px;
+    gap: 2rem;
+  }
+  
+  .wood-link {
+    width: 170px;
+    height: 62px;
+  }
+  
+  .wood-link .link-text {
+    font-size: 15px;
+  }
+}
+
+/* Side Nav Header */
+.side-nav-header {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 2100;
+}
+
+/* Side Nav Hamburger */
+.side-nav-hamburger {
+  position: relative !important;
+  left: 215px !important;
+  width: 30px;
+  height: 22px;
+  display: flex !important;
+  flex-direction: column;
+  justify-content: space-between;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 2100;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.side-nav-hamburger span {
+  display: block !important;
+  height: 4px;
+  background: var(--primary-dark);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.side-nav-hamburger span.span1 {
+  width: 50%;
+}
+
+.side-nav-hamburger span.span2 {
+  width: 100%;
+}
+
+.side-nav-hamburger.active span:nth-child(1) {
+  width: 50%;
+  transform: rotate(-45deg) translateY(1.5px) translateX(-4.5px);
+}
+
+.side-nav-hamburger.active span:nth-child(3) {
+  width: 50%;
+  transform: rotate(45deg) translateY(-1.5px) translateX(-4.5px);
+}

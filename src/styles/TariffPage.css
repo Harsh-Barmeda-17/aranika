@@ -1,0 +1,852 @@
+@import url('https://fonts.googleapis.com/css2?family=Gideon+Roman&family=Eagle+Lake&family=Varela+Round&family=Rye&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.tariff-page-container {
+    font-family: serif;
+    background: white;
+    color: #2d5016;
+    overflow-x: hidden;
+    position: relative;
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 80px 0 0 0;
+    min-height: 100vh;
+}
+
+/* Scroll Animation Styles */
+.scroll-animate {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.scroll-animate.initial-hidden {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.scroll-animate.animated {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.scroll-fade {
+    opacity: 1;
+}
+
+.scroll-fade.initial-hidden {
+    opacity: 0;
+    transition: opacity 0.8s ease-out;
+}
+
+.scroll-fade.animated {
+    opacity: 1;
+}
+
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+.delay-4 { transition-delay: 0.4s; }
+.delay-5 { transition-delay: 0.5s; }
+.delay-6 { transition-delay: 0.6s; }
+.delay-7 { transition-delay: 0.7s; }
+.delay-8 { transition-delay: 0.8s; }
+.delay-9 { transition-delay: 0.9s; }
+.delay-10 { transition-delay: 1s; }
+
+/* Left Branch Decoration */
+.left-branch {
+    position: absolute;
+    top: 80px;
+    left: -10px;
+    width: 200px;
+    height: 300px;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.left-branch img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: left top;
+}
+
+/* Main Content Wrapper */
+.main-content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* Header Section */
+.header-section {
+    text-align: center;
+    margin-bottom: 50px;
+    width: 100%;
+    position: relative;
+    z-index: 10;
+}
+
+.header-section h1 {
+    font-size: 3.5rem;
+    background: linear-gradient(135deg, #2d5016, #4a7c1f, #6b8c42);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 50px;
+    font-weight: 800;
+    line-height: 1.3;
+    letter-spacing: -0.8px;
+    text-shadow: 2px 2px 8px rgba(45, 80, 22, 0.15);
+    position: relative;
+    font-family: 'Rye', serif;
+}
+
+.header-section h1::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #8db860, #a8e063, #8db860, transparent);
+    border-radius: 2px;
+}
+
+.header-section .tagline {
+    font-size: 1.7rem;
+    color: #2e560b;
+    line-height: 1.7;
+    font-weight: 500;
+    max-width: 800px;
+    margin: 20px auto 0;
+    text-shadow: 1px 1px 3px rgba(45, 80, 22, 0.1);
+    letter-spacing: 0.2px;
+    font-family: 'Eagle Lake', serif;
+}
+
+/* Season Selector */
+.season-selector {
+    margin-bottom: 40px;
+}
+
+.selector-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.season-tab {
+    flex: 1;
+    padding: 25px 20px;
+    background: linear-gradient(135deg, #f8fdf0 0%, #e8f5e8 50%);
+    border: 2px solid #8db860;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.season-tab:hover {
+    transform: translateY(-5px);
+    border-color: #4a7c1f;
+    box-shadow: 0 10px 30px rgba(141, 184, 96, 0.3);
+}
+
+.season-tab.active {
+    background: linear-gradient(135deg, #8db860, #a8e063);
+    border-color: #4a7c1f;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(141, 184, 96, 0.4);
+}
+
+.season-name {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #2d5016;
+    font-family: 'Gideon Roman', serif;
+}
+
+.season-tab.active .season-name {
+    color: white;
+}
+
+.season-period {
+    font-size: 0.9rem;
+    color: #6b8c42;
+    font-weight: 600;
+    font-family: 'Varela Round', sans-serif;
+}
+
+.season-tab.active .season-period {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Pricing Section */
+.pricing-section-main {
+    margin-bottom: 60px;
+}
+
+.season-info {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 30px;
+    background: linear-gradient(135deg, rgba(141, 184, 96, 0.1), rgba(168, 224, 99, 0.05));
+    border-radius: 20px;
+    border: 1px solid rgba(141, 184, 96, 0.2);
+}
+
+.season-info h3 {
+    font-size: 2.2rem;
+    color: #2d5016;
+    margin-bottom: 10px;
+    font-family: 'Rye', serif;
+}
+
+.season-period {
+    font-size: 1.2rem;
+    color: #4a7c1f;
+    font-weight: 600;
+    margin-bottom: 10px;
+    font-family: 'Eagle Lake', serif;
+}
+
+.season-description {
+    font-size: 1rem;
+    color: #6b8c42;
+    max-width: 600px;
+    margin: 0 auto;
+    font-family: 'Varela Round', sans-serif;
+}
+
+/* Pricing Cards Grid */
+.pricing-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.pricing-card {
+    background: linear-gradient(135deg, #ffffff 0%, #f8fdf0 50%);
+    border-radius: 20px;
+    padding: 30px;
+    border: 2px solid #8db860;
+    box-shadow: 0 10px 40px rgba(45, 80, 22, 0.1);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+}
+
+.pricing-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(45, 80, 22, 0.2);
+}
+
+.pricing-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.8s ease;
+}
+
+.pricing-card:hover::before {
+    left: 100%;
+}
+
+.card-header {
+    text-align: center;
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid rgba(141, 184, 96, 0.3);
+}
+
+.card-header h4 {
+    font-size: 1.5rem;
+    color: #2d5016;
+    margin-bottom: 15px;
+    font-family: 'Gideon Roman', serif;
+}
+
+.price-tag {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.current-price {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #4a7c1f;
+    font-family: 'Gideon Roman', serif;
+}
+
+.original-price {
+    font-size: 1.5rem;
+    color: #8b8b8b;
+    text-decoration: line-through;
+    font-family: 'Varela Round', sans-serif;
+}
+
+.price-period {
+    font-size: 1rem;
+    color: #6b8c42;
+    font-family: 'Varela Round', sans-serif;
+}
+
+.discount-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    font-family: 'Varela Round', sans-serif;
+}
+
+/* Features List */
+.features-list {
+    margin-bottom: 30px;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(141, 184, 96, 0.1);
+}
+
+.feature-item:last-child {
+    border-bottom: none;
+}
+
+.check-icon {
+    color: #8db860;
+    font-weight: bold;
+    font-size: 1.1rem;
+    width: 20px;
+    text-align: center;
+}
+
+.feature-item span:last-child {
+    color: #4a7c1f;
+    font-size: 0.95rem;
+    font-family: 'Varela Round', sans-serif;
+}
+
+/* Book Now Button */
+.book-now-btn {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, #2d5016, #4a7c1f);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Gideon Roman', serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.book-now-btn:hover {
+    background: linear-gradient(135deg, #4a7c1f, #6b8c42);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(45, 80, 22, 0.3);
+}
+
+/* Additional Charges */
+.additional-charges-section {
+    margin-bottom: 60px;
+    padding: 40px;
+    background: linear-gradient(135deg, #f8fdf0 0%, #e8f5e8 50%);
+    border-radius: 20px;
+    border: 1px solid #8db860;
+}
+
+.additional-charges-section h3 {
+    text-align: center;
+    font-size: 2rem;
+    color: #2d5016;
+    margin-bottom: 30px;
+    font-family: 'Rye', serif;
+}
+
+.charges-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.charge-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: white;
+    border-radius: 12px;
+    border: 1px solid rgba(141, 184, 96, 0.3);
+    transition: all 0.3s ease;
+}
+
+.charge-item:hover {
+    transform: translateX(5px);
+    border-color: #8db860;
+    box-shadow: 0 5px 15px rgba(141, 184, 96, 0.2);
+}
+
+.charge-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.charge-name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #2d5016;
+    font-family: 'Gideon Roman', serif;
+}
+
+.charge-period {
+    font-size: 0.8rem;
+    color: #6b8c42;
+    font-family: 'Varela Round', sans-serif;
+}
+
+.charge-price {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #4a7c1f;
+    font-family: 'Gideon Roman', serif;
+}
+
+/* Info Grid Section */
+.info-grid-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+.inclusions-section,
+.policies-section {
+    padding: 30px;
+    background: linear-gradient(135deg, #ffffff 0%, #f8fdf0 50%);
+    border-radius: 20px;
+    border: 1px solid #8db860;
+}
+
+.inclusions-section h3,
+.policies-section h3 {
+    font-size: 1.8rem;
+    color: #2d5016;
+    margin-bottom: 25px;
+    text-align: center;
+    font-family: 'Rye', serif;
+}
+
+.inclusions-list,
+.policies-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.inclusion-item,
+.policy-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 8px;
+    border: 1px solid rgba(141, 184, 96, 0.2);
+}
+
+.inclusion-icon {
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.inclusion-item span:last-child,
+.policy-item span:last-child {
+    color: #4a7c1f;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    font-family: 'Varela Round', sans-serif;
+}
+
+.policy-bullet {
+    color: #8db860;
+    font-weight: bold;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+/* CTA Section */
+.tariff-cta-section {
+    background: linear-gradient(135deg, rgba(141, 184, 96, 0.2), rgba(168, 224, 99, 0.1));
+    border-radius: 20px;
+    padding: 50px 40px;
+    border: 1px solid rgba(141, 184, 96, 0.3);
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.cta-content h3 {
+    font-size: 2.2rem;
+    color: #2d5016;
+    margin-bottom: 15px;
+    font-family: 'Rye', serif;
+}
+
+.cta-content p {
+    font-size: 1.2rem;
+    color: #4a7c1f;
+    margin-bottom: 25px;
+    font-family: 'Eagle Lake', serif;
+}
+
+.cta-features {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.cta-features span {
+    font-size: 1rem;
+    color: #4a7c1f;
+    font-weight: 600;
+    font-family: 'Varela Round', sans-serif;
+}
+
+.premium-book-btn {
+    padding: 18px 35px;
+    background: linear-gradient(135deg, #2d5016, #4a7c1f, #6b8c42);
+    background-size: 200% 200%;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Gideon Roman', serif;
+    animation: buttonShimmer 3s ease-in-out infinite;
+}
+
+@keyframes buttonShimmer {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+.premium-book-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.8s ease;
+}
+
+.premium-book-btn:hover::before {
+    left: 100%;
+}
+
+.premium-book-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(45, 80, 22, 0.5);
+}
+
+.btn-sparkle {
+    font-size: 1.3rem;
+    animation: sparkle 2s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.7;
+        transform: scale(1.1);
+    }
+}
+
+/* Quote Section */
+.peaceful-quote-section {
+    width: 100%;
+    padding: 80px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.peaceful-quote-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(45deg, transparent 48%, rgba(141, 184, 96, 0.1) 50%, transparent 52%),
+        linear-gradient(-45deg, transparent 48%, rgba(141, 184, 96, 0.1) 50%, transparent 52%);
+    background-size: 50px 50px;
+    opacity: 0.3;
+    z-index: 1;
+}
+
+.quote-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.quote-icon {
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+    animation: gentleFloat 4s ease-in-out infinite;
+    filter: drop-shadow(0 2px 8px rgba(141, 184, 96, 0.3));
+}
+
+@keyframes gentleFloat {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-10px) rotate(5deg);
+    }
+}
+
+.peaceful-quote {
+    font-family: "Gideon Roman", serif;
+    font-size: 1.9rem;
+    font-style: italic;
+    line-height: 1.6;
+    color: #2d5016;
+    margin: 0 0 20px 0;
+    text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8);
+    position: relative;
+    padding: 0 20px;
+}
+
+.peaceful-quote::before,
+.peaceful-quote::after {
+    content: '"';
+    font-size: 4rem;
+    color: #8db860;
+    position: absolute;
+    opacity: 0.6;
+}
+
+.peaceful-quote::before {
+    top: -20px;
+    left: -10px;
+}
+
+.peaceful-quote::after {
+    bottom: -40px;
+    right: -10px;
+}
+
+.quote-author {
+    font-family: "Eagle Lake", serif;
+    font-size: 1.5rem;
+    color: #4a7c1f;
+    font-weight: 600;
+    margin-top: 25px;
+    position: relative;
+    display: inline-block;
+}
+
+.quote-author::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #8db860, transparent);
+    border-radius: 2px;
+}
+
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #8db860, #254301);
+    border: none;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(141, 184, 96, 0.4);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    background: linear-gradient(135deg, #4a7c1f, #8db860);
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 6px 20px rgba(141, 184, 96, 0.6);
+}
+
+.back-to-top:active {
+    transform: translateY(-2px) scale(1.05);
+}
+
+.back-to-top svg {
+    width: 24px;
+    height: 24px;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-content-wrapper {
+        padding: 20px 15px;
+    }
+
+    .header-section h1 {
+        font-size: 2.2rem;
+        margin-bottom: 30px;
+    }
+
+    .header-section .tagline {
+        font-size: 1.1rem;
+    }
+
+    .selector-tabs {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .pricing-cards-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .info-grid-section {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .season-info h3 {
+        font-size: 1.8rem;
+    }
+
+    .current-price {
+        font-size: 2rem;
+    }
+
+    .cta-content h3 {
+        font-size: 1.8rem;
+    }
+
+    .cta-features {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .peaceful-quote {
+        font-size: 1.4rem;
+    }
+
+    .quote-author {
+        font-size: 1.1rem;
+    }
+
+    .left-branch {
+        width: 100px;
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-section h1 {
+        font-size: 1.8rem;
+    }
+
+    .header-section .tagline {
+        font-size: 1rem;
+    }
+
+    .pricing-card {
+        padding: 20px;
+    }
+
+    .additional-charges-section,
+    .inclusions-section,
+    .policies-section {
+        padding: 25px 20px;
+    }
+
+    .premium-book-btn {
+        padding: 15px 25px;
+        font-size: 1rem;
+    }
+
+    .peaceful-quote {
+        font-size: 1.2rem;
+    }
+}

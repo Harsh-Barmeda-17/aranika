@@ -1,0 +1,722 @@
+/* Gallery Page Styles */
+.gallery-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.gallery-header-section {
+  background: rgba(53, 97, 25, 0.989);
+  color: var(--cream);
+  padding: 1.5rem 1rem; /* Reduced padding to remove extra space */
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  min-height: auto; /* Remove extra height */
+  margin-top: -10px; /* Ensure no margin */
+}
+
+.gallery-header-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.gallery-header-content h1 {
+  font-family: 'Rye', serif;
+  font-size: clamp(2.2rem, 8vw, 3.5rem); /* Slightly smaller */
+  font-weight: 400;
+  margin-bottom: 1rem;
+  color: var(--wood-light);
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.gallery-header-content .divider {
+  width: clamp(80px, 20vw, 120px);
+  height: 2px;
+  background: var(--wood-light);
+  margin: 1rem auto; /* Reduced margin */
+  position: relative;
+}
+
+.gallery-header-content .divider::before,
+.gallery-header-content .divider::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  background: var(--wood-light);
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+
+.gallery-header-content .divider::before {
+  left: -20px;
+}
+
+.gallery-header-content .divider::after {
+  right: -20px;
+}
+
+.gallery-subtitle {
+  font-family: 'Eagle Lake', serif;
+  font-size: clamp(1rem, 4vw, 1.4rem); /* Slightly smaller */
+  font-weight: 400;
+  color: var(--wood-light);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  line-height: 1.4;
+  max-width: 600px;
+  margin: 0 auto;
+  padding-top: 0.5rem; /* Reduced padding */
+}
+
+.gallery-main-content {
+  flex: 1;
+  padding: 1rem 0; /* Reduced padding */
+  background: var(--light-cream);
+  overflow: hidden; /* Prevent extra scrolling */
+}
+
+/* Container for gallery - removed extra container */
+.gallery-page .container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* ====== Global Styles ====== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* ====== Floating Ball ====== */
+.floating-ball {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle at 30% 30%, #ffff00, #ffa500);
+  border-radius: 50%;
+  box-shadow: 
+    0 0 6px rgba(255, 255, 0, 0.7),
+    0 0 12px rgba(255, 165, 0, 0.3);
+  z-index: 1000;
+  pointer-events: none;
+  top: 10%;
+  left: 10%;
+  animation: flyAround 45s infinite linear;
+}
+
+/* ====== Container ====== */
+.hex-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  gap: 8px;
+  margin-top: 0; /* Removed extra margin */
+  max-width: 100%;
+  overflow: hidden;
+}
+
+/* ====== Hexagon Base Styles ====== */
+.hex {
+  position: relative;
+  background-color: transparent;
+  display: inline-block;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  flex-shrink: 0;
+}
+
+.hex.hex-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hex::before,
+.hex::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  left: 0;
+}
+
+/* Inner hex container */
+.hex-inner {
+  position: absolute;
+  overflow: hidden;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  background-color: #ddd;
+}
+
+.hex-img {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.4s ease;
+}
+
+/* Hover effect */
+.hex:hover .hex-img {
+  transform: scale(1.08);
+}
+
+/* ====== Desktop/Laptop (min-width: 769px) - ORIGINAL STYLES ====== */
+@media (min-width: 769px) {
+  .hex-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    gap: 8px;
+    margin-top: 0;
+  }
+
+  /* ====== Hexagon Shape (Bigger) ====== */
+  .hex {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    margin: 20px 20px;
+    background-color: transparent;
+    display: inline-block;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .hex {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .hex::before,
+  .hex::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    border-left: 100px solid transparent;
+    border-right: 100px solid transparent;
+  }
+
+  .hex::before {
+    bottom: 100%;
+    border-bottom: 57.5px solid transparent;
+  }
+
+  .hex::after {
+    top: 100%;
+    border-top: 57.5px solid transparent;
+  }
+
+  /* Inner hex container */
+  .hex-inner {
+    position: absolute;
+    left: 0;
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    background-color: #ddd;
+  }
+
+  /* ====== Pattern Control ====== */
+
+  /* Desktop: 4–3–4–3 pattern */
+  .hex:nth-child(7n + 1),
+  .hex:nth-child(7n + 2),
+  .hex:nth-child(7n + 3),
+  .hex:nth-child(7n + 4) {
+    margin-left: 0;
+  }
+
+  .hex:nth-child(7n + 5) {
+    margin-left: 4%; /* subtract a bit to prevent overflow */
+  }
+
+  .hex:nth-child(7n + 6){
+    margin-left: 0%; /* staggered honeycomb effect */
+  }
+
+  .hex:nth-child(7n + 7) {
+    margin-left: 0%; 
+    margin-right: 4.6%;/* staggered honeycomb effect */
+  }
+}
+
+/* ====== Mobile: 2-3-2-3 Pattern ====== */
+@media (max-width: 768px) {
+  .hex-gallery {
+    padding: 10px 5px;
+    margin-top: 0;
+    justify-content: center;
+    gap: 0;
+  }
+
+  .hex {
+    width: 120px;
+    height: 69px;
+    margin: 35px 2px;
+  }
+
+  .hex-inner {
+    width: 120px;
+    height: 138px;
+    top: -35px;
+    left: 0;
+  }
+
+  .hex::before {
+    bottom: 100%;
+    border-left: 60px solid transparent;
+    border-right: 60px solid transparent;
+    border-bottom: 35px solid transparent;
+  }
+
+  .hex::after {
+    top: 100%;
+    border-left: 60px solid transparent;
+    border-right: 60px solid transparent;
+    border-top: 35px solid transparent;
+  }
+
+  /* 2-3-2-3 pattern - CLEAN IMPLEMENTATION */
+  .hex {
+    margin-left: 0;
+  }
+
+  /* Every 2nd and 3rd hex in each row of 5 gets offset */
+  .hex:nth-child(5n+3),
+  .hex:nth-child(5n+4),
+  .hex:nth-child(5n+5) {
+    margin-left: 62px; /* 60px (half hex) + 2px margin */
+  }
+
+  /* Reset pattern every 5 items */
+  .hex:nth-child(5n+1) {
+    margin-left: 0;
+    clear: left;
+  }
+}
+
+/* ====== Small Mobile: Adjusted 2-3-2-3 Pattern ====== */
+@media (max-width: 480px) {
+  .hex-gallery {
+    padding: 8px 3px;
+    margin-top: 0;
+  }
+
+  .hex {
+    width: 100px;
+    height: 58px;
+    margin: 29px 8px;
+  }
+
+  .hex-inner {
+    width: 100px;
+    height: 116px;
+    top: -29px;
+    left: 0;
+  }
+
+  .hex::before {
+    bottom: 100%;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 29px solid transparent;
+  }
+
+  .hex::after {
+    top: 100%;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-top: 29px solid transparent;
+  }
+
+  .hex:nth-child(5n+3) {
+    margin-left: 8px;
+  }
+
+  .hex:nth-child(5n+4) {
+    margin-right: 33px;
+  }
+
+  /* Adjusted 2-3-2-3 pattern for small screens */
+  .hex:nth-child(5n+5) {
+    margin-left: -19px;
+  }
+
+  .hex:nth-child(5n+5) {
+    margin-right: 70px;
+  }
+}
+
+/* ====== Extra Small Mobile ====== */
+@media (max-width: 360px) {
+  .hex-gallery {
+    padding: 5px 2px;
+  }
+
+  .hex {
+    width: 85px;
+    height: 49px;
+    margin: 25px 1px;
+  }
+
+  .hex-inner {
+    width: 85px;
+    height: 98px;
+    top: -25px;
+    left: 0;
+  }
+
+  .hex::before {
+    bottom: 100%;
+    border-left: 42.5px solid transparent;
+    border-right: 42.5px solid transparent;
+    border-bottom: 25px solid transparent;
+  }
+
+  .hex::after {
+    top: 100%;
+    border-left: 42.5px solid transparent;
+    border-right: 42.5px solid transparent;
+    border-top: 25px solid transparent;
+  }
+
+  /* Adjusted pattern for extra small screens */
+  .hex:nth-child(5n+3),
+  .hex:nth-child(5n+4),
+  .hex:nth-child(5n+5) {
+    margin-left: 43.5px;
+  }
+}
+
+/* ====== Full Screen Image Viewer Styles ====== */
+.image-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: fadeIn 0.2s ease-out;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.modal-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 4px;
+  animation: scaleIn 0.25s ease-out;
+}
+
+/* Improved Close Button */
+.close-btn {
+  position: absolute;
+  top: -60px;
+  right: -10px;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  color: #2d5016;
+  font-size: 2.5rem;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  font-weight: bold;
+  z-index: 1001;
+}
+
+.close-btn:hover {
+  background: rgba(255, 255, 255, 1);
+  transform: scale(1.1);
+}
+
+.zoom-controls {
+  position: absolute;
+  bottom: -70px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 10px 20px;
+  border-radius: 25px;
+  backdrop-filter: blur(10px);
+  z-index: 1001;
+}
+
+.zoom-controls button {
+  background: #2d5016;
+  border: none;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.zoom-controls button:hover {
+  background: #4a7c1f;
+  transform: scale(1.1);
+}
+
+.zoom-controls span {
+  color: #2d5016;
+  font-weight: 600;
+  min-width: 60px;
+  text-align: center;
+}
+
+/* Performance Optimizations */
+.hex-img {
+  transform: translateZ(0); /* Hardware acceleration */
+  backface-visibility: hidden;
+  perspective: 1000;
+}
+
+.hex-gallery {
+  transform: translateZ(0);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+  .image-modal {
+    padding: 15px;
+  }
+  
+  .close-btn {
+    top: -50px;
+    right: -5px;
+    width: 44px;
+    height: 44px;
+    font-size: 2rem;
+  }
+  
+  .modal-content img {
+    border-radius: 2px;
+  }
+  
+  .zoom-controls {
+    bottom: -60px;
+    padding: 8px 16px;
+  }
+  
+  .zoom-controls button {
+    width: 35px;
+    height: 35px;
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .image-modal {
+    padding: 10px;
+  }
+  
+  .close-btn {
+    top: -45px;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    font-size: 1.8rem;
+  }
+  
+  .zoom-controls {
+    bottom: -50px;
+    padding: 6px 14px;
+  }
+  
+  .zoom-controls button {
+    width: 32px;
+    height: 32px;
+    font-size: 1.2rem;
+  }
+  
+  .zoom-controls span {
+    min-width: 50px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Touch device improvements */
+@media (hover: none) and (pointer: coarse) {
+  .close-btn {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    min-height: 48px;
+  }
+  
+  .close-btn:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: none;
+  }
+  
+  .close-btn:active {
+    background: rgba(255, 255, 255, 1);
+    transform: scale(0.95);
+  }
+}
+
+/* Reduce animations for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .image-modal,
+  .modal-content img,
+  .close-btn,
+  .hex {
+    animation: none;
+    transition: none;
+  }
+}
+
+/* High DPI screen optimizations */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .close-btn {
+    border-width: 1.5px;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+  .gallery-page {
+    padding-top: 0; /* Keep zero padding */
+  }
+  
+  .gallery-header-section {
+    padding: 1.2rem 1rem; /* Further reduced on mobile */
+  }
+  
+  .gallery-main-content {
+    padding: 0.5rem 0; /* Further reduced on mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-page {
+    padding-top: 0; /* Keep zero padding */
+  }
+  
+  .gallery-header-section {
+    padding: 1rem 1rem; /* Minimal padding on small mobile */
+  }
+}
+
+/* Gallery Page Optimizations */
+.gallery-page {
+  padding-top: 0; /* REMOVED padding - header sticks to navbar */
+  min-height: 100vh;
+}
+
+/* Image Optimization */
+.gallery-image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+  background: #f5f5f5; /* Loading background */
+}
+
+.gallery-image:hover {
+  transform: scale(1.02);
+}
+
+/* Lazy loading for images */
+.gallery-image.loading {
+  opacity: 0.7;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+  .gallery-page {
+    padding-top: 0; /* Keep zero padding */
+  }
+  
+  .gallery-image {
+    height: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-page {
+    padding-top: 0; /* Keep zero padding */
+  }
+  
+  .gallery-image {
+    height: 200px;
+  }
+}

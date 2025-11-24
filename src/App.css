@@ -1,0 +1,482 @@
+@import url('https://fonts.googleapis.com/css2?family=Gideon+Roman&family=Eagle+Lake&family=Varela+Round&family=Cabin+Sketch&family=Dancing+Script&family=Rye&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-dark: #2d5016;
+  --primary-medium: #4a7c3a;
+  --primary-light: #6b9c4e;
+  --clay-red: #8b4513;
+  --clay-light: #a0522d;
+  --wood-dark: #8b7355;
+  --wood-medium: #a88c5d;
+  --wood-light: #d2b48c;
+  --cream: #f5f5dc;
+  --light-cream: #fafaf0;
+  --text-dark: #2c1810;
+  --text-medium: #5d4037;
+  --shadow: rgba(45, 80, 22, 0.15);
+  --white: #ffffff;
+  --border: #d4af37;
+}
+
+html, body, #root {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Varela Round', sans-serif;
+  line-height: 1.6;
+  color: var(--text-dark);
+  background: var(--light-cream);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Adjust main content when side nav is present */
+.booking-page,
+.confirmation-page,
+.rooms-page,
+.gallery-page,
+.home-page,
+.tariff-page,
+.services-page,
+.reachus-page {
+  flex: 1;
+  margin-left: 0;
+  transition: margin-left 0.3s ease;
+  width: 100%;
+  padding-top: 70px; /* Account for fixed navbar */
+}
+
+/* When nav is open, adjust margin */
+.side-nav.open ~ .booking-page,
+.side-nav.open ~ .confirmation-page,
+.side-nav.open ~ .rooms-page,
+.side-nav.open ~ .gallery-page,
+.side-nav.open ~ .home-page,
+.side-nav.open ~ .tariff-page,
+.side-nav.open ~ .services-page,
+.side-nav.open ~ .reachus-page {
+  margin-left: 280px;
+  width: calc(100% - 280px);
+}
+
+/* Container improvements for full width utilization */
+.container, .booking-container, .confirmation-container, .rooms-container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* IMPROVED Back to Top Button - FIXED POSITIONING WITH VISIBLE ARROW */
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background: var(--primary-dark);
+  color: var(--white);
+  border: 2px solid var(--wood-light);
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem; /* Increased font size for better visibility */
+  font-weight: bold;
+  box-shadow: 0 2px 10px var(--shadow);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+}
+
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  background: var(--primary-medium);
+  transform: translateY(-2px);
+  border-color: var(--white);
+}
+
+/* Floating Ball Styles - ONLY FOR GALLERY PAGE */
+.floating-ball {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle at 30% 30%, #ffff00, #ffa500);
+  border-radius: 50%;
+  box-shadow: 
+    0 0 6px rgba(255, 255, 0, 0.7),
+    0 0 12px rgba(255, 165, 0, 0.3);
+  z-index: 1000;
+  pointer-events: none;
+  top: 10%;
+  left: 10%;
+  animation: flyAround 45s infinite linear;
+}
+
+.trail {
+  position: fixed;
+  pointer-events: none;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.trail-dot {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: radial-gradient(circle, #ffff00, #ffa500);
+  border-radius: 50%;
+  animation: trailFade 0.6s forwards;
+  box-shadow: 0 0 3px rgba(255, 255, 0, 0.8);
+  transform: translate(-50%, -50%);
+}
+
+@keyframes trailFade {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(0.7);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.3);
+  }
+}
+
+@keyframes flyAround {
+  0% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+    top: 10%;
+    left: 10%;
+  }
+  5% {
+    transform: translate(15px, -20px) scale(1.05) rotate(12deg);
+    top: 15%;
+    left: 18%;
+  }
+  10% {
+    transform: translate(-12px, 18px) scale(0.96) rotate(-8deg);
+    top: 8%;
+    left: 25%;
+  }
+  15% {
+    transform: translate(25px, 12px) scale(1.03) rotate(18deg);
+    top: 12%;
+    left: 15%;
+  }
+  20% {
+    transform: translate(-18px, -25px) scale(0.98) rotate(-15deg);
+    top: 20%;
+    left: 32%;
+  }
+  25% {
+    transform: translate(20px, 22px) scale(1.08) rotate(15deg);
+    top: 5%;
+    left: 40%;
+  }
+  30% {
+    transform: translate(-22px, 15px) scale(0.94) rotate(-20deg);
+    top: 18%;
+    left: 48%;
+  }
+  35% {
+    transform: translate(28px, -28px) scale(1.06) rotate(22deg);
+    top: 28%;
+    left: 35%;
+  }
+  40% {
+    transform: translate(-20px, 25px) scale(0.95) rotate(-18deg);
+    top: 22%;
+    left: 55%;
+  }
+  45% {
+    transform: translate(32px, -15px) scale(1.09) rotate(25deg);
+    top: 38%;
+    left: 62%;
+  }
+  50% {
+    transform: translate(-15px, 30px) scale(0.93) rotate(-22deg);
+    top: 30%;
+    left: 70%;
+  }
+  55% {
+    transform: translate(24px, -32px) scale(1.04) rotate(20deg);
+    top: 45%;
+    left: 58%;
+  }
+  60% {
+    transform: translate(-28px, 20px) scale(0.97) rotate(-25deg);
+    top: 35%;
+    left: 75%;
+  }
+  65% {
+    transform: translate(18px, -25px) scale(1.07) rotate(18deg);
+    top: 52%;
+    left: 82%;
+  }
+  70% {
+    transform: translate(-25px, 18px) scale(0.95) rotate(-15deg);
+    top: 42%;
+    left: 68%;
+  }
+  75% {
+    transform: translate(30px, -18px) scale(1.02) rotate(22deg);
+    top: 58%;
+    left: 55%;
+  }
+  80% {
+    transform: translate(-18px, 28px) scale(0.98) rotate(-20deg);
+    top: 48%;
+    left: 42%;
+  }
+  85% {
+    transform: translate(22px, -22px) scale(1.05) rotate(15deg);
+    top: 65%;
+    left: 30%;
+  }
+  90% {
+    transform: translate(-30px, 15px) scale(0.96) rotate(-18deg);
+    top: 55%;
+    left: 20%;
+  }
+  95% {
+    transform: translate(15px, -28px) scale(1.03) rotate(20deg);
+    top: 72%;
+    left: 12%;
+  }
+  100% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+    top: 10%;
+    left: 10%;
+  }
+}
+
+/* Wing flapping effect */
+.floating-ball::before {
+  content: '';
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  border-radius: 50%;
+  background: 
+    radial-gradient(circle at 30% 30%, rgba(255, 255, 0, 0.2), transparent 60%),
+    radial-gradient(circle at 70% 70%, rgba(255, 165, 0, 0.15), transparent 60%);
+  animation: wingFlap 0.08s infinite ease-in-out;
+  z-index: -1;
+}
+
+@keyframes wingFlap {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 0.4;
+  }
+  25% {
+    transform: scale(1.4) rotate(12deg);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.6) rotate(0deg);
+    opacity: 1;
+  }
+  75% {
+    transform: scale(1.4) rotate(-12deg);
+    opacity: 0.7;
+  }
+}
+
+/* Motion Trail Effect */
+.floating-ball::after {
+  content: '';
+  position: absolute;
+  width: 400%;
+  height: 400%;
+  top: -150%;
+  left: -150%;
+  background: 
+    radial-gradient(
+      circle,
+      rgba(255, 255, 0, 0.2) 0%,
+      rgba(255, 200, 0, 0.15) 15%,
+      rgba(255, 150, 0, 0.1) 30%,
+      transparent 60%
+    );
+  border-radius: 50%;
+  animation: trailEffect 0.5s infinite linear;
+  z-index: -2;
+  pointer-events: none;
+}
+
+@keyframes trailEffect {
+  0% {
+    transform: scale(0.5) rotate(0deg);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1) rotate(180deg);
+    opacity: 0.2;
+  }
+  100% {
+    transform: scale(1.3) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Continuous floating movement */
+@keyframes continuousFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(1deg);
+  }
+  25% {
+    transform: translateY(-2px) rotate(-1deg);
+  }
+  50% {
+    transform: translateY(1px) rotate(2deg);
+  }
+  75% {
+    transform: translateY(-1px) rotate(-2deg);
+  }
+}
+
+.floating-ball {
+  animation: 
+    flyAround 45s infinite linear,
+    continuousFloat 2s infinite ease-in-out,
+    glowPulse 1.5s infinite ease-in-out;
+}
+
+/* Glow pulse */
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 
+      0 0 4px rgba(255, 255, 0, 0.7),
+      0 0 8px rgba(255, 165, 0, 0.3);
+  }
+  50% {
+    box-shadow: 
+      0 0 6px rgba(255, 255, 0, 0.9),
+      0 0 12px rgba(255, 165, 0, 0.5);
+  }
+}
+
+/* Mobile adjustments for floating ball */
+@media (max-width: 768px) {
+  .floating-ball {
+    width: 6px;
+    height: 6px;
+  }
+  
+  .trail-dot {
+    width: 1.5px;
+    height: 1.5px;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 528px) {
+  .floating-ball {
+    width: 5px;
+    height: 5px;
+  }
+  
+  .trail-dot {
+    width: 4px;
+    height: 4px;
+  }
+}
+
+/* Responsive adjustments for SideNav */
+@media (max-width: 1024px) {
+  .side-nav.open ~ .booking-page,
+  .side-nav.open ~ .confirmation-page,
+  .side-nav.open ~ .rooms-page,
+  .side-nav.open ~ .gallery-page,
+  .side-nav.open ~ .home-page,
+  .side-nav.open ~ .tariff-page,
+  .side-nav.open ~ .services-page,
+  .side-nav.open ~ .reachus-page {
+    margin-left: 300px;
+    width: calc(100% - 300px);
+  }
+}
+
+@media (max-width: 767px) {
+  .side-nav.open ~ .booking-page,
+  .side-nav.open ~ .confirmation-page,
+  .side-nav.open ~ .rooms-page,
+  .side-nav.open ~ .gallery-page,
+  .side-nav.open ~ .home-page,
+  .side-nav.open ~ .tariff-page,
+  .side-nav.open ~ .services-page,
+  .side-nav.open ~ .reachus-page {
+    margin-left: 0;
+    width: 100%;
+  }
+  
+  .booking-page,
+  .confirmation-page,
+  .rooms-page,
+  .gallery-page,
+  .home-page,
+  .tariff-page,
+  .services-page,
+  .reachus-page {
+    padding-top: 60px;
+  }
+  
+  /* Back to top button positioning for mobile */
+  .back-to-top {
+    bottom: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    font-size: 1.3rem;
+    z-index: 1000;
+    border: 2px solid var(--wood-light);
+  }
+}
+
+@media (max-width: 480px) {
+  .back-to-top {
+    bottom: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    border: 2px solid var(--wood-light);
+  }
+}

@@ -1,0 +1,162 @@
+.professional-footer {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.scroll-fade.initial-hidden {
+    opacity: 1 !important;
+}
+
+/* Back to Top Button - Perfect Circle */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #4a7c1f, #6b9c3a);
+    border: 3px solid #3a5c16;
+    border-radius: 50% !important;
+    color: #ffffff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 
+        0 4px 15px rgba(74, 124, 31, 0.4),
+        0 2px 8px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    font-family: Arial, sans-serif;
+    padding: 0;
+    margin: 0;
+    line-height: 1;
+    overflow: hidden;
+}
+
+/* Ensure no other styles override the circle */
+.back-to-top,
+.back-to-top:focus,
+.back-to-top:active,
+.back-to-top:hover {
+    border-radius: 50% !important;
+    outline: none;
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    background: linear-gradient(135deg, #5a8c2f, #7bac48);
+    transform: translateY(-5px);
+    box-shadow: 
+        0 6px 20px rgba(74, 124, 31, 0.6),
+        0 4px 12px rgba(0, 0, 0, 0.4);
+    border-color: #4a7c1f;
+}
+
+.back-to-top:active {
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, #3a6c0f, #5a8c2f);
+}
+
+.arrow-up {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.back-to-top:hover .arrow-up {
+    transform: translateY(-2px);
+}
+
+/* Pulse animation */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 4px 15px rgba(74, 124, 31, 0.4);
+    }
+    50% {
+        box-shadow: 0 4px 20px rgba(74, 124, 31, 0.7);
+    }
+    100% {
+        box-shadow: 0 4px 15px rgba(74, 124, 31, 0.4);
+    }
+}
+
+.back-to-top.show {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* Ensure no parent styles interfere */
+body .back-to-top,
+html .back-to-top,
+#root .back-to-top,
+.main-content .back-to-top {
+    border-radius: 50% !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .back-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50% !important;
+    }
+    
+    .arrow-up {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .back-to-top {
+        bottom: 15px;
+        right: 15px;
+        width: 45px;
+        height: 45px;
+        border-radius: 50% !important;
+    }
+    
+    .arrow-up {
+        font-size: 18px;
+    }
+}
+
+/* Accessibility - Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    .back-to-top {
+        transition: none;
+        animation: none;
+        border-radius: 50% !important;
+    }
+    
+    .back-to-top:hover {
+        transform: none;
+    }
+    
+    .arrow-up {
+        transition: none;
+    }
+}
+
+/* Force circular shape at all times */
+.back-to-top * {
+    border-radius: inherit !important;
+}

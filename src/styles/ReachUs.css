@@ -1,0 +1,1094 @@
+.reachus-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow-x: hidden;
+  padding-top: 70px;
+}
+
+.reachus-main {
+  flex: 1;
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  overflow-x: hidden;
+}
+
+.reachus-container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0 1rem;
+  overflow-x: hidden;
+}
+
+.reachus-card {
+  background: var(--white);
+  border: 2px solid var(--wood-medium);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px var(--shadow);
+  padding: 1.5rem;
+  margin: 0 auto;
+  max-width: 100%;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.reachus-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--primary-dark);
+}
+
+.card-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.card-header h2 {
+  font-family: 'Rye', serif;
+  color: #356119FC;
+  font-size: clamp(1.75rem, 6vw, 2.5rem);
+  margin-bottom: 0.5rem;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.subtitle {
+  font-family: 'Eagle Lake', serif;
+  color: var(--text-medium);
+  font-size: clamp(0.9rem, 3vw, 1.1rem);
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.reachus-content {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.info-section {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: var(--light-cream);
+  border-radius: 10px;
+  border: 1px solid var(--wood-light);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.section-header {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.info-section h3 {
+  font-family: 'Gideon Roman', serif;
+  color: var(--primary-dark);
+  font-size: clamp(1.1rem, 4vw, 1.4rem);
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: var(--white);
+  border-radius: 8px;
+  border: 1px solid var(--wood-light);
+  transition: all 0.3s ease;
+}
+
+.info-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-color: var(--primary-medium);
+}
+
+.info-icon {
+  width: 50px;
+  height: 50px;
+  background: var(--primary-medium);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--white);
+  font-size: 1.2rem;
+}
+
+.info-content h4 {
+  font-family: 'Gideon Roman', serif;
+  color: var(--primary-dark);
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.info-content p {
+  color: var(--text-dark);
+  line-height: 1.6;
+  margin: 0;
+  font-family: 'Varela Round', sans-serif;
+}
+
+.contact-number {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--primary-dark);
+  margin-bottom: 0.5rem !important;
+}
+
+.contact-email {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--primary-medium);
+  margin-bottom: 0.5rem !important;
+}
+
+.contact-note {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--text-medium);
+  margin-top: 0.5rem !important;
+}
+
+.contact-note i {
+  color: #25D366; /* WhatsApp green */
+}
+
+/* Operating Hours */
+.operating-hours {
+  display: flex;
+  justify-content: center;
+}
+
+.hours-card {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2rem;
+  background: var(--cream);
+  border-radius: 10px;
+  border: 2px solid var(--wood-medium);
+  max-width: 400px;
+  width: 100%;
+}
+
+.hours-icon {
+  width: 60px;
+  height: 60px;
+  background: var(--primary-dark);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--white);
+  font-size: 1.5rem;
+}
+
+.hours-content h4 {
+  font-family: 'Gideon Roman', serif;
+  color: var(--primary-dark);
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.hours-schedule {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.time-slot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+}
+
+.time-label {
+  font-weight: 600;
+  color: var(--primary-dark);
+  font-family: 'Varela Round', sans-serif;
+}
+
+.time-value {
+  font-weight: 700;
+  color: var(--primary-medium);
+  background: rgba(74, 124, 58, 0.1);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  border: 1px solid var(--primary-medium);
+  font-family: 'Varela Round', sans-serif;
+}
+
+.hours-note {
+  font-size: 0.9rem;
+  color: var(--text-medium);
+  font-style: italic;
+  margin: 0;
+  text-align: center;
+}
+
+/* Map Section */
+.map-container {
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 2px solid var(--wood-medium);
+}
+
+.map-placeholder {
+  background: var(--cream);
+  padding: 3rem 2rem;
+  text-align: center;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.map-icon {
+  width: 80px;
+  height: 80px;
+  background: var(--primary-medium);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.map-placeholder h4 {
+  font-family: 'Gideon Roman', serif;
+  color: var(--primary-dark);
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.map-placeholder p {
+  color: var(--text-medium);
+  margin-bottom: 1rem;
+  font-family: 'Varela Round', sans-serif;
+}
+
+.coordinates {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(74, 124, 58, 0.1);
+  border-radius: 8px;
+  border: 1px solid var(--primary-medium);
+}
+
+.coordinate-label {
+  font-weight: 600;
+  color: var(--primary-dark);
+  font-family: 'Varela Round', sans-serif;
+  font-size: 0.9rem;
+}
+
+.coordinate-value {
+  font-family: monospace;
+  color: var(--primary-medium);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.map-actions {
+  margin-top: 1rem;
+}
+
+.map-btn {
+  background: var(--primary-dark);
+  color: var(--white);
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-family: 'Varela Round', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 1rem;
+  box-shadow: 0 4px 15px rgba(74, 124, 58, 0.3);
+}
+
+.map-btn:hover {
+  background: var(--primary-medium);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(74, 124, 58, 0.4);
+}
+
+/* Enhanced Quick Booking CTA - FIXED VISIBILITY */
+.booking-cta-section {
+  background: linear-gradient(135deg, #1a3a0e, #2d5016, #4a7c1f);
+  padding: 4rem 2rem;
+  border-radius: 15px;
+  text-align: center;
+  color: #ffffff;
+  margin-top: 2rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(45, 80, 22, 0.4);
+  border: 2px solid #8db860;
+}
+
+.cta-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(168, 224, 99, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(141, 184, 96, 0.25) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.15) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.cta-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.cta-icon {
+  width: 90px;
+  height: 90px;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 2rem;
+  font-size: 3rem;
+  color: #ffffff;
+  backdrop-filter: blur(10px);
+  border: 3px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.cta-content h3 {
+  font-family: 'Rye', serif;
+  font-size: clamp(1.8rem, 6vw, 2.8rem);
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.cta-content p {
+  font-family: 'Eagle Lake', serif;
+  font-size: clamp(1.1rem, 3vw, 1.4rem);
+  margin-bottom: 2.5rem;
+  opacity: 0.95;
+  line-height: 1.6;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  color: #f8fdf0;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-features {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  font-family: 'Gideon Roman', serif;
+  font-weight: 600;
+  font-size: 1rem;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+  color: #ffffff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.feature:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.feature i {
+  color: #a8e063;
+  font-size: 1.1rem;
+  text-shadow: 0 0 10px rgba(168, 224, 99, 0.5);
+}
+
+.quick-booking-btn {
+  background: linear-gradient(135deg, #ffffff, #f8fdf0);
+  color: #2d5016;
+  border: none;
+  padding: 1.4rem 3rem;
+  font-size: 1.2rem;
+  font-family: 'Gideon Roman', serif;
+  font-weight: 700;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 
+    0 8px 25px rgba(0, 0, 0, 0.3),
+    0 0 0 3px rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  min-width: 280px;
+  justify-content: center;
+}
+
+.quick-booking-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+  transition: left 0.7s ease;
+}
+
+.quick-booking-btn:hover::before {
+  left: 100%;
+}
+
+.quick-booking-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 12px 35px rgba(0, 0, 0, 0.4),
+    0 0 0 3px rgba(255, 255, 255, 0.3);
+  background: linear-gradient(135deg, #ffffff, #e8f5e8);
+}
+
+.quick-booking-btn:active {
+  transform: translateY(-1px);
+}
+
+.quick-booking-btn i {
+  font-size: 1.3rem;
+  color: #4a7c1f;
+}
+
+/* Desktop Optimization */
+@media (min-width: 1024px) {
+  .reachus-container {
+    padding: 0 2rem;
+  }
+  
+  .reachus-card {
+    max-width: 1000px;
+    padding: 2.5rem;
+  }
+  
+  .info-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .hours-card {
+    max-width: 500px;
+  }
+  
+  .booking-cta-section {
+    padding: 5rem 3rem;
+  }
+  
+  .cta-content h3 {
+    font-size: 2.5rem;
+  }
+  
+  .cta-content p {
+    font-size: 1.3rem;
+  }
+}
+
+/* Tablet Optimization */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .reachus-container {
+    padding: 0 1.5rem;
+  }
+  
+  .reachus-card {
+    max-width: 95%;
+    padding: 2rem;
+  }
+  
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .info-item {
+    padding: 1.5rem;
+  }
+  
+  .cta-features {
+    gap: 1rem;
+  }
+  
+  .feature {
+    font-size: 0.9rem;
+    padding: 0.7rem 1.2rem;
+  }
+  
+  .booking-cta-section {
+    padding: 4rem 2rem;
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 767px) {
+  .reachus-page {
+    padding-top: 60px;
+  }
+  
+  .reachus-main {
+    padding: 0.5rem;
+  }
+  
+  .reachus-container {
+    padding: 0 0.5rem;
+  }
+  
+  .reachus-card {
+    padding: 1.25rem;
+    border-radius: 10px;
+    margin: 0.5rem 0;
+  }
+  
+  .info-section {
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .info-item {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.25rem;
+    gap: 1rem;
+  }
+  
+  .info-icon {
+    align-self: center;
+  }
+  
+  .hours-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem;
+    gap: 1rem;
+  }
+  
+  .map-placeholder {
+    padding: 2rem 1rem;
+    min-height: 250px;
+  }
+  
+  .coordinates {
+    flex-direction: column;
+    gap: 0.3rem;
+    text-align: center;
+  }
+  
+  .booking-cta-section {
+    padding: 3rem 1.5rem;
+    margin: 1.5rem 0;
+  }
+  
+  .cta-icon {
+    width: 80px;
+    height: 80px;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .cta-content h3 {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+  }
+  
+  .cta-content p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .cta-features {
+    flex-direction: column;
+    gap: 0.8rem;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  
+  .feature {
+    width: fit-content;
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
+  }
+  
+  .quick-booking-btn {
+    padding: 1.2rem 2rem;
+    font-size: 1.1rem;
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+    min-width: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .reachus-main {
+    padding: 0.25rem;
+  }
+  
+  .reachus-container {
+    padding: 0 0.25rem;
+  }
+  
+  .reachus-card {
+    padding: 1rem;
+    border-radius: 8px;
+  }
+  
+  .card-header {
+    margin-bottom: 1.5rem;
+    padding: 0 0.5rem;
+  }
+  
+  .info-section {
+    padding: 1rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  .section-header {
+    margin-bottom: 1rem;
+  }
+  
+  .info-section h3 {
+    font-size: 1.05rem;
+  }
+  
+  .contact-number {
+    font-size: 1.1rem;
+  }
+  
+  .contact-email {
+    font-size: 1rem;
+  }
+  
+  .map-placeholder {
+    padding: 1.5rem 1rem;
+    min-height: 200px;
+  }
+  
+  .map-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+  }
+  
+  .map-btn {
+    padding: 0.9rem 1.5rem;
+    font-size: 0.9rem;
+  }
+  
+  .booking-cta-section {
+    padding: 2.5rem 1rem;
+  }
+  
+  .cta-icon {
+    width: 70px;
+    height: 70px;
+    font-size: 2rem;
+  }
+  
+  .cta-content h3 {
+    font-size: 1.4rem;
+  }
+  
+  .cta-content p {
+    font-size: 1rem;
+  }
+  
+  .feature {
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .reachus-card {
+    padding: 0.75rem;
+  }
+  
+  .info-section {
+    padding: 0.75rem;
+  }
+  
+  .info-item {
+    padding: 1rem;
+  }
+  
+  .hours-card {
+    padding: 1.25rem;
+  }
+  
+  .booking-cta-section {
+    padding: 2rem 0.75rem;
+  }
+  
+  .quick-booking-btn {
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+  }
+  
+  .cta-content h3 {
+    font-size: 1.3rem;
+  }
+}
+
+/* Prevent horizontal scroll */
+@media (max-width: 767px) {
+  .reachus-page,
+  .reachus-main,
+  .reachus-container,
+  .reachus-card,
+  .reachus-content,
+  .info-section,
+  .info-grid,
+  .info-item {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+}
+
+/* Enhanced Quick Booking CTA - LIGHT BACKGROUND FOR BETTER VISIBILITY */
+.booking-cta-section {
+  background: linear-gradient(135deg, #f8fdf0, #e8f5e8, #ffffff);
+  padding: 4rem 2rem;
+  border-radius: 15px;
+  text-align: center;
+  color: #2d5016;
+  margin-top: 2rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(45, 80, 22, 0.15);
+  border: 2px solid #8db860;
+}
+
+.cta-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(141, 184, 96, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(168, 224, 99, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(74, 124, 58, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.cta-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.cta-icon {
+  width: 90px;
+  height: 90px;
+  background: linear-gradient(135deg, #8db860, #a8e063);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 2rem;
+  font-size: 3rem;
+  color: #ffffff;
+  box-shadow: 0 8px 25px rgba(141, 184, 96, 0.3);
+  border: 3px solid #ffffff;
+}
+
+.cta-content h3 {
+  font-family: 'Rye', serif;
+  font-size: clamp(1.8rem, 6vw, 2.8rem);
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+  color: #2d5016;
+  line-height: 1.2;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.cta-content p {
+  font-family: 'Eagle Lake', serif;
+  font-size: clamp(1.1rem, 3vw, 1.4rem);
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+  color: #4a7c1f;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 500;
+}
+
+.cta-features {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  background: rgba(141, 184, 96, 0.15);
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  font-family: 'Gideon Roman', serif;
+  font-weight: 600;
+  font-size: 1rem;
+  border: 2px solid rgba(141, 184, 96, 0.3);
+  transition: all 0.3s ease;
+  color: #2d5016;
+}
+
+.feature:hover {
+  background: rgba(141, 184, 96, 0.25);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(141, 184, 96, 0.2);
+  border-color: #8db860;
+}
+
+.feature i {
+  color: #4a7c1f;
+  font-size: 1.1rem;
+}
+
+.quick-booking-btn {
+  background: linear-gradient(135deg, #2d5016, #4a7c1f, #6b9c3a);
+  color: #ffffff;
+  border: none;
+  padding: 1.4rem 3rem;
+  font-size: 1.2rem;
+  font-family: 'Gideon Roman', serif;
+  font-weight: 700;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 
+    0 8px 25px rgba(45, 80, 22, 0.3),
+    0 0 0 3px rgba(141, 184, 96, 0.2);
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  min-width: 280px;
+  justify-content: center;
+}
+
+.quick-booking-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.7s ease;
+}
+
+.quick-booking-btn:hover::before {
+  left: 100%;
+}
+
+.quick-booking-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 12px 35px rgba(45, 80, 22, 0.4),
+    0 0 0 3px rgba(141, 184, 96, 0.3);
+  background: linear-gradient(135deg, #4a7c1f, #6b9c3a, #8db860);
+}
+
+.quick-booking-btn:active {
+  transform: translateY(-1px);
+}
+
+.quick-booking-btn i {
+  font-size: 1.3rem;
+  color: #ffffff;
+}
+
+/* Desktop Optimization for CTA */
+@media (min-width: 1024px) {
+  .booking-cta-section {
+    padding: 5rem 3rem;
+  }
+  
+  .cta-content h3 {
+    font-size: 2.5rem;
+  }
+  
+  .cta-content p {
+    font-size: 1.3rem;
+  }
+}
+
+/* Tablet Optimization for CTA */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .booking-cta-section {
+    padding: 4rem 2rem;
+  }
+  
+  .cta-features {
+    gap: 1rem;
+  }
+  
+  .feature {
+    font-size: 0.9rem;
+    padding: 0.7rem 1.2rem;
+  }
+}
+
+/* Mobile Responsive for CTA */
+@media (max-width: 767px) {
+  .booking-cta-section {
+    padding: 3rem 1.5rem;
+    margin: 1.5rem 0;
+  }
+  
+  .cta-icon {
+    width: 80px;
+    height: 80px;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .cta-content h3 {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+  }
+  
+  .cta-content p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .cta-features {
+    flex-direction: column;
+    gap: 0.8rem;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  
+  .feature {
+    width: fit-content;
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
+  }
+  
+  .quick-booking-btn {
+    padding: 1.2rem 2rem;
+    font-size: 1.1rem;
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+    min-width: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .booking-cta-section {
+    padding: 2.5rem 1rem;
+  }
+  
+  .cta-icon {
+    width: 70px;
+    height: 70px;
+    font-size: 2rem;
+  }
+  
+  .cta-content h3 {
+    font-size: 1.4rem;
+  }
+  
+  .cta-content p {
+    font-size: 1rem;
+  }
+  
+  .feature {
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .booking-cta-section {
+    padding: 2rem 0.75rem;
+  }
+  
+  .quick-booking-btn {
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+  }
+  
+  .cta-content h3 {
+    font-size: 1.3rem;
+  }
+}

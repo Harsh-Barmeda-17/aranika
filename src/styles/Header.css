@@ -1,0 +1,131 @@
+.header {
+  background: var(--primary-dark);
+  color: var(--cream);
+  padding: 4rem 1rem 3rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -10px;
+}
+
+.header-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(rgba(75, 125, 41, 0.9), rgba(60, 108, 28, 0.7)),
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><path fill="%234a7c3a" d="M0 0h1200v800H0z"/><path fill="%232d5016" d="M0 400c150-50 300-100 450-50s300 150 450 150 300-100 450-50 300 150 450 100v300H0z"/></svg>');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+.nature-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, transparent 20%, rgba(139, 69, 19, 0.1) 90%),
+    radial-gradient(circle at 80% 20%, transparent 30%, rgba(139, 69, 19, 0.1) 80%);
+}
+
+.header-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.homestay-name {
+  font-family: 'Rye', serif;
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  font-weight: 400;
+  margin-bottom: 1rem;
+  color: var(--wood-light);
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.divider {
+  width: clamp(80px, 20vw, 120px);
+  height: 2px;
+  background: var(--wood-light);
+  margin: 1.5rem auto;
+  position: relative;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  background: var(--wood-light);
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+
+.divider::before {
+  left: -20px;
+}
+
+.divider::after {
+  right: -20px;
+}
+
+.tagline {
+  font-family: 'Eagle Lake', serif;
+  font-size: clamp(1.1rem, 4vw, 1.6rem);
+  font-weight: 400;
+  color: var(--wood-light);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  line-height: 1.4;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .header {
+    min-height: 250px;
+    padding: 3rem 1rem 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    min-height: 200px;
+    padding: 2rem 1rem 1.5rem;
+  }
+  
+  .header-background {
+    background-attachment: scroll;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    min-height: 180px;
+    padding: 1.5rem 1rem 1rem;
+  }
+  
+  .homestay-name {
+    letter-spacing: 1px;
+  }
+  
+  .divider {
+    margin: 1rem auto;
+  }
+}
