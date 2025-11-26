@@ -99,10 +99,14 @@ function Gallery() {
 
   return (
     <div className="gallery-page">
+      {/* Updated Header with wave pattern from Header component */}
       <div className="gallery-header-section">
+        <div className="gallery-header-background">
+          <div className="gallery-nature-overlay"></div>
+        </div>
         <div className="gallery-header-content">
           <h1>Dhurwa Dera Gallery</h1>
-          <div className="divider"></div>
+          <div className="gallery-divider"></div>
           <p className="gallery-subtitle">Immerse yourself in the visual journey of our peaceful haven</p>
         </div>
       </div>
@@ -128,7 +132,7 @@ function Gallery() {
         </div>
       </div>
 
-      {/* Full-screen image viewer */}
+      {/* Original Full-screen image viewer */}
       {selectedImage && (
         <div className="image-modal" onClick={handleBackdropClick}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
