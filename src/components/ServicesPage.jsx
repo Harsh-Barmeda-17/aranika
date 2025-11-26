@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Footer from './Footer';
 import '../styles/ServicesPage.css';
 
 const ServicesPage = () => {
-    const [activeCategory, setActiveCategory] = useState('accommodation');
+    const [activeService, setActiveService] = useState('homestay');
     const [showBackToTop, setShowBackToTop] = useState(false);
+    const activeServiceRef = useRef(null);
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -21,36 +22,53 @@ const ServicesPage = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
-    const serviceCategories = {
-        accommodation: {
-            name: "Accommodation",
-            services: [
-                "Traditional Bastar-style rooms with authentic tribal architecture",
-                "Comfortable bedding with clean linens and basic furnishings",
-                "Attached bathrooms with 24/7 hot water supply",
-                "Daily housekeeping and maintenance services",
-                "Safe and secure environment with basic amenities"
-            ]
+    const handleServiceClick = (serviceKey) => {
+        setActiveService(serviceKey);
+        
+        // Scroll to active service section after a small delay to ensure DOM update
+        setTimeout(() => {
+            if (activeServiceRef.current) {
+                activeServiceRef.current.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }, 100);
+    };
+
+    const services = {
+        homestay: {
+            name: "Bamboo Homestay",
+            icon: "🏡",
+            description: "Immerse yourself in authentic tribal living with our traditional bamboo cottages",
+            features: [
+                "Traditional bamboo cottages with authentic tribal architecture",
+                "Handcrafted wooden furniture and local tribal artwork",
+                "Private verandas overlooking lush natural greenery"
+            ],
+            highlight: "Sleep surrounded by the natural beauty of Bastar"
         },
-        dining: {
-            name: "Dining & Food",
-            services: [
-                "Authentic tribal cuisine prepared with local ingredients",
-                "Traditional breakfast included with stay",
-                "Local delicacies and seasonal specialities",
-                "Vegetarian and non-vegetarian options available",
-                "Freshly prepared meals with hygienic kitchen practices"
-            ]
+        food: {
+            name: "Tribal Cuisine",
+            icon: "🍲",
+            description: "Savor authentic tribal flavors with recipes passed down through generations",
+            features: [
+                "Traditional tribal meals cooked over wood fire",
+                "Locally sourced organic ingredients from village farms",
+                "Cooking demonstrations and tribal recipe sharing"
+            ],
+            highlight: "Taste the real flavors of Chhattisgarh"
         },
-        facilities: {
-            name: "Basic Facilities",
-            services: [
-                "Clean drinking water available throughout",
-                "Basic first-aid and medical assistance",
-                "Local guide services for village visits",
-                "Cultural information and tribal heritage guidance",
-                "Peaceful natural surroundings for relaxation"
-            ]
+        rafting: {
+            name: "River Rafting",
+            icon: "🛶",
+            description: "Experience thrilling river adventures through pristine forest landscapes",
+            features: [
+                "Guided rafting trips on Indravati River",
+                "Safety equipment and experienced local guides",
+                "Scenic routes through dense forests and gorges"
+            ],
+            highlight: "Ride the rapids through untouched wilderness"
         }
     };
 
@@ -58,77 +76,153 @@ const ServicesPage = () => {
         <div className="services-page">
             <main className="services-main">
                 <div className="services-container">
-                    <div className="services-card">
-                        <div className="card-header">
-                            <h1>Our Services</h1>
-                            <p className="subtitle">Experience authentic Bastar tribal hospitality with basic, comfortable facilities</p>
+                    {/* Hero Section */}
+                    <section className="hero-section">
+                        <div className="hero-content">
+                            <h1 className="hero-title">
+                                <span className="title-line-2">Dhurwa Dera Services</span>
+                            </h1>
                         </div>
+                    </section>
 
+                    <div className="services-content">
                         {/* Welcome Section */}
-                        <section className="form-section">
-                            <div className="section-header">
-                                <h2>Welcome to Dhurwa Dera</h2>
-                            </div>
-                            <div className="welcome-content">
-                                <p>Dhurwa Dera offers genuine Bastar tribal hospitality in its purest form. We provide basic, comfortable accommodation and authentic local experiences that let you connect with the rich cultural heritage of Chhattisgarh.</p>
-                                <p>Our focus is on preserving traditional ways while offering clean, comfortable facilities for travelers seeking an authentic tribal experience.</p>
-                            </div>
-                        </section>
-
-                        {/* Service Categories */}
-                        <section className="form-section">
-                            <div className="section-header">
-                                <h3>Our Services</h3>
-                            </div>
-                            <div className="categories-grid">
-                                {Object.keys(serviceCategories).map((categoryKey) => (
-                                    <button
-                                        key={categoryKey}
-                                        className={`category-card ${activeCategory === categoryKey ? 'active' : ''}`}
-                                        onClick={() => setActiveCategory(categoryKey)}
-                                    >
-                                        <span className="category-name">{serviceCategories[categoryKey].name}</span>
-                                    </button>
-                                ))}
-                            </div>
-                        </section>
-
-                        {/* Active Category Services */}
-                        <section className="form-section">
-                            <div className="section-header">
-                                <h3>{serviceCategories[activeCategory].name}</h3>
-                            </div>
-                            <div className="services-list">
-                                {serviceCategories[activeCategory].services.map((service, index) => (
-                                    <div key={index} className="service-item">
-                                        <span className="service-bullet">•</span>
-                                        <span>{service}</span>
+                        <section className="welcome-section">
+                            <div className="section-container">
+                                <div className="welcome-card">
+                                    <div className="card-header">
+                                        <h2>Welcome to Our Tribal Haven</h2>
                                     </div>
-                                ))}
+                                    <div className="card-body">
+                                        <p>At Dhurwa Dera, we blend ancient tribal traditions with unforgettable experiences. Our bamboo cottages, traditional cuisine, and river adventures offer a complete immersion into the rich cultural tapestry of Chhattisgarh.</p>
+                                        <div className="features-row">
+                                            <div className="feature-pill">
+                                                <span className="pill-icon">🌱</span>
+                                                <span className="pill-text">Eco-Friendly</span>
+                                            </div>
+                                            <div className="feature-pill">
+                                                <span className="pill-icon">✨</span>
+                                                <span className="pill-text">Memorable</span>
+                                            </div>
+                                            <div className="feature-pill">
+                                                <span className="pill-icon">🏆</span>
+                                                <span className="pill-text">Award-Winning</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </section>
 
-                        {/* Basic Information */}
-                        <section className="form-section">
-                            <div className="section-header">
-                                <h3>What to Expect</h3>
+                        {/* Service Navigation */}
+                        <section className="services-navigation">
+                            <div className="section-container">
+                                <div className="navigation-card">
+                                    <h3 className="section-title">Choose Your Experience</h3>
+                                    <div className="services-tabs">
+                                        {Object.keys(services).map((serviceKey) => (
+                                            <button
+                                                key={serviceKey}
+                                                className={`service-tab ${activeService === serviceKey ? 'active' : ''}`}
+                                                onClick={() => handleServiceClick(serviceKey)}
+                                            >
+                                                <div className="tab-content">
+                                                    <span className="tab-icon">{services[serviceKey].icon}</span>
+                                                    <span className="tab-name">{services[serviceKey].name}</span>
+                                                </div>
+                                            </button>
+                                        ))}
+                                    </div>
+                                </div>
                             </div>
-                            <div className="info-grid">
-                                <div className="info-item">
-                                    <h4>Traditional Experience</h4>
-                                    <p>Authentic tribal lifestyle and cultural immersion in basic, traditional setting</p>
+                        </section>
+
+                        {/* Active Service Display */}
+                        <section className="active-service" ref={activeServiceRef}>
+                            <div className="section-container">
+                                <div className="service-detail-card">
+                                    <div className="service-header">
+                                        <div className="service-hero">
+                                            <div className="service-icon-wrapper">
+                                                <div className="service-icon-large">
+                                                    {services[activeService].icon}
+                                                </div>
+                                            </div>
+                                            <div className="service-info">
+                                                <h3>{services[activeService].name}</h3>
+                                                <p className="service-description">
+                                                    {services[activeService].description}
+                                                </p>
+                                                <div className="service-highlight">
+                                                    <span className="highlight-icon">⭐</span>
+                                                    {services[activeService].highlight}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div className="service-features">
+                                        <div className="features-header">
+                                            <h4>What's Included</h4>
+                                        </div>
+                                        <div className="features-grid">
+                                            {services[activeService].features.map((feature, index) => (
+                                                <div key={index} className="feature-card">
+                                                    <div className="feature-decoration">
+                                                        <div className="feature-icon">✓</div>
+                                                        <div className="feature-number">0{index + 1}</div>
+                                                    </div>
+                                                    <div className="feature-content">
+                                                        <span className="feature-text">{feature}</span>
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className="info-item">
-                                    <h4>Local Cuisine</h4>
-                                    <p>Simple, traditional meals prepared with local ingredients and recipes</p>
-                                </div>
-                                <div className="info-item">
-                                    <h4>Basic Comfort</h4>
-                                    <p>Clean, comfortable accommodation with essential facilities</p>
-                                </div>
-                                <div className="info-item">
-                                    <h4>Cultural Access</h4>
-                                    <p>Opportunities to experience and learn about tribal traditions</p>
+                            </div>
+                        </section>
+
+                        {/* Combined Experience */}
+                        <section className="combined-experience">
+                            <div className="section-container">
+                                <div className="journey-card">
+                                    <div className="journey-header">
+                                        <h3>The Complete Tribal Journey</h3>
+                                        <p>Combine all three experiences for an unforgettable stay</p>
+                                    </div>
+                                    <div className="journey-steps">
+                                        <div className="journey-step">
+                                            <div className="step-marker">
+                                                <span>1</span>
+                                                <div className="marker-line"></div>
+                                            </div>
+                                            <div className="step-content">
+                                                <h4>Arrive & Settle In</h4>
+                                                <p>Check into your bamboo cottage and immerse in tribal architecture</p>
+                                            </div>
+                                        </div>
+                                        <div className="journey-step">
+                                            <div className="step-marker">
+                                                <span>2</span>
+                                                <div className="marker-line"></div>
+                                            </div>
+                                            <div className="step-content">
+                                                <h4>Traditional Dining Experience</h4>
+                                                <p>Experience authentic tribal cuisine with locally sourced ingredients</p>
+                                            </div>
+                                        </div>
+                                        <div className="journey-step">
+                                            <div className="step-marker">
+                                                <span>3</span>
+                                                <div className="marker-line"></div>
+                                            </div>
+                                            <div className="step-content">
+                                                <h4>River Adventure</h4>
+                                                <p>Embark on thrilling rafting through pristine forest landscapes</p>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </section>

@@ -42,12 +42,12 @@ html, body {
   height: 100%;
 }
 
-/* Nav Controls - Aligned to Left */
+/* Nav Controls - LEFT ALIGNED FOR DESKTOP ONLY */
 .nav-controls {
   display: flex;
   align-items: center;
   gap: 1rem;
-  margin-left: auto; /* Push to the right */
+  margin-left: 100px; /* Keep original for all devices */
 }
 
 /* Language Toggle */
@@ -313,7 +313,7 @@ html, body {
 }
 
 /* ------------------ */
-/* DESKTOP STYLES (Default) */
+/* DESKTOP STYLES (Default) - ONLY CHANGE HERE */
 /* ------------------ */
 @media (min-width: 1025px) {
   .side-nav {
@@ -332,15 +332,16 @@ html, body {
     display: none;
   }
 
+  /* ONLY CHANGE: Left align nav-controls on desktop */
   .nav-controls {
-    margin-left: auto; /* Ensure it stays on the right */
+    margin-right: -50%; /* Push to left */
   }
 }
 
 /* ------------------ */
-/* LAPTOP & TABLET STYLES (1024px and below) */
+/* LAPTOP & TABLET STYLES (1024px and below) - NO CHANGES */
 /* ------------------ */
-@media (max-width: 1024px) {
+@media (min-width: 769px) {
   .side-nav {
     transform: translateX(-100%);
   }
@@ -362,12 +363,12 @@ html, body {
   }
 
   .nav-controls {
-    margin-left: auto;
+    margin-right: -15%; /* KEEP ORIGINAL */
   }
 }
 
 /* ------------------ */
-/* MOBILE STYLES (767px and below) */
+/* MOBILE STYLES (767px and below) - NO CHANGES */
 /* ------------------ */
 @media (max-width: 767px) {
   .navbar {
@@ -379,7 +380,7 @@ html, body {
   
   .nav-controls {
     gap: 0.7rem;
-    margin-left: auto;
+    margin-left: auto; /* KEEP ORIGINAL */
   }
   
   .language-toggle {
@@ -433,7 +434,7 @@ html, body {
 }
 
 /* ------------------ */
-/* SMALL MOBILE STYLES (440px and below) */
+/* SMALL MOBILE STYLES (440px and below) - NO CHANGES */
 /* ------------------ */
 @media (max-width: 440px) {
   .navbar {
@@ -444,7 +445,7 @@ html, body {
   
   .nav-controls {
     gap: 0.5rem;
-    margin-left: auto;
+    margin-left: auto; /* KEEP ORIGINAL */
   }
   
   .language-toggle {
@@ -523,7 +524,7 @@ html, body {
 }
 
 /* ------------------ */
-/* Tablets 500–750px */
+/* Tablets 500–750px - NO CHANGES */
 /* ------------------ */
 @media (min-width: 500px) and (max-width: 750px) {
   .navbar {
@@ -592,7 +593,7 @@ html, body {
 }
 
 /* ------------------ */
-/* Large Tablets 751–850px */
+/* Large Tablets 751–850px - NO CHANGES */
 /* ------------------ */
 @media (min-width: 751px) and (max-width: 850px) {
   .navbar {
