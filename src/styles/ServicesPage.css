@@ -208,6 +208,7 @@
 
 .service-tab {
     background: var(--natural-white);
+    color: var(--natural-black);
     border: 2px solid var(--wood-light);
     border-radius: 12px;
     cursor: pointer;
@@ -225,7 +226,7 @@
 .service-tab.active {
     background: linear-gradient(135deg, var(--wood-light), var(--bamboo-light));
     border-color: var(--bamboo-medium);
-    color: var(--natural-white);
+    color: var(--natural-black);
     transform: translateY(-2px);
     box-shadow: 0 6px 20px var(--shadow-hover);
 }

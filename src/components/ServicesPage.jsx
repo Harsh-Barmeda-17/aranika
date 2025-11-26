@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Footer from './Footer';
+import BackToTop from './BackToTop';
 import '../styles/ServicesPage.css';
 
 const ServicesPage = () => {
@@ -236,7 +237,7 @@ const ServicesPage = () => {
                     ↑
                 </button>
             )}
-
+            <BackToTop />
             <Footer />
         </div>
     );
