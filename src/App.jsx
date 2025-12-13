@@ -2,14 +2,13 @@ import React, { useState, useEffect, useRef, createContext, useContext } from 'r
 import BookingPage from './components/BookingPage';
 import BookingConfirmation from './components/BookingConfirmation';
 import Navbar from './components/Navbar';
-import Rooms from './components/Rooms';
+import DhurwaDera from './components/DhurwaDera';
 import Gallery from './components/Gallery';
 import Home from './components/Home';
 import SignUp from './components/SignUp';
 import Login from './components/Login';
 import ForgotPassword from './components/ForgotPassword';
 import ReachUs from './components/ReachUs';
-import Tariff from './components/TariffPage';
 import Services from './components/ServicesPage';
 import './App.css';
 
@@ -33,11 +32,6 @@ function App() {
   const handleNewBooking = () => {
     setBookingData(null);
     setCurrentPage('booking');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  const navigateToRooms = () => {
-    setCurrentPage('rooms');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -127,8 +121,8 @@ function App() {
     switch (currentPage) {
       case 'home':
         return <Home />;
-      case 'rooms':
-        return <Rooms onBookNow={navigateToBooking} />;
+      case 'dhurwadera':
+        return <DhurwaDera />;
       case 'booking':
         return <BookingPage onSubmit={handleBookingSubmit} />;
       case 'confirmation':
@@ -148,8 +142,6 @@ function App() {
         return <ForgotPassword onNavigate={handleNavbarNavigation} />;
       case 'contact':
         return <ReachUs onNavigate={handleNavbarNavigation} />;
-      case 'tariff':
-        return <Tariff onNavigate={handleNavbarNavigation} />;
       case 'services':
         return <Services onNavigate={handleNavbarNavigation} />;
       default:

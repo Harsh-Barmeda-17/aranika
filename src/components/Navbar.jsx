@@ -11,9 +11,7 @@ const Navbar = ({ currentPage, onNavigate, onLanguageChange }) => {
 
   // Set active link based on current page
   useEffect(() => {
-    if (currentPage === 'rooms') {
-      setActiveLink("#ROOMS");
-    } else if (currentPage === 'booking' || currentPage === 'confirmation') {
+    if (currentPage === 'booking' || currentPage === 'confirmation') {
       setActiveLink("#BOOKNOW");
     } else if (currentPage === 'gallery') {
       setActiveLink("#GALLERY");
@@ -27,10 +25,10 @@ const Navbar = ({ currentPage, onNavigate, onLanguageChange }) => {
       setActiveLink("#FORGOTPASSWORD");
     } else if (currentPage === 'contact') {
       setActiveLink("#REACHUS");
-    } else if (currentPage === 'tariff') {
-      setActiveLink("#TARIFF");
     } else if (currentPage === 'services') {
       setActiveLink("#SERVICES");
+    } else if (currentPage === 'dhurwadera') {
+      setActiveLink("#TARIFF");
     }
   }, [currentPage]);
 
@@ -59,7 +57,7 @@ const Navbar = ({ currentPage, onNavigate, onLanguageChange }) => {
 
   const links = [
     { name: "HOME", href: "#HOME", page: 'home' },
-    { name: "ROOMS", href: "#ROOMS", page: 'rooms' },
+    { name: "TARIFF", href: "#TARIFF", page: 'dhurwadera' },
     { name: "GALLERY", href: "#GALLERY", page: 'gallery' },
     { name: "SERVICES", href: "#SERVICES", page: 'services' },
     { name: "BOOK NOW", href: "#BOOKNOW", page: 'booking' },
