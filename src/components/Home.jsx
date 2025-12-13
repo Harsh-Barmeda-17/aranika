@@ -151,7 +151,7 @@ const Home = () => {
       date: "September 12, 2025",
       author: "By Navbharat Reporter – Jagdalpur",
       section: "NAVBHARAT NEWS",
-      layout: "headline",
+      layout: "primary",
       caption: "Man Singh receiving an international award for eco-tourism — honored for his international-level contribution to promoting Dhudmaras (Dhurva Dera) village."
     },
     {
@@ -163,7 +163,7 @@ const Home = () => {
       date: "April 22, 1975",
       author: "Vinod Singh – Nayi Duniya",
       section: "NAYI DUNIYA NEWS",
-      layout: "feature",
+      layout: "featured",
       caption: "Man Singh Baghel — a young man from Dhudmaras village who set an example of self-reliance by linking nature with tourism."
     },
     {
@@ -199,7 +199,7 @@ const Home = () => {
       date: "November 17, 2024",
       author: "By News Reporter from Patrika",
       section: "PATRIKA NEWS",
-      layout: "science",
+      layout: "tech",
       caption: "Tourists kayaking through the lush green waters of Dhudmaras, Bastar."
     }
   ];
@@ -230,144 +230,175 @@ const Home = () => {
     }
   };
 
-  // Newspaper article renderer
-const renderArticle = (article, index) => {
-  switch (article.layout) {
-    case 'headline':
-      return (
-        <article key={article.id} className="article-headline scroll-reveal">
-          <div className="section-label world-news">{article.section}</div>
-          <div className="headline-content">
-            <div className="headline-image" onClick={() => openImageModal(article)}>
-              <div className="image-click-instruction">Click the image to see the full news</div>
-              <img src={article.src} alt={article.title} className="article-image full-visible" />
-              <div className="image-caption">{article.caption}</div>
-            </div>
-            <div className="headline-text">
-              <h2 className="article-title-large">{article.title}</h2>
-              <h3 className="article-subtitle">{article.subtitle}</h3>
-              <div className="article-meta">
-                <span className="article-date">{article.date}</span>
-                <span className="article-author">{article.author}</span>
+  // Newspaper article renderer with updated classnames
+  const renderArticle = (article, index) => {
+    switch (article.layout) {
+      case 'primary':
+        return (
+          <article key={article.id} className="primary-article scroll-reveal" id={`primary-story-${article.id}`}>
+            <span className="topic-badge topic-global" id={`section-badge-${article.id}`}>{article.section}</span>
+            <div className="primary-layout" id={`layout-${article.id}`}>
+              <div className="primary-textblock" id={`text-block-${article.id}`}>
+                <h2 className="heading-xl" id={`title-${article.id}`}>{article.title}</h2>
+                <h3 className="article-summary" id={`summary-${article.id}`}>{article.subtitle}</h3>
+                <div className="article-details" id={`meta-${article.id}`}>
+                  <span className="article-date" id={`date-${article.id}`}>{article.date}</span>
+                  <span className="article-author" id={`author-${article.id}`}>{article.author}</span>
+                </div>
+              </div>
+              <div className="story-image-container" id={`image-container-${article.id}`}>
+                <div className="image-tip" id={`tip-${article.id}`}>Click image to enlarge</div>
+                <img 
+                  src={article.src} 
+                  alt={article.title} 
+                  className="story-image" 
+                  id={`image-${article.id}`}
+                  onClick={() => openImageModal(article)}
+                />
+                <div className="image-description" id={`caption-${article.id}`}>{article.caption}</div>
               </div>
             </div>
-          </div>
-        </article>
-      );
+          </article>
+        );
 
-    case 'feature':
-      return (
-        <article key={article.id} className="article-feature scroll-reveal">
-          <div className="section-label local-news">{article.section}</div>
-          <div className="feature-content">
-            <div className="feature-image" onClick={() => openImageModal(article)}>
-              <div className="image-click-instruction">Click the image to see the full news</div>
-              <img src={article.src} alt={article.title} className="article-image full-visible" />
-              <div className="image-caption">{article.caption}</div>
-            </div>
-            <div className="feature-text">
-              <h2 className="article-title">{article.title}</h2>
-              <h3 className="article-subtitle">{article.subtitle}</h3>
-              <div className="article-meta">
-                <span className="article-date">{article.date}</span>
-                <span className="article-author">{article.author}</span>
+      case 'featured':
+        return (
+          <article key={article.id} className="featured-story scroll-reveal" id={`feature-story-${article.id}`}>
+            <span className="topic-badge topic-regional" id={`section-feature-${article.id}`}>{article.section}</span>
+            <div className="featured-layout" id={`feature-layout-${article.id}`}>
+              <div className="story-image-container" id={`feature-image-container-${article.id}`}>
+                <div className="image-tip" id={`feature-tip-${article.id}`}>Click image to enlarge</div>
+                <img 
+                  src={article.src} 
+                  alt={article.title} 
+                  className="story-image" 
+                  id={`feature-image-${article.id}`}
+                  onClick={() => openImageModal(article)}
+                />
+                <div className="image-description" id={`feature-caption-${article.id}`}>{article.caption}</div>
               </div>
-            </div>
-          </div>
-        </article>
-      );
-
-    case 'sports':
-      return (
-        <article key={article.id} className="article-sports scroll-reveal">
-          <div className="section-label sports">{article.section}</div>
-          <div className="sports-content">
-            <div className="sports-header">
-              <h2 className="article-title-sports">{article.title}</h2>
-              <h3 className="article-subtitle">{article.subtitle}</h3>
-            </div>
-            <div className="sports-body">
-              <div className="sports-image" onClick={() => openImageModal(article)}>
-                <div className="image-click-instruction">Click the image to see the full news</div>
-                <img src={article.src} alt={article.title} className="article-image full-visible" />
-                <div className="image-caption">{article.caption}</div>
-              </div>
-              <div className="sports-meta">
-                <div className="article-meta">
-                  <span className="article-date">{article.date}</span>
-                  <span className="article-author">{article.author}</span>
+              <div className="featured-textblock" id={`feature-text-${article.id}`}>
+                <h2 className="story-heading" id={`feature-title-${article.id}`}>{article.title}</h2>
+                <h3 className="article-summary" id={`feature-summary-${article.id}`}>{article.subtitle}</h3>
+                <div className="article-details" id={`feature-meta-${article.id}`}>
+                  <span className="article-date" id={`feature-date-${article.id}`}>{article.date}</span>
+                  <span className="article-author" id={`feature-author-${article.id}`}>{article.author}</span>
                 </div>
               </div>
             </div>
-          </div>
-        </article>
-      );
+          </article>
+        );
 
-    case 'political':
-      return (
-        <article key={article.id} className="article-political scroll-reveal">
-          <div className="section-label politics">{article.section}</div>
-          <div className="political-content">
-            <div className="political-image" onClick={() => openImageModal(article)}>
-              <div className="image-click-instruction">Click the image to see the full news</div>
-              <img src={article.src} alt={article.title} className="article-image full-visible" />
-              <div className="image-caption">{article.caption}</div>
-            </div>
-            <div className="political-text">
-              <h2 className="article-title">{article.title}</h2>
-              <h3 className="article-subtitle">{article.subtitle}</h3>
-              <div className="article-meta">
-                <span className="article-date">{article.date}</span>
-                <span className="article-author">{article.author}</span>
+      case 'sports':
+        return (
+          <article key={article.id} className="sports-story scroll-reveal" id={`sports-story-${article.id}`}>
+            <div className="sports-layout" id={`sports-layout-${article.id}`}>
+              <div className="sports-headerblock" id={`sports-header-${article.id}`}>
+                <span className="topic-badge topic-athletics" id={`sports-badge-${article.id}`}>{article.section}</span>
+                <h2 className="heading-sports" id={`sports-title-${article.id}`}>{article.title}</h2>
+                <h3 className="article-summary" id={`sports-subtitle-${article.id}`}>{article.subtitle}</h3>
+              </div>
+              <div className="sports-body" id={`sports-content-${article.id}`}>
+                <div className="story-image-container" id={`sports-image-container-${article.id}`}>
+                  <div className="image-tip" id={`sports-tip-${article.id}`}>Click image to enlarge</div>
+                  <img 
+                    src={article.src} 
+                    alt={article.title} 
+                    className="story-image" 
+                    id={`sports-image-${article.id}`}
+                    onClick={() => openImageModal(article)}
+                  />
+                  <div className="image-description" id={`sports-caption-${article.id}`}>{article.caption}</div>
+                </div>
+                <div className="sports-meta-info" id={`sports-details-${article.id}`}>
+                  <div className="article-details" id={`sports-meta-${article.id}`}>
+                    <span className="article-date" id={`sports-date-${article.id}`}>{article.date}</span>
+                    <span className="article-author" id={`sports-author-${article.id}`}>{article.author}</span>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </article>
-      );
+          </article>
+        );
 
-    case 'science':
-      return (
-        <article key={article.id} className="article-science scroll-reveal">
-          <div className="section-label science">{article.section}</div>
-          <div className="science-content">
-            <div className="science-text">
-              <h2 className="article-title">{article.title}</h2>
-              <h3 className="article-subtitle">{article.subtitle}</h3>
-              <div className="article-meta">
-                <span className="article-date">{article.date}</span>
-                <span className="article-author">{article.author}</span>
+      case 'political':
+        return (
+          <article key={article.id} className="political-story scroll-reveal" id={`political-story-${article.id}`}>
+            <span className="topic-badge topic-governance" id={`political-badge-${article.id}`}>{article.section}</span>
+            <div className="political-layout" id={`political-layout-${article.id}`}>
+              <div className="political-textblock" id={`political-text-${article.id}`}>
+                <h2 className="story-heading" id={`political-title-${article.id}`}>{article.title}</h2>
+                <h3 className="article-summary" id={`political-summary-${article.id}`}>{article.subtitle}</h3>
+                <div className="article-details" id={`political-meta-${article.id}`}>
+                  <span className="article-date" id={`political-date-${article.id}`}>{article.date}</span>
+                  <span className="article-author" id={`political-author-${article.id}`}>{article.author}</span>
+                </div>
+              </div>
+              <div className="story-image-container" id={`political-image-container-${article.id}`}>
+                <div className="image-tip" id={`political-tip-${article.id}`}>Click image to enlarge</div>
+                <img 
+                  src={article.src} 
+                  alt={article.title} 
+                  className="story-image" 
+                  id={`political-image-${article.id}`}
+                  onClick={() => openImageModal(article)}
+                />
+                <div className="image-description" id={`political-caption-${article.id}`}>{article.caption}</div>
               </div>
             </div>
-            <div className="science-image" onClick={() => openImageModal(article)}>
-              <div className="image-click-instruction">Click the image to see the full news</div>
-              <img src={article.src} alt={article.title} className="article-image full-visible" />
-              <div className="image-caption">{article.caption}</div>
-            </div>
-          </div>
-        </article>
-      );
+          </article>
+        );
 
-    default:
-      return null;
-  }
-};
+      case 'tech':
+        return (
+          <article key={article.id} className="tech-story scroll-reveal" id={`tech-story-${article.id}`}>
+            <span className="topic-badge topic-technology" id={`tech-badge-${article.id}`}>{article.section}</span>
+            <div className="tech-layout" id={`tech-layout-${article.id}`}>
+              <div className="tech-textblock" id={`tech-text-${article.id}`}>
+                <h2 className="story-heading" id={`tech-title-${article.id}`}>{article.title}</h2>
+                <h3 className="article-summary" id={`tech-summary-${article.id}`}>{article.subtitle}</h3>
+                <div className="article-details" id={`tech-meta-${article.id}`}>
+                  <span className="article-date" id={`tech-date-${article.id}`}>{article.date}</span>
+                  <span className="article-author" id={`tech-author-${article.id}`}>{article.author}</span>
+                </div>
+              </div>
+              <div className="story-image-container" id={`tech-image-container-${article.id}`}>
+                <div className="image-tip" id={`tech-tip-${article.id}`}>Click image to enlarge</div>
+                <img 
+                  src={article.src} 
+                  alt={article.title} 
+                  className="story-image" 
+                  id={`tech-image-${article.id}`}
+                  onClick={() => openImageModal(article)}
+                />
+                <div className="image-description" id={`tech-caption-${article.id}`}>{article.caption}</div>
+              </div>
+            </div>
+          </article>
+        );
+
+      default:
+        return null;
+    }
+  };
 
   return (
-    <div className="main-content">
+    <div className="main-content" id="home-main-content">
       {/* Gate Section */}
-      <div className="gate-container">
+      <div className="gate-container" id="gate-section">
         {/* Background with sky and ground */}
-        <div className="background">
-          <div className="sky"></div>
-          <div className="ground"></div>
+        <div className="background" id="gate-background">
+          <div className="sky" id="gate-sky"></div>
+          <div className="ground" id="gate-ground"></div>
         </div>
 
         {/* Bamboo Sides with direct img tags */}
-        <div className="bamboo-side left-bamboo">
+        <div className="bamboo-side left-bamboo" id="left-bamboo-side">
           <img 
             src="/bamboostick.png" 
             alt="Left Bamboo" 
             className="bamboo-image"
+            id="left-bamboo-image"
             style={{
               width: '100%',
               height: '100%',
@@ -377,11 +408,12 @@ const renderArticle = (article, index) => {
           />
         </div>
         
-        <div className="bamboo-side right-bamboo">
+        <div className="bamboo-side right-bamboo" id="right-bamboo-side">
           <img 
             src="/bamboostickR.png" 
             alt="Right Bamboo" 
             className="bamboo-image"
+            id="right-bamboo-image"
             style={{
               width: '100%',
               height: '100%',
@@ -392,71 +424,71 @@ const renderArticle = (article, index) => {
         </div>
 
         {/* Main Structure */}
-        <div className="gate-structure">
+        <div className="gate-structure" id="main-gate-structure">
           {/* Wooden Poles - Now part of the gate structure */}
-          <div className="wooden-pole left-pole">
-            <div className="pole-texture"></div>
-            <div className="gate-attachment left-attachment"></div>
+          <div className="wooden-pole left-pole" id="left-gate-pole">
+            <div className="pole-texture" id="left-pole-texture"></div>
+            <div className="gate-attachment left-attachment" id="left-attachment"></div>
           </div>
-          <div className="wooden-pole right-pole">
-            <div className="pole-texture"></div>
-            <div className="gate-attachment right-attachment"></div>
+          <div className="wooden-pole right-pole" id="right-gate-pole">
+            <div className="pole-texture" id="right-pole-texture"></div>
+            <div className="gate-attachment right-attachment" id="right-attachment"></div>
           </div>
 
           {/* Gate Wrapper */}
-          <div className="gate-wrapper">
+          <div className="gate-wrapper" id="gate-wrapper-container">
             {/* Left Gate */}
-            <div className={`gate left-gate ${isOpen ? 'open' : ''}`}>
-              <div className="gate-texture">
-                <div className="wood-grain"></div>
-                <div className="gate-panels">
-                  <div className="panel"></div>
-                  <div className="panel"></div>
+            <div className={`gate left-gate ${isOpen ? 'open' : ''}`} id="left-gate-door">
+              <div className="gate-texture" id="left-gate-texture">
+                <div className="wood-grain" id="left-wood-grain"></div>
+                <div className="gate-panels" id="left-gate-panels">
+                  <div className="panel" id="left-panel-1"></div>
+                  <div className="panel" id="left-panel-2"></div>
                 </div>
-                <div className="gate-bars">
-                  <div className="horizontal-bar top-bar"></div>
-                  <div className="horizontal-bar middle-bar"></div>
-                  <div className="horizontal-bar bottom-bar"></div>
-                  <div className="vertical-bar"></div>
+                <div className="gate-bars" id="left-gate-bars">
+                  <div className="horizontal-bar top-bar" id="left-top-bar"></div>
+                  <div className="horizontal-bar middle-bar" id="left-middle-bar"></div>
+                  <div className="horizontal-bar bottom-bar" id="left-bottom-bar"></div>
+                  <div className="vertical-bar" id="left-vertical-bar"></div>
                 </div>
               </div>
-              <div className="hinge top-hinge"></div>
-              <div className="hinge middle-hinge"></div>
-              <div className="hinge bottom-hinge"></div>
+              <div className="hinge top-hinge" id="left-top-hinge"></div>
+              <div className="hinge middle-hinge" id="left-middle-hinge"></div>
+              <div className="hinge bottom-hinge" id="left-bottom-hinge"></div>
             </div>
             
             {/* Right Gate */}
-            <div className={`gate right-gate ${isOpen ? 'open' : ''}`}>
-              <div className="gate-texture">
-                <div className="wood-grain"></div>
-                <div className="gate-panels">
-                  <div className="panel"></div>
-                  <div className="panel"></div>
+            <div className={`gate right-gate ${isOpen ? 'open' : ''}`} id="right-gate-door">
+              <div className="gate-texture" id="right-gate-texture">
+                <div className="wood-grain" id="right-wood-grain"></div>
+                <div className="gate-panels" id="right-gate-panels">
+                  <div className="panel" id="right-panel-1"></div>
+                  <div className="panel" id="right-panel-2"></div>
                 </div>
-                <div className="gate-bars">
-                  <div className="horizontal-bar top-bar"></div>
-                  <div className="horizontal-bar middle-bar"></div>
-                  <div className="horizontal-bar bottom-bar"></div>
-                  <div className="vertical-bar"></div>
+                <div className="gate-bars" id="right-gate-bars">
+                  <div className="horizontal-bar top-bar" id="right-top-bar"></div>
+                  <div className="horizontal-bar middle-bar" id="right-middle-bar"></div>
+                  <div className="horizontal-bar bottom-bar" id="right-bottom-bar"></div>
+                  <div className="vertical-bar" id="right-vertical-bar"></div>
                 </div>
               </div>
-              <div className="hinge top-hinge"></div>
-              <div className="hinge middle-hinge"></div>
-              <div className="hinge bottom-hinge"></div>
+              <div className="hinge top-hinge" id="right-top-hinge"></div>
+              <div className="hinge middle-hinge" id="right-middle-hinge"></div>
+              <div className="hinge bottom-hinge" id="right-bottom-hinge"></div>
             </div>
 
             {/* Center Latch System - Only show when visible */}
             {latchVisible && (
-              <div className="gate-latch-container">
+              <div className="gate-latch-container" id="gate-latch-system">
                 {/* Latch base split between both doors */}
-                <div className={`latch-base latch-base-left ${isLatched ? '' : 'unlatched'}`}></div>
-                <div className={`latch-base latch-base-right ${isLatched ? '' : 'unlatched'}`}></div>
+                <div className={`latch-base latch-base-left ${isLatched ? '' : 'unlatched'}`} id="left-latch-base"></div>
+                <div className={`latch-base latch-base-right ${isLatched ? '' : 'unlatched'}`} id="right-latch-base"></div>
                 
                 {/* Socket on right door */}
-                <div className="latch-socket"></div>
+                <div className="latch-socket" id="latch-socket-hole"></div>
                 
                 {/* Latch mechanism attached to left door */}
-                <div className={`latch-mechanism ${isLatched ? 'latched' : 'unlatched'}`}></div>
+                <div className={`latch-mechanism ${isLatched ? 'latched' : 'unlatched'}`} id="latch-mechanism-handle"></div>
               </div>
             )}
           </div>
@@ -464,19 +496,20 @@ const renderArticle = (article, index) => {
 
         {/* Welcome Text */}
         {showWelcome && (
-          <div className="welcome-container">
-            <div className="welcome-text">
-              <span className="text-line line-1">WELCOME TO</span>
+          <div className="welcome-container" id="welcome-message-container">
+            <div className="welcome-text" id="welcome-text-content">
+              <span className="text-line line-1" id="welcome-line-1">WELCOME TO</span>
               {/* Replaced "PEACEFUL HAVEN" with the sign board */}
-              <div className="sign-board welcome-sign">
-                <div className="sign-content">
+              <div className="sign-board welcome-sign" id="dhurwa-dera-sign">
+                <div className="sign-content" id="sign-content-wrapper">
                   <img 
                     src="/woodH.png" 
                     alt="Wooden Sign" 
                     className="sign-image"
+                    id="wooden-sign-image"
                   />
-                  <div className="sign-text-overlay">
-                    <span className="sign-title">DHURWA DERA</span>
+                  <div className="sign-text-overlay" id="sign-text-layer">
+                    <span className="sign-title" id="dhurwa-dera-title">DHURWA DERA</span>
                   </div>
                 </div>
               </div>
@@ -486,63 +519,65 @@ const renderArticle = (article, index) => {
       </div>
 
       {/* Bamboo Timeline Section */}
-      <section className="bamboo-timeline-section">
-        <h2 className="timeline-heading">Dhurwa Dera: A Success Story</h2>
-        <div className="timeline-container">
+      <section className="bamboo-timeline-section" id="timeline-section">
+        <h2 className="timeline-heading" id="timeline-main-heading">Dhurwa Dera: A Success Story</h2>
+        <div className="timeline-container" id="timeline-main-container">
           {/* Enhanced Realistic Bamboo Center Line */}
-          <div className="bamboo-center-line">
-            <div className="bamboo-top-cut">
-              <div className="bamboo-inner-tube"></div>
-              <div className="cut-line"></div>
+          <div className="bamboo-center-line" id="center-bamboo-line">
+            <div className="bamboo-top-cut" id="bamboo-top-cut">
+              <div className="bamboo-inner-tube" id="bamboo-inner-tube"></div>
+              <div className="cut-line" id="bamboo-cut-line"></div>
             </div>
-            <div className="bamboo-node"></div>
-            <div className="bamboo-node"></div>
-            <div className="bamboo-node"></div>
-            <div className="bamboo-node"></div>
-            <div className="bamboo-wood-grain"></div>
-            <div className="bamboo-shine"></div>
-            <div className="bamboo-texture-overlay"></div>
+            <div className="bamboo-node" id="bamboo-node-1"></div>
+            <div className="bamboo-node" id="bamboo-node-2"></div>
+            <div className="bamboo-node" id="bamboo-node-3"></div>
+            <div className="bamboo-node" id="bamboo-node-4"></div>
+            <div className="bamboo-wood-grain" id="bamboo-wood-grain"></div>
+            <div className="bamboo-shine" id="bamboo-shine-effect"></div>
+            <div className="bamboo-texture-overlay" id="bamboo-texture-layer"></div>
           </div>
           
-          <div className="timeline-content">
+          <div className="timeline-content" id="timeline-content-area">
             {timelineData.map((item, index) => (
               <div 
                 key={item.id} 
                 ref={el => addToTimelineItems(el, index)}
                 className="timeline-item"
+                id={`timeline-item-${item.id}`}
               >
                 {/* Image on LEFT side */}
-                <div className="timeline-image-card left-side">
-                  <div className="image-container">
+                <div className="timeline-image-card left-side" id={`timeline-image-${item.id}`}>
+                  <div className="image-container" id={`image-container-tl-${item.id}`}>
                     <img 
                       src={item.image} 
                       alt={item.title}
                       className="timeline-image"
+                      id={`timeline-img-${item.id}`}
                     />
-                    <div className="image-overlay"></div>
+                    <div className="image-overlay" id={`image-overlay-${item.id}`}></div>
                   </div>
-                  <div className="connector-line left-connector"></div>
+                  <div className="connector-line left-connector" id={`left-connector-${item.id}`}></div>
                 </div>
 
                 {/* Content on RIGHT side */}
-                <div className="timeline-content-card right-side">
-                  <div className="content-container">
-                    <div className="date-badge">{item.date}</div>
-                    <h3 className="item-title">{item.title}</h3>
-                    <div className="bamboo-points-container">
+                <div className="timeline-content-card right-side" id={`timeline-content-${item.id}`}>
+                  <div className="content-container" id={`content-wrapper-${item.id}`}>
+                    <div className="date-badge" id={`date-badge-${item.id}`}>{item.date}</div>
+                    <h3 className="item-title" id={`item-title-${item.id}`}>{item.title}</h3>
+                    <div className="bamboo-points-container" id={`points-container-${item.id}`}>
                       {Array.isArray(item.description) ? (
                         item.description.map((point, pointIndex) => (
-                          <div key={pointIndex} className="bamboo-point">
-                            <div className="bamboo-leaf-icon"></div>
-                            <span className="bamboo-point-text">{point}</span>
+                          <div key={pointIndex} className="bamboo-point" id={`point-${item.id}-${pointIndex}`}>
+                            <div className="bamboo-leaf-icon" id={`leaf-icon-${item.id}-${pointIndex}`}></div>
+                            <span className="bamboo-point-text" id={`point-text-${item.id}-${pointIndex}`}>{point}</span>
                           </div>
                         ))
                       ) : (
-                        <p className="item-description">{item.description}</p>
+                        <p className="item-description" id={`description-${item.id}`}>{item.description}</p>
                       )}
                     </div>
                   </div>
-                  <div className="connector-line right-connector"></div>
+                  <div className="connector-line right-connector" id={`right-connector-${item.id}`}></div>
                 </div>
               </div>
             ))}
@@ -551,41 +586,41 @@ const renderArticle = (article, index) => {
       </section>
 
       {/* Newspaper Section */}
-      <section className="newspaper-section">
-        <div className="newspaper-container">
+      <section className="newspaper-section" id="newspaper-main-section">
+        <div className="newspaper-wrapper" id="newspaper-paper-wrapper">
           {/* Newspaper Header */}
-          <header className="newspaper-header">
-            <div className="newspaper-masthead">
-              <h1 className="newspaper-title">The Dhurwa Dera Voice</h1>
-              <div className="newspaper-info">
-                <span className="edition">Morning Edition</span>
-                <span className="date">January XX, 2025</span>
-                <span className="price">PRICE 50¢</span>
+          <header className="newspaper-top" id="newspaper-header-top">
+            <div className="newspaper-banner" id="newspaper-banner-head">
+              <h1 className="newspaper-heading" id="newspaper-main-heading">The Dhurwa Dera Voice</h1>
+              <div className="paper-info" id="newspaper-info-bar">
+                <span className="edition" id="paper-edition">Morning Edition</span>
+                <span className="date" id="paper-date">January XX, 2025</span>
+                <span className="price" id="paper-price">PRICE 50¢</span>
               </div>
             </div>
-            <div className="header-divider"></div>
+            <div className="top-divider" id="header-divider-line"></div>
           </header>
 
           {/* Main Content */}
-          <div className="newspaper-content">
+          <div className="newspaper-content" id="newspaper-main-content">
             {/* Lead Story */}
-            <div className="lead-story">
-              <h2 className="main-headline">DHURWA DERA'S JOURNEY OF EXCELLENCE</h2>
-              <p className="lead-subtitle">Celebrating Our Community's Achievements</p>
+            <div className="premium-story" id="lead-premium-story">
+              <h2 className="premium-headline" id="premium-story-headline">DHURWA DERA'S JOURNEY OF EXCELLENCE</h2>
+              <p className="premium-subhead" id="premium-story-subhead">Celebrating Our Community's Achievements</p>
             </div>
 
             {/* Articles Grid */}
-            <div className="articles-grid">
+            <div className="stories-grid" id="articles-main-grid">
               {newspaperContent.map((article, index) => renderArticle(article, index))}
             </div>
 
             {/* Newspaper Footer */}
-            <footer className="newspaper-footer">
-              <div className="footer-divider"></div>
-              <div className="footer-content">
-                <span className="continued">CONTINUED ON PAGE A12</span>
-                <span className="page-number">PAGE A1</span>
-                <span className="copyright">© 2023 The Dhurwa Dera Voice. ALL RIGHTS RESERVED.</span>
+            <footer className="newspaper-end" id="newspaper-bottom-footer">
+              <div className="bottom-divider" id="footer-divider-line"></div>
+              <div className="paper-footer" id="paper-footer-content">
+                <span className="continued" id="footer-continued">CONTINUED ON PAGE A12</span>
+                <span className="page-number" id="footer-page-number">PAGE A1</span>
+                <span className="copyright" id="footer-copyright">© 2023 The Dhurwa Dera Voice. ALL RIGHTS RESERVED.</span>
               </div>
             </footer>
           </div>
@@ -594,24 +629,25 @@ const renderArticle = (article, index) => {
 
       {/* Image Modal for Zoom */}
       {selectedImage && (
-        <div className="image-modal" onClick={closeImageModal}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <button className="modal-close" onClick={closeImageModal}>×</button>
-            <div className="zoom-controls">
-              <button onClick={handleZoomOut} disabled={zoomLevel <= 0.5}>−</button>
-              <span>{Math.round(zoomLevel * 100)}%</span>
-              <button onClick={handleZoomIn} disabled={zoomLevel >= 3}>+</button>
+        <div className="preview-modal" id="newspaper-image-modal" onClick={closeImageModal}>
+          <div className="modal-container" id="modal-container-box" onClick={(e) => e.stopPropagation()}>
+            <button className="modal-close-btn" id="modal-close-button" onClick={closeImageModal}>×</button>
+            <div className="zoom-controls" id="image-zoom-controls">
+              <button onClick={handleZoomOut} disabled={zoomLevel <= 0.5} id="zoom-out-btn">−</button>
+              <span id="zoom-level-display">{Math.round(zoomLevel * 100)}%</span>
+              <button onClick={handleZoomIn} disabled={zoomLevel >= 3} id="zoom-in-btn">+</button>
             </div>
             <img 
               src={selectedImage.src} 
               alt={selectedImage.title}
-              className="zoomed-image"
+              className="zoomed-preview"
+              id="modal-preview-image"
               style={{ transform: `scale(${zoomLevel})` }}
               onWheel={handleWheel}
             />
-            <div className="modal-caption">
-              <h3>{selectedImage.title}</h3>
-              <p>{selectedImage.date} - {selectedImage.section}</p>
+            <div className="modal-info" id="modal-caption-area">
+              <h3 id="modal-image-title">{selectedImage.title}</h3>
+              <p id="modal-image-description">{selectedImage.date} - {selectedImage.section}</p>
             </div>
           </div>
         </div>

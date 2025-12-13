@@ -484,73 +484,94 @@ html, body {
   animation: scaleIn 0.25s ease-out;
 }
 
-/* Improved Close Button */
+/* UPDATED: Improved Close Button - Centered X like Newspaper */
 .close-btn {
   position: absolute;
   top: -60px;
   right: -10px;
-  background: rgba(255, 255, 255, 0.9);
+  background: #333333;
+  color: white;
   border: none;
-  color: #2d5016;
-  font-size: 2.5rem;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
+  font-size: 1.8rem;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
+  line-height: 1;
+  padding: 0;
   transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
-  font-weight: bold;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  border: 2px solid #090909;
   z-index: 1001;
+  font-weight: bold;
 }
 
 .close-btn:hover {
-  background: rgba(255, 255, 255, 1);
+  background: #9a5527;
   transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
+.close-btn:active {
+  transform: scale(0.95);
+}
+
+/* UPDATED: Zoom Controls - Similar to Newspaper but adapted */
 .zoom-controls {
   position: absolute;
   bottom: -70px;
   left: 50%;
   transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.85);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 25px;
   display: flex;
   align-items: center;
   gap: 15px;
-  background: rgba(255, 255, 255, 0.9);
-  padding: 10px 20px;
-  border-radius: 25px;
-  backdrop-filter: blur(10px);
   z-index: 1001;
+  box-shadow: 
+    0 4px 20px rgba(0,0,0,0.7),
+    0 0 0 1px rgba(255,255,255,0.1);
+  border: 2px solid rgba(255,255,255,0.15);
 }
 
 .zoom-controls button {
-  background: #2d5016;
-  border: none;
+  background: rgba(255,255,255,0.15);
   color: white;
+  border: 1px solid rgba(255,255,255,0.3);
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  font-size: 1.5rem;
   cursor: pointer;
+  font-size: 1.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
+  font-weight: bold;
 }
 
 .zoom-controls button:hover {
-  background: #4a7c1f;
-  transform: scale(1.1);
+  background: rgba(255,255,255,0.25);
+  transform: scale(1.05);
+  border-color: rgba(255,255,255,0.5);
+}
+
+.zoom-controls button:active {
+  transform: scale(0.95);
 }
 
 .zoom-controls span {
-  color: #2d5016;
-  font-weight: 600;
-  min-width: 60px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.95);
   text-align: center;
+  min-width: 60px;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5);
 }
 
 /* Performance Optimizations */
@@ -599,9 +620,9 @@ html, body {
   .close-btn {
     top: -50px;
     right: -5px;
-    width: 44px;
-    height: 44px;
-    font-size: 2rem;
+    width: 40px;
+    height: 40px;
+    font-size: 1.8rem;
   }
   
   .modal-content img {
@@ -614,9 +635,14 @@ html, body {
   }
   
   .zoom-controls button {
-    width: 35px;
-    height: 35px;
+    width: 36px;
+    height: 36px;
     font-size: 1.3rem;
+  }
+  
+  .zoom-controls span {
+    font-size: 0.95rem;
+    min-width: 50px;
   }
 }
 
@@ -637,24 +663,25 @@ html, body {
   .close-btn {
     top: -45px;
     right: 0;
-    width: 40px;
-    height: 40px;
-    font-size: 1.8rem;
+    width: 38px;
+    height: 38px;
+    font-size: 1.6rem;
   }
   
   .zoom-controls {
     bottom: -50px;
     padding: 6px 14px;
+    gap: 12px;
   }
   
   .zoom-controls button {
-    width: 32px;
-    height: 32px;
+    width: 34px;
+    height: 34px;
     font-size: 1.2rem;
   }
   
   .zoom-controls span {
-    min-width: 50px;
+    min-width: 45px;
     font-size: 0.9rem;
   }
 }
@@ -662,19 +689,29 @@ html, body {
 /* Touch device improvements */
 @media (hover: none) and (pointer: coarse) {
   .close-btn {
-    width: 48px;
-    height: 48px;
-    min-width: 48px;
-    min-height: 48px;
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
   }
   
   .close-btn:hover {
-    background: rgba(255, 255, 255, 0.9);
+    background: #8B4513;
     transform: none;
   }
   
   .close-btn:active {
-    background: rgba(255, 255, 255, 1);
+    background: #9a5527;
+    transform: scale(0.95);
+  }
+  
+  .zoom-controls button:hover {
+    background: rgba(255,255,255,0.15);
+    transform: none;
+  }
+  
+  .zoom-controls button:active {
+    background: rgba(255,255,255,0.25);
     transform: scale(0.95);
   }
 }
