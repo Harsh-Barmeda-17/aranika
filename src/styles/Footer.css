@@ -1165,6 +1165,7 @@ footer * {
     .rapid-access-link {
         font-size: 0.8rem !important;
         padding: 6px 12px !important;
+        color: white;
     }
     
     .copyright-notice {
