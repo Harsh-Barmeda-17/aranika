@@ -1,50 +1,60 @@
 /* ========== ENHANCED CREATIVE FOOTER ========== */
 
-.professional-footer {
-    opacity: 1 !important;
-    visibility: visible !important;
+/* ===== FOOTER BOTTOM ===== */
+.footer-foundation {
+    margin-top: 50px;
+    padding-bottom: 10px;
 }
 
-.scroll-fade.initial-hidden {
+/* ===== SAFETY: NO ELEMENT SHOULD FORCE HEIGHT ===== */
+footer * {
+    box-sizing: border-box;
+}
+
+.terrain-base {
+    position: relative;
+    width: 100%;
+    overflow: hidden; /* FIX: hard stop for waves & animations */
+    padding-top: 80px;
+}
+.scroll-reveal.initially-hidden {
     opacity: 1 !important;
 }
 
-.professional-footer {
+.terrain-base {
     color: #1a2d0b;
     position: relative;
-    overflow: hidden;
     padding-top: 80px;
     margin-top: 0;
     width: 100%;
+    overflow: hidden; /* Add overflow hidden to footer only */
 }
 
-/* Updated Footer Wave - #FAFAF0 Color */
-.footer-wave {
+/* ===== WAVE FIX ===== */
+.topography-ripple {
     position: absolute;
-    top: -2px;
+    top: 0;
     left: 0;
     width: 100%;
-    height: 100px;
-    background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" fill="%23FAFAF0"/></svg>');
-    background-size: cover;
-    border: none;
-    outline: none;
-    box-shadow: none;
+    height: 70px; /* FIX: reduced height */
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1;
+    background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113,-14.29,1200,52.47V0Z" fill="%23FAFAF0"/></svg>')
+        no-repeat center / cover;
 }
 
-/* Rest of the footer CSS remains exactly the same... */
-/* [All the existing footer CSS code remains unchanged below this point] */
-
-.footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 60px 20px 30px;
+/* ===== CONTENT WRAPPER ===== */
+.terrain-content-wrapper {
     position: relative;
     z-index: 2;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 20px 30px;
 }
 
 /* Main Footer Content Layout */
-.footer-main-content {
+.primary-content-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: 40px;
@@ -53,14 +63,14 @@
 }
 
 /* Brand & Map Combined Section */
-.brand-map-section {
+.brand-location-composite {
     display: flex;
     flex-direction: column;
     gap: 30px;
     position: relative;
 }
 
-.brand-map-wrapper {
+.dual-panel-layout {
     display: grid;
     grid-template-columns: 1.5fr 1fr;
     gap: 40px;
@@ -68,13 +78,13 @@
 }
 
 /* Brand Content */
-.brand-content {
+.brand-identity-panel {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-.footer-logo {
+.establishment-signature {
     font-family: "Eagle Lake", serif;
     font-size: 2.7rem;
     background: #1a2d0b;
@@ -87,7 +97,7 @@
     text-shadow: 0 2px 8px rgba(45, 80, 22, 0.5);
 }
 
-.footer-logo::after {
+.establishment-signature::after {
     content: '';
     position: absolute;
     bottom: -8px;
@@ -98,7 +108,7 @@
     border-radius: 3px;
 }
 
-.footer-description {
+.establishment-description {
     font-family: "Gideon Roman", serif;
     font-size: 1.2rem;
     line-height: 1.6;
@@ -109,7 +119,7 @@
     padding-left: 15px;
 }
 
-.footer-description::before {
+.establishment-description::before {
     content: '';
     position: absolute;
     left: 0;
@@ -121,13 +131,13 @@
 }
 
 /* Map Content */
-.map-content {
+.geospatial-panel {
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
-.map-section-title {
+.geolocation-header {
     font-family: "Eagle Lake", serif;
     font-size: 1.8rem;
     color: #1a2d0b;
@@ -138,7 +148,7 @@
     text-shadow: 0 2px 8px rgba(45, 80, 22, 0.5);
 }
 
-.map-section-title::after {
+.geolocation-header::after {
     content: '';
     position: absolute;
     bottom: -5px;
@@ -149,11 +159,11 @@
     border-radius: 2px;
 }
 
-.map-preview {
+.cartographic-preview {
     margin-top: 10px;
 }
 
-.mini-map {
+.interactive-minimap {
     background: rgba(255, 255, 255, 0.1);
     border: 2px solid rgba(141, 184, 96, 0.4);
     border-radius: 15px;
@@ -171,7 +181,7 @@
     cursor: pointer;
 }
 
-.mini-map:hover {
+.interactive-minimap:hover {
     border-color: rgba(141, 184, 96, 0.7);
     background: rgba(255, 255, 255, 0.15);
     transform: translateY(-3px);
@@ -179,7 +189,7 @@
 }
 
 /* Google Maps Style Thumbnail */
-.google-map-thumbnail {
+.map-simulator {
     width: 100%;
     height: 100%;
     background: #f8f9fa;
@@ -188,7 +198,7 @@
     border-radius: 13px;
 }
 
-.map-container {
+.cartographic-container {
     width: 100%;
     height: 100%;
     position: relative;
@@ -196,7 +206,7 @@
 }
 
 /* Map Background with Grid */
-.map-background {
+.map-base-layer {
     position: absolute;
     top: 0;
     left: 0;
@@ -204,7 +214,7 @@
     height: 100%;
 }
 
-.map-grid {
+.coordinate-grid {
     position: absolute;
     top: 0;
     left: 0;
@@ -217,7 +227,7 @@
 }
 
 /* Map Areas */
-.map-areas {
+.territory-zones {
     position: absolute;
     top: 0;
     left: 0;
@@ -225,13 +235,13 @@
     height: 100%;
 }
 
-.area {
+.zone {
     position: absolute;
     background: rgba(255, 255, 255, 0.7);
     border: 0.5px solid rgba(200, 200, 200, 0.3);
 }
 
-.area-1 {
+.sector-alpha {
     top: 10%;
     left: 10%;
     width: 25%;
@@ -239,7 +249,7 @@
     background: rgba(255, 255, 255, 0.8);
 }
 
-.area-2 {
+.sector-beta {
     top: 40%;
     left: 60%;
     width: 30%;
@@ -247,7 +257,7 @@
     background: rgba(255, 255, 255, 0.9);
 }
 
-.area-3 {
+.sector-gamma {
     top: 70%;
     left: 20%;
     width: 20%;
@@ -255,7 +265,7 @@
     background: rgba(255, 255, 255, 0.7);
 }
 
-.area-4 {
+.sector-delta {
     top: 20%;
     left: 70%;
     width: 15%;
@@ -264,7 +274,7 @@
 }
 
 /* Roads - 1px width */
-.map-roads {
+.transportation-network {
     position: absolute;
     top: 0;
     left: 0;
@@ -272,59 +282,59 @@
     height: 100%;
 }
 
-.road {
+.route {
     position: absolute;
     background: #5a5a5a;
 }
 
-.road.horizontal {
+.route.horizontal {
     width: 100%;
     height: 1px;
 }
 
-.road.vertical {
+.route.vertical {
     width: 1px;
     height: 100%;
 }
 
 /* Different road types for visual hierarchy */
-.main-road {
+.arterial {
     background: #333;
     height: 2px;
     width: 100%;
 }
 
-.main-road.vertical {
+.arterial.vertical {
     width: 2px;
     height: 100%;
 }
 
-.secondary-road {
+.collector {
     background: #666;
 }
 
-.tertiary-road {
+.local {
     background: #999;
     height: 0.5px;
     width: 100%;
 }
 
-.tertiary-road.vertical {
+.local.vertical {
     width: 0.5px;
     height: 100%;
 }
 
 /* Road positions */
-.road.horizontal:nth-child(1) { top: 35%; }
-.road.horizontal:nth-child(3) { top: 65%; }
-.road.horizontal:nth-child(5) { top: 50%; }
+.route.horizontal:nth-child(1) { top: 35%; }
+.route.horizontal:nth-child(3) { top: 65%; }
+.route.horizontal:nth-child(5) { top: 50%; }
 
-.road.vertical:nth-child(2) { left: 45%; }
-.road.vertical:nth-child(4) { left: 75%; }
-.road.vertical:nth-child(6) { left: 25%; }
+.route.vertical:nth-child(2) { left: 45%; }
+.route.vertical:nth-child(4) { left: 75%; }
+.route.vertical:nth-child(6) { left: 25%; }
 
 /* Buildings */
-.map-buildings {
+.urban-structures {
     position: absolute;
     top: 0;
     left: 0;
@@ -332,13 +342,13 @@
     height: 100%;
 }
 
-.building {
+.edifice {
     position: absolute;
     background: #d1d1d1;
     border: 0.5px solid #b8b8b8;
 }
 
-.building-1 {
+.structure-one {
     top: 15%;
     left: 15%;
     width: 12%;
@@ -346,7 +356,7 @@
     background: #e0e0e0;
 }
 
-.building-2 {
+.structure-two {
     top: 45%;
     left: 65%;
     width: 8%;
@@ -354,7 +364,7 @@
     background: #d8d8d8;
 }
 
-.building-3 {
+.structure-three {
     top: 25%;
     left: 50%;
     width: 10%;
@@ -362,7 +372,7 @@
     background: #e8e8e8;
 }
 
-.building-4 {
+.structure-four {
     top: 60%;
     left: 30%;
     width: 7%;
@@ -370,7 +380,7 @@
     background: #d0d0d0;
 }
 
-.building-5 {
+.structure-five {
     top: 70%;
     left: 80%;
     width: 9%;
@@ -379,7 +389,7 @@
 }
 
 /* Map Marker */
-.map-marker {
+.position-indicator {
     position: absolute;
     top: 48%;
     left: 52%;
@@ -387,7 +397,7 @@
     z-index: 20;
 }
 
-.marker-pin {
+.pin-marker {
     width: 16px;
     height: 16px;
     background: #ea4335;
@@ -399,7 +409,7 @@
     z-index: 2;
 }
 
-.marker-pulse {
+.signal-pulse {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -409,10 +419,10 @@
     background: #ea4335;
     border-radius: 50%;
     opacity: 0.3;
-    animation: pulse 2s infinite;
+    animation: beacon-pulse 2s infinite;
 }
 
-@keyframes pulse {
+@keyframes beacon-pulse {
     0% {
         transform: translate(-50%, -50%) scale(1);
         opacity: 0.3;
@@ -428,7 +438,7 @@
 }
 
 /* Location Labels */
-.map-labels {
+.location-annotations {
     position: absolute;
     top: 55%;
     left: 52%;
@@ -443,7 +453,7 @@
     z-index: 15;
 }
 
-.location-label {
+.locality-label {
     font-family: 'Roboto', Arial, sans-serif;
     font-size: 12px;
     font-weight: 600;
@@ -451,7 +461,7 @@
     margin-bottom: 1px;
 }
 
-.location-subtitle {
+.locality-subtitle {
     font-family: 'Roboto', Arial, sans-serif;
     font-size: 9px;
     color: #5f6368;
@@ -459,7 +469,7 @@
 }
 
 /* Google Watermark */
-.google-watermark {
+.platform-credits {
     position: absolute;
     bottom: 6px;
     right: 6px;
@@ -476,32 +486,32 @@
     z-index: 10;
 }
 
-.google-logo {
+.platform-logo {
     color: #4285f4;
     font-weight: bold;
     font-size: 10px;
 }
 
-.watermark-text {
+.credits-text {
     display: flex;
     flex-direction: column;
     line-height: 1;
 }
 
-.google-text {
+.platform-name {
     color: #4285f4;
     font-weight: 600;
     font-size: 8px;
 }
 
-.maps-text {
+.service-name {
     color: #34a853;
     font-weight: 600;
     font-size: 8px;
 }
 
 /* Map Overlay */
-.map-overlay {
+.cartographic-overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -517,29 +527,29 @@
     z-index: 25;
 }
 
-.mini-map:hover .map-overlay {
+.interactive-minimap:hover .cartographic-overlay {
     opacity: 1;
 }
 
-.map-overlay-content {
+.overlay-content {
     text-align: center;
     color: white;
     transform: translateY(10px);
     transition: transform 0.3s ease;
 }
 
-.mini-map:hover .map-overlay-content {
+.interactive-minimap:hover .overlay-content {
     transform: translateY(0);
 }
 
-.map-icon {
+.cartographic-icon {
     font-size: 1.8rem;
     display: block;
     margin-bottom: 6px;
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
 }
 
-.map-click-text {
+.interaction-prompt {
     font-family: "Gideon Roman", serif;
     font-size: 0.9rem;
     font-weight: 600;
@@ -548,13 +558,13 @@
 }
 
 /* ITM University Link */
-.itm-link {
+.academic-link {
     color: #3f9e00;
     font-weight: 600;
     transition: all 0.3s ease;
 }
 
-.itm-link:hover {
+.academic-link:hover {
     color: #4a7c1f;
     text-decoration: underline !important;
 }
@@ -568,79 +578,79 @@
 
 /* Responsive adjustments for the map thumbnail */
 @media (max-width: 768px) {
-    .mini-map {
+    .interactive-minimap {
         min-height: 180px;
         height: 180px;
     }
     
-    .map-click-text {
+    .interaction-prompt {
         font-size: 0.8rem;
     }
     
-    .map-icon {
+    .cartographic-icon {
         font-size: 1.6rem;
     }
     
-    .location-label {
+    .locality-label {
         font-size: 11px;
     }
     
-    .location-subtitle {
+    .locality-subtitle {
         font-size: 8px;
     }
     
-    .marker-pin {
+    .pin-marker {
         width: 14px;
         height: 14px;
     }
 }
 
 @media (max-width: 480px) {
-    .mini-map {
+    .interactive-minimap {
         min-height: 150px;
         height: 150px;
     }
     
-    .map-click-text {
+    .interaction-prompt {
         font-size: 0.7rem;
     }
     
-    .map-icon {
+    .cartographic-icon {
         font-size: 1.4rem;
     }
     
-    .location-label {
+    .locality-label {
         font-size: 10px;
     }
     
-    .location-subtitle {
+    .locality-subtitle {
         font-size: 7px;
     }
     
-    .map-labels {
+    .location-annotations {
         min-width: 90px;
         padding: 4px 6px;
     }
     
-    .marker-pin {
+    .pin-marker {
         width: 12px;
         height: 12px;
     }
     
-    .google-watermark {
+    .platform-credits {
         padding: 2px 4px;
         font-size: 8px;
     }
 }
 /* Social Media Section */
-.social-follow-section {
+.social-engagement-section {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    margin-top: -120px;
+    margin-top: 0px;
 }
 
-.social-title {
+.social-connect-header {
     font-family: "Eagle Lake", serif;
     font-size: 1.8rem;
     color: #1a2d0b;
@@ -651,7 +661,7 @@
     text-shadow: 0 2px 8px rgba(45, 80, 22, 0.5);
 }
 
-.social-title::after {
+.social-connect-header::after {
     content: '';
     position: absolute;
     bottom: -5px;
@@ -662,12 +672,12 @@
     border-radius: 2px;
 }
 
-.social-icons {
+.social-platform-icons {
     display: flex;
     gap: 8px;
 }
 
-.social-icon {
+.social-channel {
     width: 45px;
     height: 45px;
     border-radius: 10px;
@@ -682,7 +692,7 @@
     overflow: hidden;
 }
 
-.social-icon::before {
+.social-channel::before {
     content: '';
     position: absolute;
     top: 0;
@@ -693,17 +703,17 @@
     transition: left 0.6s ease;
 }
 
-.social-icon:hover::before {
+.social-channel:hover::before {
     left: 100%;
 }
 
-.social-icon svg {
+.social-channel svg {
     width: 22px;
     height: 22px;
     transition: all 0.3s ease;
 }
 
-.social-icon:hover {
+.social-channel:hover {
     background: linear-gradient(135deg, #8db860, #a8e063);
     color: white;
     transform: translateY(-2px) scale(1.1);
@@ -711,12 +721,12 @@
     box-shadow: 0 6px 15px rgba(141, 184, 96, 0.4);
 }
 
-.social-icon:hover svg {
+.social-channel:hover svg {
     transform: scale(1.15);
 }
 
 /* Quick Links Horizontal Section */
-.quick-links-horizontal-section {
+.navigation-ribbon {
     margin-top: 40px;
     padding: 30px 0;
     border-top: 2px solid rgba(141, 184, 96, 0.3);
@@ -726,10 +736,9 @@
     backdrop-filter: blur(10px);
     border-radius: 15px;
     position: relative;
-    overflow: hidden;
 }
 
-.quick-links-horizontal-section::before {
+.navigation-ribbon::before {
     content: '';
     position: absolute;
     top: 0;
@@ -743,7 +752,7 @@
     z-index: -1;
 }
 
-.quick-links-title {
+.rapid-access-header {
     font-family: "Eagle Lake", serif;
     font-size: 2.2rem;
     color: #1a2d0b;
@@ -754,7 +763,7 @@
     text-shadow: 0 2px 8px rgba(45, 80, 22, 0.5);
 }
 
-.quick-links-title::after {
+.rapid-access-header::after {
     content: '';
     position: absolute;
     bottom: -8px;
@@ -767,7 +776,7 @@
     box-shadow: 0 2px 8px rgba(141, 184, 96, 0.5);
 }
 
-.quick-links-container {
+.access-links-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -777,7 +786,7 @@
     margin: 0 auto;
 }
 
-.quick-link-horizontal {
+.rapid-access-link {
     font-family: "Gideon Roman", serif;
     color: #000000;
     text-decoration: none;
@@ -795,7 +804,7 @@
     backdrop-filter: blur(5px);
 }
 
-.quick-link-horizontal::before {
+.rapid-access-link::before {
     content: '';
     position: absolute;
     top: 0;
@@ -806,11 +815,11 @@
     transition: left 0.6s ease;
 }
 
-.quick-link-horizontal:hover::before {
+.rapid-access-link:hover::before {
     left: 100%;
 }
 
-.quick-link-horizontal:hover {
+.rapid-access-link:hover {
     background: linear-gradient(135deg, #8db860, #a8e063);
     color: #2d5016;
     transform: translateY(-3px) scale(1.05);
@@ -820,12 +829,12 @@
 }
 
 /* Footer Bottom */
-.footer-bottom {
+.footer-foundation {
     margin-top: 50px;
     position: relative;
 }
 
-.footer-divider {
+.foundation-divider {
     height: 2px;
     background: linear-gradient(90deg, 
         transparent, 
@@ -838,10 +847,21 @@
     border-radius: 2px;
 }
 
+.copyright-notice {
+    font-family: "Gideon Roman", serif;
+    color: #ffffff;
+    font-size: 1.1rem;
+    text-align: center;
+    margin: 0;
+    font-weight: 500;
+    position: relative;
+    padding: 0 20px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    white-space: normal;
+}
 
-
-.copyright-text::before,
-.copyright-text::after {
+.copyright-notice::before,
+.copyright-notice::after {
     content: '❖';
     position: absolute;
     top: 50%;
@@ -851,16 +871,25 @@
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
-.copyright-text::before {
+.copyright-notice::before {
     left: 0;
 }
 
-.copyright-text::after {
+.copyright-notice::after {
     right: 0;
 }
 
+.organic-embellishments,
+.geometric-overlay {
+    position: absolute;
+    inset: 0;
+    overflow: hidden; /* FIX */
+    pointer-events: none;
+    z-index: 1;
+}
+
 /* Creative Background Elements */
-.creative-elements {
+.organic-embellishments {
     position: absolute;
     top: 0;
     left: 0;
@@ -870,34 +899,34 @@
     z-index: 1;
 }
 
-.creative-element {
+.flora-motif {
     position: absolute;
     opacity: 0.1;
-    animation: creativeFloat 15s infinite ease-in-out;
+    animation: organic-drift 15s infinite ease-in-out;
 }
 
-.creative-element:nth-child(1) {
+.flora-motif:nth-child(1) {
     top: 20%;
     left: 5%;
     font-size: 2rem;
     animation-delay: 0s;
 }
 
-.creative-element:nth-child(2) {
+.flora-motif:nth-child(2) {
     top: 60%;
     right: 8%;
     font-size: 1.8rem;
     animation-delay: 5s;
 }
 
-.creative-element:nth-child(3) {
+.flora-motif:nth-child(3) {
     bottom: 25%;
     left: 15%;
     font-size: 2.2rem;
     animation-delay: 10s;
 }
 
-@keyframes creativeFloat {
+@keyframes organic-drift {
     0%, 100% {
         transform: translateY(0px) rotate(0deg) scale(1);
         opacity: 0.1;
@@ -917,7 +946,7 @@
 }
 
 /* HUD Elements for Enhanced Visuals */
-.hud-elements {
+.geometric-overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -927,41 +956,41 @@
     z-index: 1;
 }
 
-.hud-element {
+.hologram-node {
     position: absolute;
     width: 6px;
     height: 6px;
     background: #8db860;
     border-radius: 50%;
-    animation: hudFloat 8s infinite ease-in-out;
+    animation: node-oscillation 8s infinite ease-in-out;
     box-shadow: 0 0 8px rgba(141, 184, 96, 0.5);
 }
 
-.hud-element:nth-child(1) {
+.hologram-node:nth-child(1) {
     top: 30%;
     left: 10%;
     animation-delay: 0s;
 }
 
-.hud-element:nth-child(2) {
+.hologram-node:nth-child(2) {
     top: 70%;
     right: 12%;
     animation-delay: 2s;
 }
 
-.hud-element:nth-child(3) {
+.hologram-node:nth-child(3) {
     bottom: 40%;
     left: 20%;
     animation-delay: 4s;
 }
 
-.hud-element:nth-child(4) {
+.hologram-node:nth-child(4) {
     top: 50%;
     right: 25%;
     animation-delay: 6s;
 }
 
-@keyframes hudFloat {
+@keyframes node-oscillation {
     0%, 100% {
         transform: translateY(0px) scale(1);
         opacity: 0.7;
@@ -972,9 +1001,8 @@
     }
 }
 
-
 /* ITM Logo Styles - Inline on all devices */
-.crafted-by-container {
+.creator-attribution {
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -983,68 +1011,54 @@
     flex-wrap: nowrap;
 }
 
-.itm-logo {
+.academic-logo {
     height: 30px;
     width: auto;
     cursor: pointer;
     transition: all 0.3s ease;
-    flex-shrink: 0; /* Prevent logo from shrinking */
+    flex-shrink: 0;
 }
 
-.itm-logo {
+.academic-logo {
     padding: 2px;
     border-radius: 3px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
-.itm-logo:hover {
+.academic-logo:hover {
     transform: scale(1.05);
-}
-
-/* Ensure copyright text doesn't break the inline layout */
-.copyright-text {
-    font-family: "Gideon Roman", serif;
-    color: #ffffff;
-    font-size: 1.1rem;
-    text-align: center;
-    margin: 0;
-    font-weight: 500;
-    position: relative;
-    padding: 0 20px;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-    white-space: normal; /* Allow normal text wrapping */
 }
 
 /* Specific styling for mobile and small devices */
 @media (max-width: 768px) {
-    .crafted-by-container {
+    .creator-attribution {
         gap: 4px;
-        display: inline-flex !important; /* Force inline flex */
-        white-space: nowrap !important; /* Force no wrapping */
+        display: inline-flex !important;
+        white-space: nowrap !important;
     }
     
-    .itm-logo {
+    .academic-logo {
         height: 22px;
-        margin-left: 2px; /* Small space from text */
+        margin-left: 2px;
     }
     
-    .copyright-text {
+    .copyright-notice {
         font-size: 1rem;
         line-height: 1.4;
     }
 }
 
 @media (max-width: 480px) {
-    .crafted-by-container {
+    .creator-attribution {
         gap: 3px;
     }
     
-    .itm-logo {
+    .academic-logo {
         height: 18px;
         padding: 1px;
     }
     
-    .copyright-text {
+    .copyright-notice {
         font-size: 0.9rem;
         padding: 0 15px;
     }
@@ -1052,15 +1066,15 @@
 
 /* Extra small devices */
 @media (max-width: 360px) {
-    .crafted-by-container {
+    .creator-attribution {
         gap: 2px;
     }
     
-    .itm-logo {
+    .academic-logo {
         height: 12px;
     }
     
-    .copyright-text {
+    .copyright-notice {
         font-size: 0.85rem;
     }
 }
@@ -1070,55 +1084,55 @@
 /* Tablet Landscape - Footer Only */
 @media (min-width: 769px) and (max-width: 1024px) {
     /* Footer Responsive */
-    .footer-container {
+    .terrain-content-wrapper {
         padding: 40px 20px 20px;
     }
     
-    .brand-map-wrapper {
+    .dual-panel-layout {
         grid-template-columns: 1.2fr 1fr;
         gap: 30px;
     }
     
-    .footer-logo {
+    .establishment-signature {
         font-size: 2.2rem;
     }
     
-    .footer-description {
+    .establishment-description {
         font-size: 1rem;
         padding-left: 12px;
     }
     
-    .map-section-title {
+    .geolocation-header {
         font-size: 1.6rem;
     }
     
-    .social-title {
+    .social-connect-header {
         font-size: 1.6rem;
     }
     
-    .quick-links-container {
+    .access-links-container {
         gap: 20px;
     }
     
-    .quick-link-horizontal {
+    .rapid-access-link {
         font-size: 1rem;
         padding: 10px 20px;
     }
     
-    .quick-links-title {
+    .rapid-access-header {
         font-size: 1.8rem;
     }
     
-    .copyright-text {
+    .copyright-notice {
         font-size: 1rem;
     }
     
-    .social-icon {
+    .social-channel {
         width: 32px;
         height: 32px;
     }
     
-    .social-icon svg {
+    .social-channel svg {
         width: 15px;
         height: 15px;
     }
@@ -1126,50 +1140,50 @@
 
 /* Medium Mobile Devices (426px to 480px) - Footer Only */
 @media (max-width: 480px) {
-    .footer-logo {
+    .establishment-signature {
         font-size: 1.4rem !important;
     }
     
-    .footer-description {
+    .establishment-description {
         font-size: 0.9rem !important;
         line-height: 1.4 !important;
     }
     
-    .map-section-title,
-    .social-title {
+    .geolocation-header,
+    .social-connect-header {
         font-size: 1.1rem !important;
     }
-    .social-title {
+    .social-connect-header {
         margin-top:85px;
     }
-    .quick-links-title {
+    .rapid-access-header {
         font-size: 1.3rem !important;
         margin-bottom: 20px !important;
     }
     
-    .quick-link-horizontal {
+    .rapid-access-link {
         font-size: 0.8rem !important;
         padding: 6px 12px !important;
     }
     
-    .copyright-text {
+    .copyright-notice {
         font-size: 0.8rem !important;
     }
     
     /* Reduce gaps */
-    .brand-map-section {
+    .brand-location-composite {
         gap: 20px !important;
     }
     
-    .brand-map-wrapper {
+    .dual-panel-layout {
         gap: 15px !important;
     }
     
-    .quick-links-container {
+    .access-links-container {
         gap: 8px !important;
     }
     
-    .social-icons {
+    .social-platform-icons {
         gap: 5px !important;
     }
 }
