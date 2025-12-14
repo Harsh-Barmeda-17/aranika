@@ -10,6 +10,7 @@ import Login from './components/Login';
 import ForgotPassword from './components/ForgotPassword';
 import ReachUs from './components/ReachUs';
 import Services from './components/ServicesPage';
+import Footer from './components/Footer'; // IMPORT FOOTER
 import './App.css';
 
 // Create Language Context
@@ -20,7 +21,7 @@ function App() {
   const [currentPage, setCurrentPage] = useState(() => {
     // Initialize state from localStorage immediately (before first render)
     const savedPage = localStorage.getItem('currentPage');
-    return savedPage || 'home';
+    return savedPage || 'home';  // Default to 'home'
   });
   const [language, setLanguage] = useState('english');
   const ballRef = useRef(null);
@@ -185,6 +186,8 @@ function App() {
           onLanguageChange={handleLanguageChange}
         />
         {renderCurrentPage()}
+        {/* Add Footer with navigation function */}
+        <Footer onNavigate={handleNavbarNavigation} />
       </div>
     </LanguageContext.Provider>
   );

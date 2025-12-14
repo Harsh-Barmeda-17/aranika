@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/Footer.css";
 
-const Footer = () => {
+const Footer = ({ onNavigate }) => {
     const handleMapClick = () => {
         window.open(
             "https://maps.google.com/?q=18.8759292,81.9123589",
@@ -11,6 +11,15 @@ const Footer = () => {
 
     const handleItmClick = () => {
         window.open("https://www.itmuniversity.org/", "_blank");
+    };
+
+    // Handle navigation from footer quick links
+    const handleQuickLinkClick = (page) => {
+        if (onNavigate) {
+            onNavigate(page);
+        }
+        // Scroll to top when navigating
+        window.scrollTo(0, 0);
     };
 
     return (
@@ -206,13 +215,42 @@ const Footer = () => {
                 <div className="navigation-ribbon">
                     <h4 className="rapid-access-header">Quick Links</h4>
                     <div className="access-links-container">
-                        <a href="#home" className="rapid-access-link">Home</a>
-                        <a href="#rooms" className="rapid-access-link">Rooms</a>
-                        <a href="#gallery" className="rapid-access-link">Gallery</a>
-                        <a href="#tariff" className="rapid-access-link">Tariff</a>
-                        <a href="#services" className="rapid-access-link">Services</a>
-                        <a href="#booking" className="rapid-access-link">Book Now</a>
-                        <a href="#contact" className="rapid-access-link">Reach Us</a>
+                        <button 
+                            className="rapid-access-link" 
+                            onClick={() => handleQuickLinkClick('home')}
+                        >
+                            Home
+                        </button>
+                        <button 
+                            className="rapid-access-link" 
+                            onClick={() => handleQuickLinkClick('dhurwadera')}
+                        >
+                            Tarrif
+                        </button>
+                        <button 
+                            className="rapid-access-link" 
+                            onClick={() => handleQuickLinkClick('gallery')}
+                        >
+                            Gallery
+                        </button>
+                        <button 
+                            className="rapid-access-link" 
+                            onClick={() => handleQuickLinkClick('services')}
+                        >
+                            Services
+                        </button>
+                        <button 
+                            className="rapid-access-link" 
+                            onClick={() => handleQuickLinkClick('booking')}
+                        >
+                            Book Now
+                        </button>
+                        <button 
+                            className="rapid-access-link" 
+                            onClick={() => handleQuickLinkClick('contact')}
+                        >
+                            Reach Us
+                        </button>
                     </div>
                 </div>
 
