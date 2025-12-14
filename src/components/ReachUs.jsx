@@ -1,5 +1,4 @@
 import React from 'react';
-import Header from './Header';
 import Footer from './Footer';
 import BackToTop from './BackToTop';
 import '../styles/ReachUs.css';
@@ -22,8 +21,18 @@ const ReachUs = ({ onNavigate }) => {
 
   return (
     <div className="reachus-page">
-      <Header />
-      
+      {/* NEW: Same header as Gallery page with new text */}
+      <div className="gallery-header-section">
+        <div className="gallery-header-background">
+          <div className="gallery-nature-overlay"></div>
+        </div>
+        <div className="gallery-header-content">
+          <h1>Dhurwa Dera</h1>
+          <div className="gallery-divider"></div>
+          <p className="gallery-subtitle">Your Gateway to Village Serenity Awaits</p>
+        </div>
+      </div>
+
       <main className="reachus-main">
         <div className="reachus-container">
           <div className="reachus-card">

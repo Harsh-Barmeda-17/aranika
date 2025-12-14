@@ -75,17 +75,20 @@ const ServicesPage = () => {
 
     return (
         <div className="services-page">
+            {/* UPDATED: Same header as Gallery page with new text */}
+            <div className="gallery-header-section">
+                <div className="gallery-header-background">
+                    <div className="gallery-nature-overlay"></div>
+                </div>
+                <div className="gallery-header-content">
+                    <h1>Dhurwa Dera</h1>
+                    <div className="gallery-divider"></div>
+                    <p className="gallery-subtitle">Where Every Service is a Step Closer to Nature</p>
+                </div>
+            </div>
+
             <main className="services-main">
                 <div className="services-container">
-                    {/* Hero Section */}
-                    <section className="hero-section">
-                        <div className="hero-content">
-                            <h1 className="hero-title">
-                                <span className="title-line-2">Dhurwa Dera Services</span>
-                            </h1>
-                        </div>
-                    </section>
-
                     <div className="services-content">
                         {/* Welcome Section */}
                         <section className="welcome-section">
