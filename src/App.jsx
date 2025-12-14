@@ -17,33 +17,52 @@ export const LanguageContext = createContext();
 
 function App() {
   const [bookingData, setBookingData] = useState(null);
-  const [currentPage, setCurrentPage] = useState('home');
+  const [currentPage, setCurrentPage] = useState(() => {
+    // Initialize state from localStorage immediately (before first render)
+    const savedPage = localStorage.getItem('currentPage');
+    return savedPage || 'home';
+  });
   const [language, setLanguage] = useState('english');
   const ballRef = useRef(null);
   const trailRef = useRef(null);
   const positionRef = useRef({ x: 0, y: 0 });
 
+  // Save page to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem('currentPage', currentPage);
+  }, [currentPage]);
+
+  // Also save page before page unload (as backup)
+  useEffect(() => {
+    const handleBeforeUnload = () => {
+      localStorage.setItem('currentPage', currentPage);
+    };
+    
+    window.addEventListener('beforeunload', handleBeforeUnload);
+    
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+    };
+  }, [currentPage]);
+
+  // Always scroll to top on page change
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [currentPage]);
+
   const handleBookingSubmit = (data) => {
     setBookingData(data);
     setCurrentPage('confirmation');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleNewBooking = () => {
     setBookingData(null);
     setCurrentPage('booking');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  const navigateToBooking = () => {
-    setCurrentPage('booking');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   // Handle navigation from navbar
   const handleNavbarNavigation = (page) => {
     setCurrentPage(page);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   // Handle language change from navbar
@@ -122,7 +141,7 @@ function App() {
       case 'home':
         return <Home />;
       case 'dhurwadera':
-        return <DhurwaDera />;
+        return <DhurwaDera onNavigate={handleNavbarNavigation} />;
       case 'booking':
         return <BookingPage onSubmit={handleBookingSubmit} />;
       case 'confirmation':

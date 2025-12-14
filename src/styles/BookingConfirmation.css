@@ -1,3 +1,9 @@
+/* All your existing BookingConfirmation.css remains the same */
+
+/* Add this at the end for PDF and Hindi support */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap');
+
+
 .confirmation-page {
   min-height: 100vh;
   display: flex;
@@ -174,6 +180,7 @@
 .confirmation-content {
   margin-bottom: 2.5rem;
   width: 100%;
+  position: relative;
 }
 
 .info-section {
@@ -185,6 +192,8 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   width: 100%;
   overflow-x: hidden;
+  break-inside: avoid;
+  page-break-inside: avoid;
 }
 
 .guest-section {
@@ -222,6 +231,8 @@
   padding: 0.75rem 0;
   border-bottom: 1px solid var(--wood-light);
   width: 100%;
+  page-break-inside: avoid;
+  break-inside: avoid;
 }
 
 .info-item.full-width {
@@ -327,6 +338,8 @@
   line-height: 1.5;
   color: var(--text-dark);
   text-align: left;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 /* Identity Proof Styling */
@@ -349,6 +362,28 @@
   border: 1px solid var(--primary-medium);
 }
 
+/* Primary Guest Badge */
+.primary-badge {
+  background: var(--primary-medium);
+  color: var(--white);
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-left: 1rem;
+  vertical-align: middle;
+}
+
+/* ID Image Status */
+.id-image-status {
+  background: var(--primary-medium);
+  color: var(--white);
+  padding: 0.4rem 0.8rem;
+  border-radius: 15px;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
 /* Date Styling */
 .date-highlight {
   background: var(--cream);
@@ -357,6 +392,14 @@
   border: 1px solid var(--wood-medium);
   font-weight: 600;
   color: var(--primary-dark);
+}
+
+/* Time note styling */
+.time-note {
+  font-size: 0.85rem;
+  color: var(--primary-medium);
+  font-weight: 500;
+  margin-top: 0.3rem;
 }
 
 .duration-badge {
@@ -410,6 +453,8 @@
   align-items: center;
   padding: 0.8rem 0;
   border-bottom: 1px solid var(--wood-light);
+  page-break-inside: avoid;
+  break-inside: avoid;
 }
 
 .price-item:last-child {
@@ -509,16 +554,19 @@
 /* Enhanced Important Notes */
 .notes-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
 }
 
 .note-item {
-  padding: 1.2rem;
+  padding: 1rem;
   background: var(--white);
   border-radius: 8px;
   border: 1px solid var(--wood-light);
   transition: all 0.2s ease;
+  break-inside: avoid;
+  page-break-inside: avoid;
 }
 
 .note-item:hover {
@@ -528,8 +576,8 @@
 
 .note-content strong {
   color: var(--primary-dark);
-  font-size: 1rem;
-  margin-bottom: 0.3rem;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
   display: block;
   font-family: 'Gideon Roman', serif;
 }
@@ -588,6 +636,36 @@
   display: inline-block;
 }
 
+/* QR Code Display in Confirmation */
+.qr-code-display {
+  margin: 1.5rem 0;
+}
+
+.qr-placeholder-confirm {
+  padding: 2rem;
+  background: var(--white);
+  border-radius: 8px;
+  border: 2px dashed var(--wood-medium);
+  text-align: center;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.qr-placeholder-confirm .qr-text {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--primary-dark);
+  margin-bottom: 1rem;
+  font-family: 'Gideon Roman', serif;
+}
+
+.qr-placeholder-confirm .qr-note {
+  font-size: 0.8rem;
+  color: var(--text-medium);
+  font-style: italic;
+  margin-top: 0.5rem;
+}
+
 /* Confirmation Actions */
 .confirmation-actions {
   display: grid;
@@ -618,6 +696,32 @@
 .download-btn:hover {
   background: var(--primary-medium);
   transform: translateY(-2px);
+}
+
+.download-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.download-btn:disabled:hover {
+  transform: none;
+  background: var(--primary-dark);
+}
+
+/* Add spinner styles */
+.download-btn .spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid transparent;
+  border-top: 2px solid var(--white);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-right: 0.5rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 .new-booking-btn {
@@ -699,6 +803,11 @@
     gap: 1.5rem;
   }
   
+  .notes-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  
   .confirmation-actions {
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
@@ -718,6 +827,11 @@
   
   .info-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+  
+  .notes-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1.25rem;
   }
   
@@ -761,6 +875,10 @@
   }
   
   .info-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .notes-grid {
     grid-template-columns: 1fr;
   }
   
@@ -826,6 +944,11 @@
     padding: 1rem 1.25rem;
     font-size: 1rem;
   }
+  
+  .payment-methods {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 @media (max-width: 360px) {
@@ -843,11 +966,6 @@
   
   .section-header {
     text-align: center;
-  }
-  
-  .payment-methods {
-    flex-direction: column;
-    align-items: center;
   }
 }
 
@@ -913,82 +1031,338 @@
   }
 }
 
-/* Add to existing BookingConfirmation.css */
-
-/* Primary Guest Badge */
-.primary-badge {
-  background: var(--primary-medium);
-  color: var(--white);
-  padding: 0.3rem 0.8rem;
-  border-radius: 15px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  margin-left: 1rem;
-  vertical-align: middle;
+/* Hindi specific styles */
+:lang(hi) .info-section h3,
+:lang(hi) .confirmation-header h2,
+:lang(hi) .success-message,
+:lang(hi) .booking-id,
+:lang(hi) .info-item label,
+:lang(hi) .info-item span,
+:lang(hi) .price-label,
+:lang(hi) .price-amount,
+:lang(hi) .instruction h4,
+:lang(hi) .instruction p,
+:lang(hi) .contact-quick-access h4,
+:lang(hi) .download-btn,
+:lang(hi) .new-booking-btn {
+  font-family: 'Noto Sans Devanagari', sans-serif;
 }
 
-/* ID Image Status */
-.id-image-status {
-  background: var(--primary-medium);
-  color: var(--white);
-  padding: 0.4rem 0.8rem;
-  border-radius: 15px;
-  font-weight: 600;
-  font-size: 0.85rem;
+:lang(hi) .address-text,
+:lang(hi) .info-item span {
+  word-break: break-word;
 }
 
-/* QR Code Display in Confirmation */
-.qr-code-display {
-  margin: 1.5rem 0;
+/* PDF-specific print styles */
+@media print {
+  .confirmation-page {
+    padding-top: 0;
+  }
+  
+  .confirmation-card {
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    max-width: 100%;
+  }
+  
+  .confirmation-actions,
+  .contact-quick-access,
+  .back-to-top {
+    display: none !important;
+  }
+  
+  .confirmation-header {
+    text-align: center;
+    margin-bottom: 20px;
+    page-break-after: avoid;
+  }
+  
+  .confirmation-content .info-section {
+    margin-bottom: 15px;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  
+  .info-item,
+  .price-item {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  
+  .note-item {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
 }
 
-.qr-placeholder-confirm {
-  padding: 2rem;
+/* Mobile responsive adjustments for PDF content */
+@media (max-width: 767px) {
+  .confirmation-content .info-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .notes-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .confirmation-content .info-section {
+    padding: 1rem;
+  }
+}
+
+/* Ensure consistent styling for PDF and screen */
+.info-section {
+  background: var(--light-cream);
+  border: 1px solid var(--wood-light);
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 25px;
+  padding: 20px;
+}
+
+.price-section-confirm {
+  background: var(--cream);
+  border: 2px solid var(--wood-medium);
+}
+
+.instruction {
+  padding: 20px;
   background: var(--white);
   border-radius: 8px;
-  border: 2px dashed var(--wood-medium);
-  text-align: center;
-  max-width: 300px;
-  margin: 0 auto;
+  border: 1px solid var(--wood-light);
 }
 
-.qr-placeholder-confirm .qr-text {
-  font-size: 1.1rem;
+.payment-note {
+  background: rgba(139, 69, 19, 0.1);
+  border: 1px solid var(--clay-red);
+  border-radius: 6px;
+  padding: 15px;
+  margin-top: 15px;
+  color: var(--clay-red);
   font-weight: 600;
-  color: var(--primary-dark);
-  margin-bottom: 1rem;
-  font-family: 'Gideon Roman', serif;
+  font-size: 0.95rem;
 }
 
-.qr-placeholder-confirm .qr-note {
-  font-size: 0.8rem;
-  color: var(--text-medium);
-  font-style: italic;
-  margin-top: 0.5rem;
+/* Ensure proper spacing for all elements */
+.confirmation-content > * {
+  margin-bottom: 25px;
 }
 
-/* Add spinner styles */
-.spinner {
-  width: 18px;
-  height: 18px;
-  border: 2px solid transparent;
-  border-top: 2px solid var(--white);
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-  margin-right: 0.5rem;
+.confirmation-content > *:last-child {
+  margin-bottom: 0;
 }
 
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+
+/* Hindi specific styles for better PDF rendering */
+:lang(hi) .info-section h3,
+:lang(hi) .confirmation-header h2,
+:lang(hi) .success-message,
+:lang(hi) .booking-id,
+:lang(hi) .info-item label,
+:lang(hi) .info-item span,
+:lang(hi) .price-label,
+:lang(hi) .price-amount,
+:lang(hi) .instruction h4,
+:lang(hi) .instruction p,
+:lang(hi) .contact-quick-access h4,
+:lang(hi) .download-btn,
+:lang(hi) .new-booking-btn,
+:lang(hi) .note-content strong,
+:lang(hi) .note-content p {
+  font-family: 'Noto Sans Devanagari', sans-serif !important;
+  line-height: 1.5;
 }
 
-.download-btn:disabled {
-  opacity: 0.7;
-  cursor: not-allowed;
+/* Ensure proper Hindi text wrapping */
+:lang(hi) .address-text,
+:lang(hi) .info-item span,
+:lang(hi) .success-message,
+:lang(hi) .instruction p {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
-.download-btn:disabled:hover {
-  transform: none;
-  background: var(--primary-dark);
+/* Fix for small 1 issue in numbers */
+.booking-id span,
+.price-amount,
+.info-item span.contact-info {
+  font-feature-settings: "lnum";
+  font-variant-numeric: lining-nums;
+}
+
+/* Ensure all numbers display properly */
+.info-item span,
+.price-amount,
+.booking-id span {
+  font-feature-settings: "tnum";
+  font-variant-numeric: tabular-nums;
+}
+
+/* Better spacing for Hindi text */
+:lang(hi) .confirmation-header h2 {
+  line-height: 1.3;
+  margin-bottom: 15px;
+}
+
+:lang(hi) .success-message {
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* Adjust font sizes for better Hindi readability */
+:lang(hi) .info-section h3 {
+  font-size: 1.4rem;
+}
+
+:lang(hi) .info-item label {
+  font-size: 0.95rem;
+}
+
+:lang(hi) .info-item span {
+  font-size: 1.05rem;
+}
+
+/* PDF specific adjustments */
+@media print {
+  /* Remove all animations and transitions for PDF */
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  /* Ensure Hindi text prints correctly */
+  :lang(hi) * {
+    font-family: 'Noto Sans Devanagari', 'Arial Unicode MS', 'Arial', sans-serif !important;
+  }
+  
+  /* Fix number display issues */
+  .price-amount,
+  .booking-id span,
+  .info-item span {
+    font-family: 'Courier New', monospace !important;
+    font-feature-settings: "lnum", "tnum";
+    font-variant-numeric: lining-nums tabular-nums;
+  }
+}
+
+/* Responsive adjustments for Hindi */
+@media (max-width: 768px) {
+  :lang(hi) .confirmation-header h2 {
+    font-size: 1.8rem;
+  }
+  
+  :lang(hi) .success-message {
+    font-size: 1rem;
+  }
+  
+  :lang(hi) .info-section h3 {
+    font-size: 1.2rem;
+  }
+}
+
+/* Number formatting fix */
+.price-amount::before,
+.info-item span.contact-info::before,
+.booking-id span::before {
+  content: none !important;
+}
+
+/* Ensure no extra characters in numbers */
+.info-item span,
+.price-amount {
+  unicode-bidi: plaintext;
+}
+
+/* Fix for number display issues */
+.booking-id-value,
+.guest-info-value,
+.booking-info-value,
+.price-amount,
+.contact-info,
+.id-number,
+.duration-badge {
+  font-feature-settings: "lnum" !important;
+  font-variant-numeric: lining-nums !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
+}
+
+/* Hindi specific fixes */
+:lang(hi) .confirmation-content * {
+  font-family: 'Noto Sans Devanagari', sans-serif !important;
+}
+
+:lang(hi) .booking-id-value,
+:lang(hi) .guest-info-value,
+:lang(hi) .booking-info-value,
+:lang(hi) .price-amount,
+:lang(hi) .contact-info,
+:lang(hi) .id-number,
+:lang(hi) .duration-badge {
+  font-family: 'Noto Sans Devanagari', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+}
+
+/* Ensure proper rendering for PDF */
+.info-item span,
+.price-amount,
+.booking-id span {
+  unicode-bidi: isolate;
+}
+
+/* Remove any pseudo-elements that might add extra characters */
+.booking-id-value::before,
+.price-amount::before,
+.guest-info-value::before {
+  content: none !important;
+}
+
+/* Fix for mobile numbers and other numeric values */
+.contact-info,
+.id-number {
+  letter-spacing: normal !important;
+}
+
+/* PDF print styles */
+@media print {
+  .confirmation-page {
+    padding-top: 0 !important;
+  }
+  
+  .confirmation-card {
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+  }
+  
+  .confirmation-actions,
+  .contact-quick-access,
+  .back-to-top {
+    display: none !important;
+  }
+  
+  /* Ensure numbers display correctly */
+  .booking-id-value,
+  .guest-info-value,
+  .booking-info-value,
+  .price-amount,
+  .contact-info,
+  .id-number {
+    font-family: 'Courier New', monospace !important;
+    font-feature-settings: "lnum", "tnum" !important;
+    font-variant-numeric: lining-nums tabular-nums !important;
+  }
+}
+
+/* Hindi PDF specific */
+.hindi-pdf .confirmation-content * {
+  font-family: 'Noto Sans Devanagari', sans-serif !important;
+  line-height: 1.6;
+}
+
+.hindi-pdf .info-item span,
+.hindi-pdf .price-amount,
+.hindi-pdf .booking-id span {
+  font-feature-settings: "lnum" !important;
+  font-variant-numeric: lining-nums !important;
 }

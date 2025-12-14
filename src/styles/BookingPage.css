@@ -1,3 +1,6 @@
+/* Add this at the end of your existing BookingPage.css for better Hindi font support */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap');
+
 .booking-page {
   min-height: 100vh;
   display: flex;
@@ -1075,4 +1078,23 @@
   0% { box-shadow: 0 0 0 0 rgba(139, 69, 19, 0.7); }
   70% { box-shadow: 0 0 0 10px rgba(139, 69, 19, 0); }
   100% { box-shadow: 0 0 0 0 rgba(139, 69, 19, 0); }
+}
+
+/* All your existing BookingPage.css remains exactly the same */
+/* Just ensure it's responsive for all devices as it already is */
+
+
+
+/* Hindi specific styles */
+:lang(hi) .form-group label,
+:lang(hi) .section-header h3,
+:lang(hi) .card-header h2,
+:lang(hi) .subtitle {
+  font-family: 'Noto Sans Devanagari', sans-serif;
+}
+
+:lang(hi) .form-group input,
+:lang(hi) .form-group textarea,
+:lang(hi) .custom-select select {
+  font-family: 'Noto Sans Devanagari', sans-serif;
 }

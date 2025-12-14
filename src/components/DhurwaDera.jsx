@@ -3,7 +3,7 @@ import Footer from './Footer';
 import BackToTop from './BackToTop';
 import '../styles/DhurwaDera.css';
 
-const DhurwaDera = () => {
+const DhurwaDera = ({ onNavigate }) => {
     const [selectedImage, setSelectedImage] = useState(null);
     const [zoomLevel, setZoomLevel] = useState(1);
     const containerRef = useRef(null);
@@ -50,9 +50,11 @@ const DhurwaDera = () => {
     }, []);
 
     const handleBookNow = () => {
-        window.location.href = '#BOOKNOW';
-        // You can also use your navigation system here
-        // if (onNavigate) onNavigate('booking');
+        // Navigate to booking page using the prop from App.js
+        if (onNavigate) {
+            onNavigate('booking');
+        }
+        // Scroll to top of the booking page (handled in App.js)
     };
 
     const handleImageClick = (imageSrc) => {

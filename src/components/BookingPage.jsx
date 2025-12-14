@@ -42,9 +42,9 @@ const BookingPage = ({ onSubmit }) => {
   const MAX_GUESTS_WITH_EXTRA_BED = 4;
   const MAX_ROOMS = 3;
   const CHILD_AGE_LIMIT = 4;
-  const MAX_STAY_NIGHTS = 3; // Maximum 3 nights stay
+  const MAX_STAY_NIGHTS = 3;
 
-  // Language translations
+  // Language translations - UPDATED HINDI
   const translations = {
     english: {
       bookYourStay: "Book Your Stay",
@@ -129,7 +129,7 @@ const BookingPage = ({ onSubmit }) => {
     },
     hindi: {
       bookYourStay: "अपना स्टे बुक करें",
-      subtitle: "अपनी शांतिपूर्ण छुट्टी आरक्षित करने के लिए अपने विवरण भरें",
+      subtitle: "अपनी शांतिपूर्ण छुट्टी के लिए विवरण भरें",
       roomGuestsInfo: "कमरा और अतिथि जानकारी",
       payingGuests: "भुगतान करने वाले अतिथि",
       totalRooms: "कुल कमरे",
@@ -140,18 +140,18 @@ const BookingPage = ({ onSubmit }) => {
       adults: "वयस्क (12+ वर्ष)",
       maxAdults: "अधिकतम {max} वयस्क",
       children: "बच्चे (0-12 वर्ष)",
-      ageBelowFree: "4 वर्ष और नीचे: मुफ्त",
+      ageBelowFree: "4 वर्ष और कम: मुफ्त",
       extraBedsLabel: "अतिरिक्त बेड",
       perNightMax: "₹500 प्रति रात, अधिकतम 1 प्रति कमरा",
-      childrenAges: "बच्चों की उम्र",
-      childAge: "बच्चा {index} उम्र",
-      capacityInfo: "मानक: {maxPerRoom} अतिथि प्रति कमरा • अतिरिक्त बेड के साथ: {maxWithExtra} अतिथि प्रति कमरा • {ageLimit} वर्ष और नीचे के बच्चे मुफ्त",
-      primaryGuestInfo: "प्राथमिक अतिथि जानकारी",
-      primary: "प्राथमिक",
+      childrenAges: "बच्चों की आयु",
+      childAge: "बच्चे {index} की आयु",
+      capacityInfo: "मानक: {maxPerRoom} अतिथि प्रति कमरा • अतिरिक्त बेड के साथ: {maxWithExtra} अतिथि प्रति कमरा • {ageLimit} वर्ष और कम के बच्चे मुफ्त",
+      primaryGuestInfo: "मुख्य अतिथि जानकारी",
+      primary: "मुख्य",
       fullName: "पूरा नाम *",
       enterFullName: "पूरा नाम दर्ज करें",
-      age: "उम्र *",
-      enterAge: "उम्र दर्ज करें",
+      age: "आयु *",
+      enterAge: "आयु दर्ज करें",
       gender: "लिंग *",
       selectGender: "लिंग चुनें",
       male: "पुरुष",
@@ -169,7 +169,7 @@ const BookingPage = ({ onSubmit }) => {
       voterIdPlaceholder: "10-वर्ण वोटर आईडी दर्ज करें",
       idImage: "पहचान प्रमाण छवि (वैकल्पिक)",
       chooseIdImage: "पहचान प्रमाण छवि चुनें (वैकल्पिक)",
-      idNote: "नोट: चेक-इन पर सत्यापन के लिए मूल पहचान प्रमाण ले जाना अनिवार्य है। आप इसे अग्रिम सत्यापन के लिए यहां अपलोड भी कर सकते हैं।",
+      idNote: "नोट: चेक-इन पर सत्यापन के लिए मूल पहचान प्रमाण लाना अनिवार्य है। आप इसे अग्रिम सत्यापन के लिए यहां अपलोड भी कर सकते हैं।",
       address: "पता *",
       addressPlaceholder: "अपना पूरा पता दर्ज करें",
       bookingDates: "बुकिंग तिथियां",
@@ -185,10 +185,10 @@ const BookingPage = ({ onSubmit }) => {
       paymentOptions: "भुगतान विकल्प",
       payOnVisit: "विजिट पर भुगतान करें",
       payOnVisitDesc: "चेक-इन के समय भुगतान करें",
-      scanToPay: "स्कैन करके भुगतान करें",
-      scanToPayDesc: "यूपीआई क्यूआर कोड भुगतान",
-      qrPlaceholder: "क्यूआर कोड प्लेसहोल्डर",
-      qrInstruction: "यूपीआई के माध्यम से भुगतान करने के लिए इस क्यूआर कोड को स्कैन करें",
+      scanToPay: "स्कैन कर भुगतान करें",
+      scanToPayDesc: "UPI QR कोड भुगतान",
+      qrPlaceholder: "QR कोड प्लेसहोल्डर",
+      qrInstruction: "UPI के माध्यम से भुगतान करने के लिए इस QR कोड को स्कैन करें",
       qrNote: "महत्वपूर्ण: भुगतान पुष्टि का स्क्रीनशॉट सहेजें और ले जाएं। आपको आगमन के दौरान इसे दिखाने की आवश्यकता होगी।",
       confirmBooking: "बुकिंग की पुष्टि करें",
       processing: "प्रोसेसिंग...",
@@ -196,7 +196,7 @@ const BookingPage = ({ onSubmit }) => {
       required: "आवश्यक है",
       mobileDigits: "मोबाइल नंबर ठीक 10 अंकों का होना चाहिए",
       validEmail: "कृपया एक वैध ईमेल पता दर्ज करें",
-      validAge: "उम्र 1 और 120 के बीच होनी चाहिए",
+      validAge: "आयु 1 और 120 के बीच होनी चाहिए",
       aadhaarDigits: "आधार नंबर ठीक 12 अंकों का होना चाहिए",
       drivingLicenseDigits: "ड्राइविंग लाइसेंस नंबर ठीक 16 अंकों का होना चाहिए",
       passportFormat: "पासपोर्ट नंबर 8 अल्फ़ान्यूमेरिक वर्णों का होना चाहिए",
@@ -204,8 +204,8 @@ const BookingPage = ({ onSubmit }) => {
       checkInRequired: "चेक-इन तिथि आवश्यक है",
       checkOutRequired: "चेक-आउट तिथि आवश्यक है",
       checkOutAfter: "चेक-आउट तिथि चेक-इन तिथि के बाद होनी चाहिए",
-      childAgeRequired: "बच्चे {index} के लिए उम्र आवश्यक है",
-      childAgeRange: "बच्चे की उम्र 1-12 वर्ष के बीच होनी चाहिए",
+      childAgeRequired: "बच्चे {index} के लिए आयु आवश्यक है",
+      childAgeRange: "बच्चे की आयु 1-12 वर्ष के बीच होनी चाहिए",
       maxStayError: "अधिकतम {maxNights} रातों का स्टे अनुमत है"
     }
   };
@@ -221,7 +221,7 @@ const BookingPage = ({ onSubmit }) => {
   // Calculate maximum guests allowed based on rooms and extra beds
   const calculateMaxGuests = () => {
     const standardCapacity = formData.numRooms * MAX_GUESTS_PER_ROOM;
-    const extraBedCapacity = formData.extraBeds; // Each extra bed adds 1 capacity
+    const extraBedCapacity = formData.extraBeds;
     return standardCapacity + extraBedCapacity;
   };
 
@@ -256,7 +256,6 @@ const BookingPage = ({ onSubmit }) => {
       const nights = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
       
       if (nights > 0) {
-        // Validate maximum stay
         if (nights > MAX_STAY_NIGHTS) {
           setErrors(prev => ({
             ...prev,
@@ -309,11 +308,9 @@ const BookingPage = ({ onSubmit }) => {
       const newGuests = [...formData.guests];
       
       if (field === 'idNumber') {
-        // Different validation based on ID type
         const currentIdType = newGuests[index].idType;
         
         if (currentIdType === 'Aadhaar' || currentIdType === 'Driving License') {
-          // Only allow numbers for Aadhaar and Driving License
           const numbersOnly = value.replace(/\D/g, '');
           let maxLength = currentIdType === 'Aadhaar' ? 12 : 16;
           
@@ -321,13 +318,24 @@ const BookingPage = ({ onSubmit }) => {
             newGuests[index][field] = numbersOnly;
           }
         } else {
-          // Allow alphanumeric for Passport and Voter ID
           const alphanumeric = value.replace(/[^a-zA-Z0-9]/g, '');
           let maxLength = currentIdType === 'Passport' ? 8 : 10;
           
           if (alphanumeric.length <= maxLength) {
             newGuests[index][field] = alphanumeric.toUpperCase();
           }
+        }
+      } else if (field === 'mobile') {
+        // Strict mobile number validation - only numbers, max 10 digits
+        const numbersOnly = value.replace(/\D/g, '');
+        if (numbersOnly.length <= 10) {
+          newGuests[index][field] = numbersOnly;
+        }
+      } else if (field === 'age') {
+        // Strict age validation - only numbers
+        const numbersOnly = value.replace(/\D/g, '');
+        if (numbersOnly === '' || (parseInt(numbersOnly) >= 1 && parseInt(numbersOnly) <= 120)) {
+          newGuests[index][field] = numbersOnly;
         }
       } else {
         newGuests[index][field] = value;
@@ -337,12 +345,17 @@ const BookingPage = ({ onSubmit }) => {
     } else if (name.startsWith('childAge-')) {
       const index = parseInt(name.split('-')[1]);
       const newChildAges = [...formData.childAges];
-      newChildAges[index] = value.replace(/\D/g, '');
+      // Strict child age validation - only numbers 1-12
+      const numbersOnly = value.replace(/\D/g, '');
+      if (numbersOnly === '' || (parseInt(numbersOnly) >= 1 && parseInt(numbersOnly) <= 12)) {
+        newChildAges[index] = numbersOnly;
+      }
       setFormData(prev => ({
         ...prev,
         childAges: newChildAges
       }));
     } else if (name === 'mobile') {
+      // Strict mobile number validation for main form (if exists)
       const numbersOnly = value.replace(/\D/g, '');
       if (numbersOnly.length <= 10) {
         setFormData(prev => ({
@@ -383,13 +396,11 @@ const BookingPage = ({ onSubmit }) => {
       if (numValue >= 1 && numValue <= MAX_ROOMS) {
         setFormData(prev => ({ ...prev, [name]: numValue }));
         
-        // Adjust extra beds if they exceed maximum possible
-        const maxExtraBeds = numValue; // Max 1 extra bed per room
+        const maxExtraBeds = numValue;
         if (formData.extraBeds > maxExtraBeds) {
           setFormData(prev => ({ ...prev, extraBeds: maxExtraBeds }));
         }
 
-        // Adjust adults if they exceed new capacity
         const newMaxAdults = (numValue * MAX_GUESTS_PER_ROOM) + formData.extraBeds;
         if (formData.adults > newMaxAdults) {
           setFormData(prev => ({ ...prev, adults: newMaxAdults }));
@@ -405,13 +416,12 @@ const BookingPage = ({ onSubmit }) => {
         setFormData(prev => ({ ...prev, [name]: numValue }));
       }
     } else if (name === 'extraBeds') {
-      const maxExtraBeds = formData.numRooms; // Max 1 extra bed per room
+      const maxExtraBeds = formData.numRooms;
       const maxAdults = (formData.numRooms * MAX_GUESTS_PER_ROOM) + numValue;
       
       if (numValue >= 0 && numValue <= maxExtraBeds) {
         setFormData(prev => ({ ...prev, [name]: numValue }));
         
-        // Adjust adults if they exceed new capacity
         if (formData.adults > maxAdults) {
           setFormData(prev => ({ ...prev, adults: maxAdults }));
         }
@@ -422,7 +432,7 @@ const BookingPage = ({ onSubmit }) => {
   const scrollToElement = (elementId) => {
     const element = document.getElementById(elementId);
     if (element) {
-      const yOffset = -100; // Adjust for fixed header
+      const yOffset = -100;
       const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
       window.scrollTo({ top: y, behavior: 'smooth' });
       element.focus();
@@ -434,7 +444,6 @@ const BookingPage = ({ onSubmit }) => {
     const payingGuests = calculatePayingGuests();
     const maxCapacity = calculateMaxGuests();
 
-    // Validate primary guest information only
     const primaryGuest = formData.guests[0];
     if (!primaryGuest.fullName.trim()) newErrors[`guest-0-fullName`] = `${t.fullName} ${t.required}`;
     if (!primaryGuest.age) newErrors[`guest-0-age`] = `${t.age} ${t.required}`;
@@ -454,7 +463,6 @@ const BookingPage = ({ onSubmit }) => {
       newErrors[`guest-0-age`] = t.validAge;
     }
 
-    // ID validation is now optional, but if provided, validate format
     if (primaryGuest.idNumber.trim()) {
       if (primaryGuest.idType === 'Aadhaar' && !/^\d{12}$/.test(primaryGuest.idNumber)) {
         newErrors[`guest-0-idNumber`] = t.aadhaarDigits;
@@ -477,7 +485,6 @@ const BookingPage = ({ onSubmit }) => {
         newErrors.checkOut = t.checkOutAfter;
       }
       
-      // Validate maximum stay
       const timeDiff = checkOutDate - checkInDate;
       const nights = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
       if (nights > MAX_STAY_NIGHTS) {
@@ -502,7 +509,6 @@ const BookingPage = ({ onSubmit }) => {
 
     setErrors(newErrors);
     
-    // Scroll to first error if any
     if (Object.keys(newErrors).length > 0) {
       const firstErrorKey = Object.keys(newErrors)[0];
       let elementId = '';
@@ -575,7 +581,7 @@ const BookingPage = ({ onSubmit }) => {
 
   const payingGuests = calculatePayingGuests();
   const childrenBelow4 = formData.childAges.filter(age => age <= CHILD_AGE_LIMIT).length;
-  const maxExtraBeds = formData.numRooms; // Max 1 extra bed per room
+  const maxExtraBeds = formData.numRooms;
   const maxAdults = (formData.numRooms * MAX_GUESTS_PER_ROOM) + formData.extraBeds;
 
   return (
@@ -591,7 +597,6 @@ const BookingPage = ({ onSubmit }) => {
             </div>
             
             <form onSubmit={handleSubmit} className="booking-form">
-              {/* Room & Guests Information */}
               <section className="form-section" id="room-guests-section">
                 <div className="section-header">
                   <h3>{t.roomGuestsInfo}</h3>
@@ -768,7 +773,6 @@ const BookingPage = ({ onSubmit }) => {
                   </div>
                 </div>
 
-                {/* Child Age Inputs */}
                 {formData.children > 0 && (
                   <div className="child-ages-section">
                     <h4>{t.childrenAges}</h4>
@@ -780,15 +784,15 @@ const BookingPage = ({ onSubmit }) => {
                             {age <= CHILD_AGE_LIMIT && <span className="free-badge">{language === 'english' ? 'Free' : 'मुफ्त'}</span>}
                           </label>
                           <input
-                            type="number"
+                            type="text"
                             id={`childAge-${index}`}
                             name={`childAge-${index}`}
                             value={age}
                             onChange={handleInputChange}
                             className={errors[`childAge-${index}`] ? 'error' : ''}
-                            placeholder={language === 'english' ? 'Age' : 'उम्र'}
-                            min="1"
-                            max="12"
+                            placeholder={language === 'english' ? 'Age' : 'आयु'}
+                            inputMode="numeric"
+                            pattern="[0-9]*"
                           />
                           {errors[`childAge-${index}`] && (
                             <span className="error-text">{errors[`childAge-${index}`]}</span>
@@ -808,7 +812,6 @@ const BookingPage = ({ onSubmit }) => {
                 </div>
               </section>
 
-              {/* Primary Guest Information Only */}
               <section className="form-section guest-section" id="guest-section-0">
                 <div className="section-header">
                   <h3>
@@ -834,15 +837,15 @@ const BookingPage = ({ onSubmit }) => {
                   <div className="form-group">
                     <label htmlFor="guest-0-age">{t.age}</label>
                     <input
-                      type="number"
+                      type="text"
                       id="guest-0-age"
                       name="guest-0-age"
                       value={formData.guests[0].age}
                       onChange={handleInputChange}
                       className={errors[`guest-0-age`] ? 'error' : ''}
                       placeholder={t.enterAge}
-                      min="1"
-                      max="120"
+                      inputMode="numeric"
+                      pattern="[0-9]*"
                     />
                     {errors[`guest-0-age`] && <span className="error-text">{errors[`guest-0-age`]}</span>}
                   </div>
@@ -955,7 +958,6 @@ const BookingPage = ({ onSubmit }) => {
                     {errors[`guest-0-idNumber`] && <span className="error-text">{errors[`guest-0-idNumber`]}</span>}
                   </div>
 
-                  {/* ID Image Upload - Optional for primary guest */}
                   <div className="form-group full-width">
                     <label htmlFor="guest-0-idImage">
                       {t.idImage}
@@ -997,7 +999,6 @@ const BookingPage = ({ onSubmit }) => {
                 </div>
               </section>
 
-              {/* Booking Dates */}
               <section className="form-section" id="booking-dates-section">
                 <div className="section-header">
                   <h3>{t.bookingDates}</h3>
@@ -1056,7 +1057,6 @@ const BookingPage = ({ onSubmit }) => {
                 )}
               </section>
 
-              {/* Price Calculation */}
               <section className="form-section price-section" id="price-section">
                 <div className="section-header">
                   <h3>{t.priceDetails}</h3>
@@ -1090,7 +1090,6 @@ const BookingPage = ({ onSubmit }) => {
                 </div>
               </section>
 
-              {/* Payment Options */}
               <section className="form-section" id="payment-section">
                 <div className="section-header">
                   <h3>{t.paymentOptions}</h3>
@@ -1140,7 +1139,6 @@ const BookingPage = ({ onSubmit }) => {
                 </div>
               </section>
 
-              {/* Submit Button */}
               <div className="form-actions">
                 <button 
                   type="submit" 
@@ -1162,10 +1160,7 @@ const BookingPage = ({ onSubmit }) => {
         </div>
       </main>
 
-      {/* Back to Top Button */}
       <BackToTop />
-
-      {/* Footer Component */}
       <Footer />
     </div>
   );
