@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext, useRef } from 'react';
 import Header from './Header';
-import Footer from './Footer';
 import BackToTop from './BackToTop';
 import { LanguageContext } from '../App';
 import '../styles/BookingConfirmation.css';
@@ -977,7 +976,6 @@ const BookingConfirmation = ({ bookingData, onNewBooking }) => {
 
       <BackToTop />
 
-      <Footer />
     </div>
   );
 };

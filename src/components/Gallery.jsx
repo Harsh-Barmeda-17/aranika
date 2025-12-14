@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState, useCallback } from "react";
-import Footer from './Footer';
 import BackToTop from './BackToTop';
 import "../styles/Gallery.css";
 
@@ -154,7 +153,6 @@ function Gallery() {
 
       {/* Imported Back to Top Button */}
       <BackToTop />
-      <Footer />
     </div>
   );
 }

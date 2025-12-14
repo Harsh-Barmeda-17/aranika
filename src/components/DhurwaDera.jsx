@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import Footer from './Footer';
 import BackToTop from './BackToTop';
 import '../styles/DhurwaDera.css';
 
@@ -352,7 +351,6 @@ const DhurwaDera = ({ onNavigate }) => {
             )}
 
             <BackToTop />
-            <Footer />
         </div>
     );
 };

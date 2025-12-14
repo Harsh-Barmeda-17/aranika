@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
 import Header from './Header';
-import Footer from './Footer';
 import BackToTop from './BackToTop';
 import { LanguageContext } from '../App';
 import '../styles/BookingPage.css';
@@ -1161,7 +1160,6 @@ const BookingPage = ({ onSubmit }) => {
       </main>
 
       <BackToTop />
-      <Footer />
     </div>
   );
 };

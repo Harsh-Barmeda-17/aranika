@@ -2,7 +2,6 @@ import React, { useEffect, useState, useRef } from 'react';
 import '../styles/Home.css';
 import '../styles/BambooTimeline.css';
 import '../styles/Newspaper.css';
-import Footer from './Footer';
 import BackToTop from './BackToTop';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -653,7 +652,6 @@ const Home = () => {
         </div>
       )}
       <BackToTop />
-      <Footer />
     </div>
   );
 };

@@ -1,5 +1,4 @@
 import React from 'react';
-import Footer from './Footer';
 import BackToTop from './BackToTop';
 import '../styles/ReachUs.css';
 
@@ -210,7 +209,6 @@ const ReachUs = ({ onNavigate }) => {
 
       {/* Imported Back to Top Button */}
       <BackToTop />
-      <Footer />
     </div>
   );
 };
