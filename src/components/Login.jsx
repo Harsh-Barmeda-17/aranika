@@ -1,13 +1,53 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { LanguageContext } from '../App';
 import '../styles/AuthPages.css';
 
 const Login = ({ onNavigate }) => {
+  const { language } = useContext(LanguageContext);
   const [formData, setFormData] = useState({
     phone: '',
     password: ''
   });
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Language translations
+  const translations = {
+    english: {
+      title: "Login",
+      subtitle: "Enter your phone number and password to access your account",
+      phoneLabel: "Phone Number *",
+      phonePlaceholder: "10-digit mobile number",
+      passwordLabel: "Password *",
+      passwordPlaceholder: "Enter your password",
+      forgotPassword: "Forgot Password?",
+      submitButton: "Login",
+      submitting: "Logging In...",
+      noAccount: "Don't have an account?",
+      signUp: "Sign Up",
+      required: "is required",
+      phoneDigits: "Phone number must be exactly 10 digits",
+      passwordMinLength: "Password must be at least 6 characters"
+    },
+    hindi: {
+      title: "लॉगिन",
+      subtitle: "अपने खाते तक पहुंचने के लिए अपना फोन नंबर और पासवर्ड दर्ज करें",
+      phoneLabel: "फोन नंबर *",
+      phonePlaceholder: "10-अंकीय मोबाइल नंबर",
+      passwordLabel: "पासवर्ड *",
+      passwordPlaceholder: "अपना पासवर्ड दर्ज करें",
+      forgotPassword: "पासवर्ड भूल गए?",
+      submitButton: "लॉगिन",
+      submitting: "लॉगिन हो रहा है...",
+      noAccount: "खाता नहीं है?",
+      signUp: "साइन अप",
+      required: "आवश्यक है",
+      phoneDigits: "फोन नंबर ठीक 10 अंकों का होना चाहिए",
+      passwordMinLength: "पासवर्ड कम से कम 6 अक्षरों का होना चाहिए"
+    }
+  };
+
+  const t = translations[language];
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -39,15 +79,15 @@ const Login = ({ onNavigate }) => {
     const newErrors = {};
 
     if (!formData.phone.trim()) {
-      newErrors.phone = 'Phone number is required';
+      newErrors.phone = `${t.phoneLabel} ${t.required}`;
     } else if (!/^\d{10}$/.test(formData.phone)) {
-      newErrors.phone = 'Phone number must be exactly 10 digits';
+      newErrors.phone = t.phoneDigits;
     }
 
     if (!formData.password) {
-      newErrors.password = 'Password is required';
+      newErrors.password = `${t.passwordLabel} ${t.required}`;
     } else if (formData.password.length < 6) {
-      newErrors.password = 'Password must be at least 6 characters';
+      newErrors.password = t.passwordMinLength;
     }
 
     setErrors(newErrors);
@@ -91,13 +131,13 @@ const Login = ({ onNavigate }) => {
         <div className="auth-container">
           <div className="auth-card">
             <div className="card-header">
-              <h2>Login</h2>
-              <p className="subtitle">Enter your phone number and password to access your account</p>
+              <h2>{t.title}</h2>
+              <p className="subtitle">{t.subtitle}</p>
             </div>
             
             <form onSubmit={handleSubmit} className="auth-form">
               <div className="form-group">
-                <label htmlFor="phone">Phone Number *</label>
+                <label htmlFor="phone">{t.phoneLabel}</label>
                 <div className="input-with-prefix">
                   <span className="prefix">+91</span>
                   <input
@@ -107,7 +147,7 @@ const Login = ({ onNavigate }) => {
                     value={formData.phone}
                     onChange={handleInputChange}
                     className={errors.phone ? 'error' : ''}
-                    placeholder="10-digit mobile number"
+                    placeholder={t.phonePlaceholder}
                     maxLength="10"
                     pattern="[0-9]*"
                     inputMode="numeric"
@@ -117,7 +157,7 @@ const Login = ({ onNavigate }) => {
               </div>
 
               <div className="form-group">
-                <label htmlFor="password">Password *</label>
+                <label htmlFor="password">{t.passwordLabel}</label>
                 <input
                   type="password"
                   id="password"
@@ -125,7 +165,7 @@ const Login = ({ onNavigate }) => {
                   value={formData.password}
                   onChange={handleInputChange}
                   className={errors.password ? 'error' : ''}
-                  placeholder="Enter your password"
+                  placeholder={t.passwordPlaceholder}
                 />
                 {errors.password && <span className="error-text">{errors.password}</span>}
               </div>
@@ -136,7 +176,7 @@ const Login = ({ onNavigate }) => {
                   className="text-button"
                   onClick={handleForgotPassword}
                 >
-                  Forgot Password?
+                  {t.forgotPassword}
                 </button>
               </div>
 
@@ -149,23 +189,23 @@ const Login = ({ onNavigate }) => {
                   {isSubmitting ? (
                     <>
                       <div className="spinner"></div>
-                      Logging In...
+                      {t.submitting}
                     </>
                   ) : (
-                    'Login'
+                    t.submitButton
                   )}
                 </button>
               </div>
 
               <div className="auth-footer">
                 <p>
-                  Don't have an account?{' '}
+                  {t.noAccount}{' '}
                   <button 
                     type="button" 
                     className="text-button"
                     onClick={handleSignUp}
                   >
-                    Sign Up
+                    {t.signUp}
                   </button>
                 </p>
               </div>

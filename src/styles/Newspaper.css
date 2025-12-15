@@ -1,4 +1,8 @@
 /* Base Styles */
+/* Hindi font import */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mukta+Malar:wght@400;500;600;700&display=swap');
+
 .newspaper-section {
   position: relative;
   max-width: 1200px;
@@ -1086,5 +1090,87 @@
   
   .preview-modal {
     display: none !important;
+  }
+}
+
+/* Add at the end of your Newspaper.css file */
+
+/* Hindi specific newspaper styles */
+:lang(hi) .newspaper-heading {
+  font-family: 'Noto Sans Devanagari', 'Mukta Malar', 'Arial Unicode MS', sans-serif;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+:lang(hi) .premium-headline {
+  font-family: 'Noto Sans Devanagari', 'Mukta Malar', 'Arial Unicode MS', sans-serif;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+}
+
+:lang(hi) .heading-xl,
+:lang(hi) .story-heading,
+:lang(hi) .heading-sports {
+  font-family: 'Noto Sans Devanagari', 'Mukta Malar', 'Arial Unicode MS', sans-serif;
+  line-height: 1.4;
+}
+
+:lang(hi) .article-summary {
+  font-family: 'Noto Sans Devanagari', 'Mukta Malar', 'Arial Unicode MS', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+}
+
+:lang(hi) .article-details,
+:lang(hi) .paper-info,
+:lang(hi) .paper-footer,
+:lang(hi) .topic-badge,
+:lang(hi) .image-tip,
+:lang(hi) .image-description {
+  font-family: 'Noto Sans Devanagari', 'Mukta Malar', 'Arial Unicode MS', sans-serif;
+}
+
+/* Ensure text doesn't overflow in Hindi */
+:lang(hi) .story-heading,
+:lang(hi) .heading-xl,
+:lang(hi) .article-summary {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Adjust font sizes for better Hindi readability */
+@media (max-width: 768px) {
+  :lang(hi) .newspaper-heading {
+    font-size: 2.5rem;
+  }
+  
+  :lang(hi) .premium-headline {
+    font-size: 1.6rem;
+  }
+  
+  :lang(hi) .heading-xl {
+    font-size: 1.8rem;
+  }
+  
+  :lang(hi) .story-heading {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  :lang(hi) .newspaper-heading {
+    font-size: 2rem;
+  }
+  
+  :lang(hi) .premium-headline {
+    font-size: 1.3rem;
+  }
+  
+  :lang(hi) .heading-xl {
+    font-size: 1.5rem;
+  }
+  
+  :lang(hi) .story-heading {
+    font-size: 1.2rem;
   }
 }

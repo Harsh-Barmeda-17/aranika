@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Gideon+Roman&family=Eagle+Lake&family=Varela+Round&family=Rye&display=swap');
+/* Hindi font import */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mukta+Malar:wght@400;500;600;700&display=swap');
 
 html {
   scroll-behavior: smooth;
@@ -1776,3 +1779,76 @@ body {
     right: -84.4%;
   }
 }
+
+/* Add at the end of your Home.css file */
+
+/* Hindi font support for Home component */
+:lang(hi) .timeline-heading,
+:lang(hi) .welcome-text .text-line,
+:lang(hi) .sign-title,
+:lang(hi) .date-badge,
+:lang(hi) .item-title,
+:lang(hi) .bamboo-point-text,
+:lang(hi) .item-description {
+  font-family: 'Noto Sans Devanagari', 'Mukta Malar', 'Arial Unicode MS', sans-serif;
+}
+
+/* Newspaper Hindi support */
+:lang(hi) .newspaper-heading,
+:lang(hi) .premium-headline,
+:lang(hi) .premium-subhead,
+:lang(hi) .topic-badge,
+:lang(hi) .heading-xl,
+:lang(hi) .article-summary,
+:lang(hi) .article-details,
+:lang(hi) .story-heading,
+:lang(hi) .heading-sports,
+:lang(hi) .paper-info,
+:lang(hi) .paper-footer,
+:lang(hi) .image-tip,
+:lang(hi) .image-description,
+:lang(hi) .modal-info h3,
+:lang(hi) .modal-info p {
+  font-family: 'Noto Sans Devanagari', 'Mukta Malar', 'Arial Unicode MS', sans-serif;
+}
+
+/* Ensure proper text alignment for Hindi */
+:lang(hi) .newspaper-heading,
+:lang(hi) .premium-headline,
+:lang(hi) .premium-subhead,
+:lang(hi) .heading-xl,
+:lang(hi) .article-summary,
+:lang(hi) .story-heading,
+:lang(hi) .heading-sports {
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* Adjust letter spacing for Hindi text */
+:lang(hi) .newspaper-heading {
+  letter-spacing: 2px;
+}
+
+:lang(hi) .premium-headline {
+  letter-spacing: 1.5px;
+}
+
+:lang(hi) .welcome-text .text-line.line-1 {
+  letter-spacing: 8px;
+}
+
+@media (max-width: 768px) {
+  :lang(hi) .welcome-text .text-line.line-1 {
+    letter-spacing: 4px;
+  }
+}
+
+@media (max-width: 576px) {
+  :lang(hi) .welcome-text .text-line.line-1 {
+    letter-spacing: 2px;
+  }
+}
+
+/* Hindi font import */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mukta+Malar:wght@400;500;600;700&display=swap');

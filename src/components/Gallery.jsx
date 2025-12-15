@@ -1,6 +1,7 @@
-import React, { useEffect, useRef, useState, useCallback } from "react";
+import React, { useEffect, useRef, useState, useCallback, useContext } from "react";
 import BackToTop from './BackToTop';
 import "../styles/Gallery.css";
+import { LanguageContext } from '../App';
 
 // Import all images dynamically from /assets/gallery
 const images = Array.from({ length: 46 }, (_, i) => 
@@ -8,10 +9,33 @@ const images = Array.from({ length: 46 }, (_, i) =>
 );
 
 function Gallery() {
+  const { language } = useContext(LanguageContext);
   const hexRefs = useRef([]);
   const [selectedImage, setSelectedImage] = useState(null);
   const [zoomLevel, setZoomLevel] = useState(1);
   const observerRef = useRef(null);
+
+  // Language translations
+  const translations = {
+    english: {
+      galleryTitle: "Dhurwa Dera Gallery",
+      gallerySubtitle: "Immerse yourself in the visual journey of our peaceful haven",
+      fullScreen: "Full screen",
+      close: "×",
+      zoomIn: "+",
+      zoomOut: "−"
+    },
+    hindi: {
+      galleryTitle: "धुरवा डेरा गैलरी",
+      gallerySubtitle: "हमारे शांतिपूर्ण आश्रय स्थल की दृश्य यात्रा में खुद को डुबोएं",
+      fullScreen: "पूर्ण स्क्रीन",
+      close: "×",
+      zoomIn: "+",
+      zoomOut: "−"
+    }
+  };
+
+  const t = translations[language];
 
   // Memoized functions for better performance
   const handleImageClick = useCallback((src) => {
@@ -104,9 +128,9 @@ function Gallery() {
           <div className="gallery-nature-overlay"></div>
         </div>
         <div className="gallery-header-content">
-          <h1>Dhurwa Dera Gallery</h1>
+          <h1>{t.galleryTitle}</h1>
           <div className="gallery-divider"></div>
-          <p className="gallery-subtitle">Immerse yourself in the visual journey of our peaceful haven</p>
+          <p className="gallery-subtitle">{t.gallerySubtitle}</p>
         </div>
       </div>
 
@@ -135,15 +159,15 @@ function Gallery() {
       {selectedImage && (
         <div className="image-modal" onClick={handleBackdropClick}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <button className="close-btn" onClick={handleCloseImage}>×</button>
+            <button className="close-btn" onClick={handleCloseImage}>{t.close}</button>
             <div className="zoom-controls">
-              <button onClick={handleZoomOut}>-</button>
+              <button onClick={handleZoomOut}>{t.zoomOut}</button>
               <span>{Math.round(zoomLevel * 100)}%</span>
-              <button onClick={handleZoomIn}>+</button>
+              <button onClick={handleZoomIn}>{t.zoomIn}</button>
             </div>
             <img 
               src={selectedImage} 
-              alt="Full screen" 
+              alt={t.fullScreen} 
               style={{ transform: `scale(${zoomLevel})` }}
               onWheel={handleWheel}
             />

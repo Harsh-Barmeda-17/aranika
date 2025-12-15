@@ -9,6 +9,28 @@ const Navbar = ({ currentPage, onNavigate, onLanguageChange }) => {
   const [lastScrollY, setLastScrollY] = useState(0);
   const { language, setLanguage } = useContext(LanguageContext);
 
+  // Language translations for navigation
+  const translations = {
+    english: {
+      signUp: "Sign Up",
+      home: "HOME",
+      tariff: "TARIFF",
+      gallery: "GALLERY",
+      services: "SERVICES",
+      bookNow: "BOOK NOW",
+      reachUs: "REACH US"
+    },
+    hindi: {
+      signUp: "साइन अप",
+      home: "होम",
+      tariff: "टैरिफ",
+      gallery: "गैलरी",
+      services: "सेवाएं",
+      bookNow: "बुक करें",
+      reachUs: "संपर्क करें"
+    }
+  };
+
   // Set active link based on current page
   useEffect(() => {
     if (currentPage === 'booking' || currentPage === 'confirmation') {
@@ -55,14 +77,21 @@ const Navbar = ({ currentPage, onNavigate, onLanguageChange }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollY]);
 
-  const links = [
-    { name: "HOME", href: "#HOME", page: 'home' },
-    { name: "TARIFF", href: "#TARIFF", page: 'dhurwadera' },
-    { name: "GALLERY", href: "#GALLERY", page: 'gallery' },
-    { name: "SERVICES", href: "#SERVICES", page: 'services' },
-    { name: "BOOK NOW", href: "#BOOKNOW", page: 'booking' },
-    { name: "REACH US", href: "#REACHUS", page: 'contact' },
-  ];
+  // Navigation links with translations
+  const getLinks = () => {
+    const t = translations[language];
+    return [
+      { name: t.home, href: "#HOME", page: 'home' },
+      { name: t.tariff, href: "#TARIFF", page: 'dhurwadera' },
+      { name: t.gallery, href: "#GALLERY", page: 'gallery' },
+      { name: t.services, href: "#SERVICES", page: 'services' },
+      { name: t.bookNow, href: "#BOOKNOW", page: 'booking' },
+      { name: t.reachUs, href: "#REACHUS", page: 'contact' },
+    ];
+  };
+
+  const links = getLinks();
+  const t = translations[language];
 
   const handleLinkClick = (href, page) => {
     setActiveLink(href);
@@ -147,7 +176,7 @@ const Navbar = ({ currentPage, onNavigate, onLanguageChange }) => {
               className="sign-up-btn"
               onClick={handleSignUp}
             >
-              Sign Up
+              {t.signUp}
             </button>
           </div>
         </div>

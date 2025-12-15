@@ -1,3 +1,7 @@
+
+/* Hindi font support for Header */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap');
+
 .header {
   background: var(--primary-dark);
   color: var(--cream);
@@ -128,4 +132,20 @@
   .divider {
     margin: 1rem auto;
   }
+}
+
+
+/* Apply Hindi font when language is Hindi */
+:lang(hi) .homestay-name,
+:lang(hi) .tagline {
+  font-family: 'Noto Sans Devanagari', sans-serif;
+}
+
+/* Adjust spacing for Hindi text in header */
+:lang(hi) .homestay-name {
+  line-height: 1.2;
+}
+
+:lang(hi) .tagline {
+  line-height: 1.4;
 }

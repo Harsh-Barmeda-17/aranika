@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+/* Hindi font support for Navbar */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap');
 
 html, body {
   width: 100%;
@@ -672,4 +674,42 @@ html, body {
 .side-nav-hamburger.active span:nth-child(3) {
   width: 50%;
   transform: rotate(45deg) translateY(-1.5px) translateX(-4.5px);
+}
+
+
+/* Apply Hindi font to nav elements when language is Hindi */
+:lang(hi) .sign-up-btn,
+:lang(hi) .language-text,
+:lang(hi) .link-text {
+  font-family: 'Noto Sans Devanagari', sans-serif;
+}
+
+/* Adjust button widths for Hindi text */
+:lang(hi) .sign-up-btn {
+  padding: 8px 16px;
+  min-width: 80px;
+}
+
+:lang(hi) .link-text {
+  font-size: 1.1rem;
+  line-height: 1.3;
+}
+
+/* Adjust side nav for Hindi text */
+:lang(hi) .side-nav {
+  padding-right: 10px;
+}
+
+:lang(hi) .nav-links {
+  padding-left: 15px;
+}
+
+/* Language toggle adjustments for Hindi */
+:lang(hi) .language-toggle {
+  padding: 6px 12px;
+}
+
+:lang(hi) .language-text {
+  font-size: 0.9rem;
+  font-weight: 600;
 }

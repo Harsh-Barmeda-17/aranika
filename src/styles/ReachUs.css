@@ -1,5 +1,8 @@
 /* Add these styles at the top of the CSS file */
 @import url('https://fonts.googleapis.com/css2?family=Rye&family=Eagle+Lake&family=Gideon+Roman&family=Varela+Round&display=swap');
+/* Import Hindi fonts if not already imported */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mukta+Malar:wght@400;500;600;700&display=swap');
 
 :root {
     --wood-dark: #8B4513;
@@ -946,4 +949,306 @@
         max-width: 100vw;
         overflow-x: hidden;
     }
+}
+
+/* Hindi font support for ReachUs component */
+:lang(hi) .gallery-header-content h1,
+:lang(hi) .gallery-subtitle,
+:lang(hi) .card-header h2,
+:lang(hi) .subtitle,
+:lang(hi) .info-section h3,
+:lang(hi) .info-content h4,
+:lang(hi) .info-content p,
+:lang(hi) .contact-number,
+:lang(hi) .contact-email,
+:lang(hi) .contact-note,
+:lang(hi) .hours-content h4,
+:lang(hi) .time-label,
+:lang(hi) .time-value,
+:lang(hi) .hours-note,
+:lang(hi) .map-placeholder h4,
+:lang(hi) .map-placeholder p,
+:lang(hi) .coordinate-label,
+:lang(hi) .coordinate-value,
+:lang(hi) .map-btn,
+:lang(hi) .cta-content h3,
+:lang(hi) .cta-content p,
+:lang(hi) .feature,
+:lang(hi) .quick-booking-btn {
+  font-family: 'Noto Sans Devanagari', 'Mukta Malar', 'Arial Unicode MS', sans-serif;
+}
+
+/* Adjust Hindi text properties */
+:lang(hi) .gallery-header-content h1 {
+  text-align: center;
+  line-height: 1.2;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+:lang(hi) .gallery-subtitle {
+  text-align: center;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+:lang(hi) .card-header h2 {
+  text-align: center;
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+:lang(hi) .subtitle {
+  text-align: center;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+:lang(hi) .info-section h3 {
+  text-align: center;
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+:lang(hi) .info-content h4 {
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+:lang(hi) .info-content p {
+  line-height: 1.6;
+  white-space: pre-line;
+  font-weight: 400;
+}
+
+:lang(hi) .contact-number,
+:lang(hi) .contact-email {
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+:lang(hi) .contact-note {
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+:lang(hi) .hours-content h4 {
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+:lang(hi) .time-label,
+:lang(hi) .time-value {
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+:lang(hi) .hours-note {
+  line-height: 1.4;
+  font-weight: 400;
+  font-style: normal;
+}
+
+:lang(hi) .map-placeholder h4 {
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+:lang(hi) .map-placeholder p {
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+:lang(hi) .coordinate-label {
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+:lang(hi) .coordinate-value {
+  font-family: 'Noto Sans Devanagari', 'Mukta Malar', monospace;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+:lang(hi) .map-btn {
+  text-align: center;
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+:lang(hi) .cta-content h3 {
+  text-align: center;
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+:lang(hi) .cta-content p {
+  text-align: center;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+:lang(hi) .feature {
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+:lang(hi) .quick-booking-btn {
+  text-align: center;
+  line-height: 1.4;
+  font-weight: 700;
+}
+
+/* Responsive adjustments for Hindi text */
+@media (min-width: 769px) {
+  :lang(hi) .gallery-header-content h1 {
+    font-size: clamp(2.8rem, 8vw, 4.2rem);
+  }
+  
+  :lang(hi) .gallery-subtitle {
+    font-size: clamp(1.3rem, 4vw, 1.5rem);
+  }
+  
+  :lang(hi) .card-header h2 {
+    font-size: clamp(2rem, 6vw, 2.5rem);
+  }
+  
+  :lang(hi) .subtitle {
+    font-size: 1.1rem;
+  }
+  
+  :lang(hi) .info-section h3 {
+    font-size: clamp(1.3rem, 4vw, 1.4rem);
+  }
+  
+  :lang(hi) .cta-content h3 {
+    font-size: clamp(2rem, 6vw, 2.8rem);
+  }
+  
+  :lang(hi) .cta-content p {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  :lang(hi) .gallery-header-content h1 {
+    font-size: clamp(2.2rem, 7vw, 2.8rem);
+    letter-spacing: 0.5px;
+  }
+  
+  :lang(hi) .gallery-subtitle {
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    line-height: 1.3;
+  }
+  
+  :lang(hi) .card-header h2 {
+    font-size: clamp(1.6rem, 4vw, 1.8rem);
+  }
+  
+  :lang(hi) .subtitle {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+  
+  :lang(hi) .info-section h3 {
+    font-size: 1.2rem;
+  }
+  
+  :lang(hi) .info-content p {
+    line-height: 1.5;
+    font-size: 0.95rem;
+  }
+  
+  :lang(hi) .cta-content h3 {
+    font-size: 1.6rem;
+  }
+  
+  :lang(hi) .cta-content p {
+    font-size: 1.1rem;
+    line-height: 1.4;
+  }
+  
+  :lang(hi) .feature {
+    font-size: 0.95rem;
+    line-height: 1.3;
+  }
+  
+  :lang(hi) .quick-booking-btn {
+    font-size: 1.1rem;
+    line-height: 1.4;
+  }
+}
+
+@media (max-width: 480px) {
+  :lang(hi) .gallery-header-content h1 {
+    font-size: clamp(1.8rem, 6vw, 2.2rem);
+    letter-spacing: 0.3px;
+  }
+  
+  :lang(hi) .gallery-subtitle {
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
+    line-height: 1.2;
+  }
+  
+  :lang(hi) .card-header h2 {
+    font-size: 1.5rem;
+  }
+  
+  :lang(hi) .subtitle {
+    font-size: 0.95rem;
+    line-height: 1.3;
+  }
+  
+  :lang(hi) .info-section h3 {
+    font-size: 1.1rem;
+  }
+  
+  :lang(hi) .info-content p {
+    line-height: 1.4;
+    font-size: 0.9rem;
+  }
+  
+  :lang(hi) .contact-number,
+  :lang(hi) .contact-email {
+    font-size: 1rem;
+  }
+  
+  :lang(hi) .cta-content h3 {
+    font-size: 1.4rem;
+  }
+  
+  :lang(hi) .cta-content p {
+    font-size: 1rem;
+    line-height: 1.3;
+  }
+  
+  :lang(hi) .feature {
+    font-size: 0.85rem;
+    line-height: 1.2;
+  }
+  
+  :lang(hi) .quick-booking-btn {
+    font-size: 1rem;
+    line-height: 1.3;
+  }
+}
+
+/* Ensure text doesn't overflow in Hindi */
+:lang(hi) .gallery-header-content h1,
+:lang(hi) .gallery-subtitle,
+:lang(hi) .card-header h2,
+:lang(hi) .subtitle,
+:lang(hi) .info-content p,
+:lang(hi) .map-placeholder p,
+:lang(hi) .cta-content h3,
+:lang(hi) .cta-content p,
+:lang(hi) .feature,
+:lang(hi) .quick-booking-btn {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Adjust spacing for multi-line Hindi text */
+:lang(hi) .info-content p {
+  padding: 0.2rem 0;
 }

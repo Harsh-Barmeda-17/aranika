@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Gideon+Roman&family=Eagle+Lake&family=Varela+Round&family=Rye&display=swap');
+/* Hindi font support */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap');
 
 .auth-page {
   min-height: 100vh;
@@ -379,4 +381,34 @@
     padding: 0.7rem 1.2rem;
     font-size: 0.95rem;
   }
+}
+
+
+/* Apply Hindi font when language is Hindi */
+.hindi-font {
+  font-family: 'Noto Sans Devanagari', sans-serif;
+}
+
+/* Specific element styling for Hindi */
+:lang(hi) .auth-card h2,
+:lang(hi) .subtitle,
+:lang(hi) .form-group label,
+:lang(hi) .text-button,
+:lang(hi) .auth-footer p {
+  font-family: 'Noto Sans Devanagari', sans-serif;
+}
+
+:lang(hi) input,
+:lang(hi) button,
+:lang(hi) .submit-btn {
+  font-family: 'Noto Sans Devanagari', sans-serif;
+}
+
+/* Adjust spacing for Hindi text */
+:lang(hi) .form-group label {
+  line-height: 1.4;
+}
+
+:lang(hi) .auth-footer p {
+  line-height: 1.5;
 }

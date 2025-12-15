@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
+import { LanguageContext } from '../App';
 import '../styles/Header.css';
 
 const Header = () => {
   const [offset, setOffset] = useState(0);
+  const { language } = useContext(LanguageContext);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -13,6 +15,20 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Language translations
+  const translations = {
+    english: {
+      homestayName: "Dhurwa Dera",
+      tagline: "Experience a peaceful stay in the heart of Bastar"
+    },
+    hindi: {
+      homestayName: "धुरवा डेरा",
+      tagline: "बस्तर के हृदय में एक शांतिपूर्ण प्रवास का अनुभव करें"
+    }
+  };
+
+  const t = translations[language];
+
   return (
     <header className="header">
       <div 
@@ -22,9 +38,9 @@ const Header = () => {
         <div className="nature-overlay"></div>
       </div>
       <div className="header-content">
-        <h1 className="homestay-name">Dhurwa Dera</h1>
+        <h1 className="homestay-name">{t.homestayName}</h1>
         <div className="divider"></div>
-        <p className="tagline">Experience a peaceful stay in the heart of Bastar</p>
+        <p className="tagline">{t.tagline}</p>
       </div>
     </header>
   );

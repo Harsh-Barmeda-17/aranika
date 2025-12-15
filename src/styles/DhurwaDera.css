@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Gideon+Roman&family=Eagle+Lake&family=Varela+Round&family=Rye&display=swap');
+/* Import Hindi fonts if not already imported */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mukta+Malar:wght@400;500;600;700&display=swap');
 
 /* Main Page Structure */
 .dhurwa-dera-page {
@@ -860,3 +863,163 @@
     opacity: 1;
     transform: translateY(0);
 }
+
+/* Hindi font support for DhurwaDera component */
+:lang(hi) .card-header h2,
+:lang(hi) .subtitle,
+:lang(hi) .form-section h3,
+:lang(hi) .section-header p,
+:lang(hi) .stat-label,
+:lang(hi) .adventure-header h4,
+:lang(hi) .adventure-description,
+:lang(hi) .adventure-duration span,
+:lang(hi) .adventure-includes h5,
+:lang(hi) .adventure-includes li,
+:lang(hi) .highlight-badge,
+:lang(hi) .note-item span:last-child,
+:lang(hi) .spec-title,
+:lang(hi) .spec-value,
+:lang(hi) .spec-note,
+:lang(hi) .price-row,
+:lang(hi) .cta-content h3,
+:lang(hi) .cta-content p,
+:lang(hi) .cta-features span,
+:lang(hi) .submit-btn,
+:lang(hi) .peaceful-quote,
+:lang(hi) .quote-author,
+:lang(hi) .view-text,
+:lang(hi) .modal-content span {
+  font-family: 'Noto Sans Devanagari', 'Mukta Malar', 'Arial Unicode MS', sans-serif;
+}
+
+/* Adjust Hindi text properties */
+:lang(hi) .card-header h2 {
+  line-height: 1.3;
+}
+
+:lang(hi) .subtitle {
+  line-height: 1.5;
+}
+
+:lang(hi) .form-section h3 {
+  text-align: center;
+  font-weight: 600;
+}
+
+:lang(hi) .adventure-header h4 {
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+:lang(hi) .adventure-description {
+  line-height: 1.6;
+  text-align: left;
+}
+
+:lang(hi) .price-row {
+  font-weight: 500;
+}
+
+:lang(hi) .cta-content h3 {
+  text-align: center;
+  line-height: 1.3;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+:lang(hi) .peaceful-quote {
+  line-height: 1.6;
+  text-align: center;
+  font-style: normal;
+  font-weight: 500;
+}
+
+:lang(hi) .spec-title {
+  font-weight: 600;
+}
+
+:lang(hi) .spec-value {
+  font-weight: 700;
+}
+
+:lang(hi) .spec-note {
+  font-style: normal;
+}
+
+:lang(hi) .view-text {
+  letter-spacing: 1px;
+}
+
+/* Responsive adjustments for Hindi text */
+@media (max-width: 768px) {
+  :lang(hi) .card-header h2 {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+  }
+  
+  :lang(hi) .form-section h3 {
+    font-size: clamp(1rem, 3vw, 1.2rem);
+  }
+  
+  :lang(hi) .peaceful-quote {
+    font-size: 1.2rem;
+  }
+  
+  :lang(hi) .adventure-header h4 {
+    font-size: 1.1rem;
+  }
+  
+  :lang(hi) .cta-content h3 {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  :lang(hi) .card-header h2 {
+    font-size: 1.6rem;
+  }
+  
+  :lang(hi) .form-section h3 {
+    font-size: 1.1rem;
+  }
+  
+  :lang(hi) .peaceful-quote {
+    font-size: 1.1rem;
+    line-height: 1.5;
+  }
+  
+  :lang(hi) .adventure-header h4 {
+    font-size: 1rem;
+  }
+  
+  :lang(hi) .adventure-description {
+    font-size: 0.9rem;
+  }
+  
+  :lang(hi) .cta-content h3 {
+    font-size: 1.1rem;
+  }
+  
+  :lang(hi) .cta-content p {
+    font-size: 0.95rem;
+  }
+}
+
+/* Ensure text doesn't overflow in Hindi */
+:lang(hi) .card-header h2,
+:lang(hi) .adventure-header h4,
+:lang(hi) .adventure-description,
+:lang(hi) .peaceful-quote,
+:lang(hi) .cta-content h3,
+:lang(hi) .cta-content p {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Adjust adventure card for Hindi text */
+:lang(hi) .adventure-card {
+  min-height: 320px;
+}
+
+:lang(hi) .adventure-includes ul {
+  padding-left: 1.2rem;
+}
+

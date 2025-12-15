@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Rye&family=Eagle+Lake&family=Gideon+Roman&display=swap');
+/* Import Hindi fonts if not already imported */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mukta+Malar:wght@400;500;600;700&display=swap');
 
 :root {
     --wood-dark: #8B4513;
@@ -979,4 +982,272 @@
     .back-to-top:hover {
         transform: none;
     }
+}
+
+/* Hindi font support for ServicesPage component */
+:lang(hi) .gallery-header-content h1,
+:lang(hi) .gallery-subtitle,
+:lang(hi) .card-header h2,
+:lang(hi) .card-body p,
+:lang(hi) .pill-text,
+:lang(hi) .section-title,
+:lang(hi) .tab-name,
+:lang(hi) .service-info h3,
+:lang(hi) .service-description,
+:lang(hi) .service-highlight,
+:lang(hi) .features-header h4,
+:lang(hi) .feature-text,
+:lang(hi) .journey-header h3,
+:lang(hi) .journey-header p,
+:lang(hi) .step-content h4,
+:lang(hi) .step-content p {
+  font-family: 'Noto Sans Devanagari', 'Mukta Malar', 'Arial Unicode MS', sans-serif;
+}
+
+/* Adjust Hindi text properties */
+:lang(hi) .gallery-header-content h1 {
+  text-align: center;
+  line-height: 1.2;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+:lang(hi) .gallery-subtitle {
+  text-align: center;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+:lang(hi) .card-header h2 {
+  text-align: center;
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+:lang(hi) .card-body p {
+  line-height: 1.6;
+  text-align: center;
+  font-weight: 400;
+}
+
+:lang(hi) .section-title {
+  text-align: center;
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+:lang(hi) .tab-name {
+  text-align: center;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+:lang(hi) .service-info h3 {
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+:lang(hi) .service-description {
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+:lang(hi) .service-highlight {
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+:lang(hi) .features-header h4 {
+  text-align: center;
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+:lang(hi) .feature-text {
+  line-height: 1.5;
+  font-weight: 400;
+  text-align: left;
+}
+
+:lang(hi) .journey-header h3 {
+  text-align: center;
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+:lang(hi) .journey-header p {
+  text-align: center;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+:lang(hi) .step-content h4 {
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+:lang(hi) .step-content p {
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+/* Responsive adjustments for Hindi text */
+@media (min-width: 769px) {
+  :lang(hi) .gallery-header-content h1 {
+    font-size: clamp(2.8rem, 8vw, 4.2rem);
+  }
+  
+  :lang(hi) .gallery-subtitle {
+    font-size: clamp(1.3rem, 4vw, 1.5rem);
+  }
+  
+  :lang(hi) .card-header h2 {
+    font-size: clamp(2rem, 5vw, 2.2rem);
+  }
+  
+  :lang(hi) .card-body p {
+    font-size: 1.15rem;
+  }
+  
+  :lang(hi) .service-info h3 {
+    font-size: clamp(1.8rem, 4vw, 2.2rem);
+  }
+  
+  :lang(hi) .service-description {
+    font-size: 1.15rem;
+  }
+  
+  :lang(hi) .feature-text {
+    font-size: 1.05rem;
+  }
+}
+
+@media (max-width: 768px) {
+  :lang(hi) .gallery-header-content h1 {
+    font-size: clamp(2.2rem, 7vw, 2.8rem);
+    letter-spacing: 0.5px;
+  }
+  
+  :lang(hi) .gallery-subtitle {
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    line-height: 1.3;
+  }
+  
+  :lang(hi) .card-header h2 {
+    font-size: clamp(1.6rem, 4vw, 1.8rem);
+  }
+  
+  :lang(hi) .card-body p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  
+  :lang(hi) .section-title {
+    font-size: 1.4rem;
+  }
+  
+  :lang(hi) .tab-name {
+    font-size: 1.1rem;
+  }
+  
+  :lang(hi) .service-info h3 {
+    font-size: 1.5rem;
+  }
+  
+  :lang(hi) .service-description {
+    font-size: 1.05rem;
+  }
+  
+  :lang(hi) .feature-text {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+  
+  :lang(hi) .step-content h4 {
+    font-size: 1.1rem;
+  }
+  
+  :lang(hi) .step-content p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  :lang(hi) .gallery-header-content h1 {
+    font-size: clamp(1.8rem, 6vw, 2.2rem);
+    letter-spacing: 0.3px;
+  }
+  
+  :lang(hi) .gallery-subtitle {
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
+    line-height: 1.2;
+  }
+  
+  :lang(hi) .card-header h2 {
+    font-size: 1.5rem;
+  }
+  
+  :lang(hi) .card-body p {
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+  
+  :lang(hi) .section-title {
+    font-size: 1.2rem;
+  }
+  
+  :lang(hi) .tab-name {
+    font-size: 1rem;
+  }
+  
+  :lang(hi) .service-info h3 {
+    font-size: 1.3rem;
+  }
+  
+  :lang(hi) .service-description {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  
+  :lang(hi) .feature-text {
+    font-size: 0.95rem;
+    line-height: 1.3;
+  }
+  
+  :lang(hi) .step-content h4 {
+    font-size: 1rem;
+  }
+  
+  :lang(hi) .step-content p {
+    font-size: 0.9rem;
+  }
+}
+
+/* Ensure text doesn't overflow in Hindi */
+:lang(hi) .gallery-header-content h1,
+:lang(hi) .gallery-subtitle,
+:lang(hi) .card-header h2,
+:lang(hi) .card-body p,
+:lang(hi) .tab-name,
+:lang(hi) .service-info h3,
+:lang(hi) .service-description,
+:lang(hi) .feature-text,
+:lang(hi) .step-content h4,
+:lang(hi) .step-content p {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Adjust feature cards for Hindi text */
+:lang(hi) .feature-card {
+  min-height: 200px;
+}
+
+/* Adjust journey steps for Hindi text */
+:lang(hi) .journey-step {
+  align-items: flex-start;
+}
+
+:lang(hi) .step-content {
+  min-height: 100px;
 }

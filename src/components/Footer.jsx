@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
+import { LanguageContext } from '../App';
 import "../styles/Footer.css";
 
 const Footer = ({ onNavigate }) => {
+    const { language } = useContext(LanguageContext);
+    
     const handleMapClick = () => {
         window.open(
             "https://maps.google.com/?q=18.8759292,81.9123589",
@@ -21,6 +24,54 @@ const Footer = ({ onNavigate }) => {
         // Scroll to top when navigating
         window.scrollTo(0, 0);
     };
+
+    // Language translations
+    const translations = {
+        english: {
+            findUs: "Find Us",
+            clickToOpenMap: "Click to open in Google Maps",
+            followUs: "Follow Us",
+            quickLinks: "Quick Links",
+            home: "Home",
+            tariff: "Tariff",
+            gallery: "Gallery",
+            services: "Services",
+            bookNow: "Book Now",
+            reachUs: "Reach Us",
+            establishmentSignature: "Dhurwa Dera",
+            establishmentDescription: "A tribal homestay nestled in the forests of Bastar, offering an eco-friendly stay with authentic culture, food, and nature.",
+            localityLabel: "Pedawada",
+            localitySubtitle: "Dhurwa Dera Location",
+            platformName: "Google",
+            serviceName: "Maps",
+            copyright: "© 2025 Dhurwa Dera",
+            craftedBy: "Crafted by",
+            studentsOf: "Students of ITM University, Raipur"
+        },
+        hindi: {
+            findUs: "हमें खोजें",
+            clickToOpenMap: "Google Maps में खोलने के लिए क्लिक करें",
+            followUs: "हमें फॉलो करें",
+            quickLinks: "त्वरित लिंक",
+            home: "होम",
+            tariff: "टैरिफ",
+            gallery: "गैलरी",
+            services: "सेवाएं",
+            bookNow: "बुक करें",
+            reachUs: "हमसे संपर्क करें",
+            establishmentSignature: "धुरवा डेरा",
+            establishmentDescription: "बस्तर के जंगलों में स्थित एक आदिवासी होमस्टे, जो प्रामाणिक संस्कृति, भोजन और प्रकृति के साथ एक पर्यावरण-अनुकूल प्रवास प्रदान करता है।",
+            localityLabel: "पेदावाड़ा",
+            localitySubtitle: "धुरवा डेरा स्थान",
+            platformName: "गूगल",
+            serviceName: "मैप्स",
+            copyright: "© 2025 धुरवा डेरा",
+            craftedBy: "बनाया गया",
+            studentsOf: "आईटीएम विश्वविद्यालय, रायपुर के छात्रों द्वारा"
+        }
+    };
+
+    const t = translations[language];
 
     return (
         <footer
@@ -60,18 +111,16 @@ const Footer = ({ onNavigate }) => {
                         {/* ===== BRAND ===== */}
                         <div className="brand-identity-panel">
                             <h3 className="establishment-signature">
-                                Dhurwa Dera
+                                {t.establishmentSignature}
                             </h3>
                             <p className="establishment-description">
-                                A tribal homestay nestled in the forests of
-                                Bastar, offering an eco-friendly stay with
-                                authentic culture, food, and nature.
+                                {t.establishmentDescription}
                             </p>
                         </div>
 
                         {/* ===== FIND US – GOOGLE MAP STYLE ===== */}
                         <div className="geospatial-panel">
-                            <h4 className="geolocation-header">Find Us</h4>
+                            <h4 className="geolocation-header">{t.findUs}</h4>
 
                             <div className="cartographic-preview">
                                 <div
@@ -121,10 +170,10 @@ const Footer = ({ onNavigate }) => {
                                             {/* Label */}
                                             <div className="location-annotations">
                                                 <div className="locality-label">
-                                                    Pedawada
+                                                    {t.localityLabel}
                                                 </div>
                                                 <div className="locality-subtitle">
-                                                    Dhurwa Dera Location
+                                                    {t.localitySubtitle}
                                                 </div>
                                             </div>
 
@@ -135,10 +184,10 @@ const Footer = ({ onNavigate }) => {
                                                 </span>
                                                 <div className="credits-text">
                                                     <span className="platform-name">
-                                                        Google
+                                                        {t.platformName}
                                                     </span>
                                                     <span className="service-name">
-                                                        Maps
+                                                        {t.serviceName}
                                                     </span>
                                                 </div>
                                             </div>
@@ -152,7 +201,7 @@ const Footer = ({ onNavigate }) => {
                                                 📍
                                             </span>
                                             <span className="interaction-prompt">
-                                                Click to open in Google Maps
+                                                {t.clickToOpenMap}
                                             </span>
                                         </div>
                                     </div>
@@ -163,7 +212,7 @@ const Footer = ({ onNavigate }) => {
 
                     {/* ===== SOCIAL MEDIA ===== */}
                     <div className="social-engagement-section">
-                        <h4 className="social-connect-header">Follow Us</h4>
+                        <h4 className="social-connect-header">{t.followUs}</h4>
 
                         <div className="social-platform-icons">
                             {/* Instagram */}
@@ -213,43 +262,43 @@ const Footer = ({ onNavigate }) => {
 
                 {/* ===== QUICK LINKS ===== */}
                 <div className="navigation-ribbon">
-                    <h4 className="rapid-access-header">Quick Links</h4>
+                    <h4 className="rapid-access-header">{t.quickLinks}</h4>
                     <div className="access-links-container">
                         <button 
                             className="rapid-access-link" 
                             onClick={() => handleQuickLinkClick('home')}
                         >
-                            Home
+                            {t.home}
                         </button>
                         <button 
                             className="rapid-access-link" 
                             onClick={() => handleQuickLinkClick('dhurwadera')}
                         >
-                            Tarrif
+                            {t.tariff}
                         </button>
                         <button 
                             className="rapid-access-link" 
                             onClick={() => handleQuickLinkClick('gallery')}
                         >
-                            Gallery
+                            {t.gallery}
                         </button>
                         <button 
                             className="rapid-access-link" 
                             onClick={() => handleQuickLinkClick('services')}
                         >
-                            Services
+                            {t.services}
                         </button>
                         <button 
                             className="rapid-access-link" 
                             onClick={() => handleQuickLinkClick('booking')}
                         >
-                            Book Now
+                            {t.bookNow}
                         </button>
                         <button 
                             className="rapid-access-link" 
                             onClick={() => handleQuickLinkClick('contact')}
                         >
-                            Reach Us
+                            {t.reachUs}
                         </button>
                     </div>
                 </div>
@@ -258,15 +307,15 @@ const Footer = ({ onNavigate }) => {
                 <div className="footer-foundation">
                     <div className="foundation-divider" />
                     <p className="copyright-notice">
-                        © 2025 Dhurwa Dera
+                        {t.copyright}
                         <br />
                         <span className="creator-attribution">
-                            Crafted by{" "}
+                            {t.craftedBy}{" "}
                             <span
                                 className="academic-link"
                                 onClick={handleItmClick}
                             >
-                                Students of ITM University, Raipur
+                                {t.studentsOf}
                             </span>
                             <img
                                 src="/ITM logo.png"

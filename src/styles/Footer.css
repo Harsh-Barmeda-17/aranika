@@ -1,5 +1,9 @@
 /* ========== ENHANCED CREATIVE FOOTER ========== */
 
+
+/* Hindi font support for Footer */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap');
+
 /* ===== FOOTER BOTTOM ===== */
 .footer-foundation {
     margin-top: 50px;
@@ -1188,4 +1192,36 @@ footer * {
     .social-platform-icons {
         gap: 5px !important;
     }
+}
+
+
+/* Apply Hindi font when language is Hindi */
+:lang(hi) .establishment-signature,
+:lang(hi) .establishment-description,
+:lang(hi) .geolocation-header,
+:lang(hi) .social-connect-header,
+:lang(hi) .rapid-access-header,
+:lang(hi) .rapid-access-link,
+:lang(hi) .copyright-notice,
+:lang(hi) .creator-attribution,
+:lang(hi) .interaction-prompt,
+:lang(hi) .locality-label,
+:lang(hi) .locality-subtitle {
+  font-family: 'Noto Sans Devanagari', sans-serif;
+}
+
+/* Adjust spacing for Hindi text in footer */
+:lang(hi) .establishment-description {
+  line-height: 1.5;
+}
+
+:lang(hi) .copyright-notice {
+  line-height: 1.6;
+}
+
+/* Adjust button widths for Hindi text */
+:lang(hi) .rapid-access-link {
+  min-width: 80px;
+  text-align: center;
+  padding: 8px 12px;
 }

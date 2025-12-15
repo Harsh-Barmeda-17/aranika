@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Gideon+Roman&family=Eagle+Lake&family=Varela+Round&family=Rye&display=swap');
+/* Hindi font import */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mukta+Malar:wght@400;500;600;700&display=swap');
 
 .bamboo-timeline-section {
   padding: 80px 20px;
@@ -1199,4 +1202,72 @@
 
 .timeline-item.visible:nth-child(even) .timeline-content-card {
   transition-delay: 0.2s;
+}
+
+/* Add at the end of your BambooTimeline.css file */
+
+/* Hindi font support for timeline */
+:lang(hi) .timeline-heading {
+  font-family: 'Noto Sans Devanagari', 'Mukta Malar', 'Arial Unicode MS', sans-serif;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+:lang(hi) .date-badge,
+:lang(hi) .item-title {
+  font-family: 'Noto Sans Devanagari', 'Mukta Malar', 'Arial Unicode MS', sans-serif;
+  font-weight: 600;
+}
+
+:lang(hi) .bamboo-point-text,
+:lang(hi) .item-description {
+  font-family: 'Noto Sans Devanagari', 'Mukta Malar', 'Arial Unicode MS', sans-serif;
+  line-height: 1.5;
+}
+
+/* Adjust spacing for Hindi text */
+:lang(hi) .bamboo-point {
+  line-height: 1.6;
+}
+
+:lang(hi) .bamboo-point-text {
+  padding-left: 10px;
+  text-align: left;
+}
+
+/* Responsive adjustments for Hindi */
+@media (max-width: 768px) {
+  :lang(hi) .timeline-heading {
+    font-size: 1.8rem;
+  }
+  
+  :lang(hi) .date-badge {
+    font-size: 1rem;
+  }
+  
+  :lang(hi) .item-title {
+    font-size: 1.3rem;
+  }
+  
+  :lang(hi) .bamboo-point-text {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  :lang(hi) .timeline-heading {
+    font-size: 1.5rem;
+  }
+  
+  :lang(hi) .date-badge {
+    font-size: 0.9rem;
+  }
+  
+  :lang(hi) .item-title {
+    font-size: 1.1rem;
+  }
+  
+  :lang(hi) .bamboo-point-text {
+    font-size: 0.85rem;
+  }
 }
