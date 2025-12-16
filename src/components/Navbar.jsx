@@ -24,7 +24,7 @@ const Navbar = ({ currentPage, onNavigate, onLanguageChange }) => {
       signUp: "साइन अप",
       home: "होम",
       tariff: "टैरिफ",
-      gallery: "गैलरी",
+      gallery: "चित्रकला",
       services: "सेवाएं",
       bookNow: "बुक करें",
       reachUs: "संपर्क करें"

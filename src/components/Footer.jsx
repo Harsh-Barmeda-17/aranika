@@ -55,7 +55,7 @@ const Footer = ({ onNavigate }) => {
             quickLinks: "त्वरित लिंक",
             home: "होम",
             tariff: "टैरिफ",
-            gallery: "गैलरी",
+            gallery: "चित्रकला",
             services: "सेवाएं",
             bookNow: "बुक करें",
             reachUs: "हमसे संपर्क करें",

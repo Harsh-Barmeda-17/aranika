@@ -26,7 +26,7 @@ function Gallery() {
       zoomOut: "−"
     },
     hindi: {
-      galleryTitle: "धुरवा डेरा गैलरी",
+      galleryTitle: "धुरवा डेरा चित्रकला",
       gallerySubtitle: "हमारे शांतिपूर्ण आश्रय स्थल की दृश्य यात्रा में खुद को डुबोएं",
       fullScreen: "पूर्ण स्क्रीन",
       close: "×",

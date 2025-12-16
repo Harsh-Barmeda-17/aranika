@@ -19,7 +19,7 @@ const DhurwaDera = ({ onNavigate }) => {
             pricingDetails: "Pricing Details",
             roomRate: "Room Rate (per night):",
             extraBed: "Extra Bed (per night):",
-            childrenFree: "Children Free:",
+            childrenFree: "Free for Children:",
             yearsBelow: "years & below",
             startingFrom: "Starting from:",
             adventureActivities: "Adventure Activities",
@@ -65,14 +65,14 @@ const DhurwaDera = ({ onNavigate }) => {
                     name: "River Rafting",
                     price: 100,
                     description: "Exciting river rafting experience in pristine waters",
-                    duration: "2 hours",
+                    duration: "Time Varies",
                     includes: ["Safety equipment", "Expert guide", "Basic training"]
                 },
                 {
                     name: "Bamboo Rafting",
                     price: 200,
                     description: "Traditional bamboo rafting for a serene water experience",
-                    duration: "1.5 hours",
+                    duration: "Time Varies",
                     includes: ["Traditional bamboo raft", "Local guide", "Safety briefing"]
                 }
             ]
@@ -85,7 +85,7 @@ const DhurwaDera = ({ onNavigate }) => {
             pricingDetails: "मूल्य विवरण",
             roomRate: "कमरे की दर (प्रति रात):",
             extraBed: "अतिरिक्त बेड (प्रति रात):",
-            childrenFree: "बच्चे मुफ्त:",
+            childrenFree: "बच्चों के लिए मुफ्त:",
             yearsBelow: "वर्ष और नीचे",
             startingFrom: "शुरू होता है:",
             adventureActivities: "साहसिक गतिविधियाँ",
@@ -131,14 +131,14 @@ const DhurwaDera = ({ onNavigate }) => {
                     name: "रिवर राफ्टिंग",
                     price: 100,
                     description: "प्राचीन जल में रोमांचक रिवर राफ्टिंग अनुभव",
-                    duration: "2 घंटे",
+                    duration: "परिवर्तनीय",
                     includes: ["सुरक्षा उपकरण", "विशेषज्ञ गाइड", "बेसिक प्रशिक्षण"]
                 },
                 {
                     name: "बांस राफ्टिंग",
                     price: 200,
                     description: "शांत जल अनुभव के लिए पारंपरिक बांस राफ्टिंग",
-                    duration: "1.5 घंटे",
+                    duration: "परिवर्तनीय",
                     includes: ["पारंपरिक बांस का बेड़ा", "स्थानीय गाइड", "सुरक्षा ब्रीफिंग"]
                 }
             ]

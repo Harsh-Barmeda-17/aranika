@@ -127,7 +127,7 @@ const BookingPage = ({ onSubmit }) => {
       maxStayError: "Maximum stay allowed is {maxNights} nights"
     },
     hindi: {
-      bookYourStay: "अपना स्टे बुक करें",
+      bookYourStay: "अपना ठहरना बुक करें",
       subtitle: "अपनी शांतिपूर्ण छुट्टी के लिए विवरण भरें",
       roomGuestsInfo: "कमरा और अतिथि जानकारी",
       payingGuests: "भुगतान करने वाले अतिथि",
