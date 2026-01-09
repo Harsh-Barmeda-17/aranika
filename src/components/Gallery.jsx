@@ -4,14 +4,14 @@ import "../styles/Gallery.css";
 import { LanguageContext } from '../App';
 
 // Import all images dynamically from /assets/gallery
-const images = Array.from({ length: 46 }, (_, i) => 
+const images = Array.from({ length: 46 }, (_, i) =>
   new URL(`../assets/gallery/G${i + 1}.JPG`, import.meta.url).href
 );
 
 function Gallery() {
   const { language } = useContext(LanguageContext);
   const hexRefs = useRef([]);
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedIndex, setSelectedIndex] = useState(null);
   const [zoomLevel, setZoomLevel] = useState(1);
   const observerRef = useRef(null);
 
@@ -37,14 +37,16 @@ function Gallery() {
 
   const t = translations[language];
 
-  // Memoized functions for better performance
-  const handleImageClick = useCallback((src) => {
-    setSelectedImage(src);
+  // Open image
+  const handleImageClick = useCallback((index) => {
+    setSelectedIndex(index);
     document.body.style.overflow = 'hidden';
   }, []);
 
+  // Close image
   const handleCloseImage = useCallback(() => {
-    setSelectedImage(null);
+    setSelectedIndex(null);
+    setZoomLevel(1);
     document.body.style.overflow = 'auto';
   }, []);
 
@@ -54,55 +56,62 @@ function Gallery() {
     }
   }, [handleCloseImage]);
 
+  // Intersection Observer
   useEffect(() => {
     const observerCallback = (entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('hex-visible');
-          // Unobserve after animation to improve performance
           observerRef.current?.unobserve(entry.target);
         }
       });
     };
 
-    const observerOptions = {
+    observerRef.current = new IntersectionObserver(observerCallback, {
       threshold: 0.1,
       rootMargin: '0px 0px 100px 0px'
-    };
-
-    observerRef.current = new IntersectionObserver(observerCallback, observerOptions);
-
-    // Observe only visible elements
-    hexRefs.current.forEach(hex => {
-      if (hex) {
-        observerRef.current.observe(hex);
-      }
     });
 
-    return () => {
-      observerRef.current?.disconnect();
-    };
+    hexRefs.current.forEach(hex => {
+      if (hex) observerRef.current.observe(hex);
+    });
+
+    return () => observerRef.current?.disconnect();
   }, []);
 
-  // Function to add ref to each hex element
   const addToRefs = useCallback((el) => {
     if (el && !hexRefs.current.includes(el)) {
       hexRefs.current.push(el);
     }
   }, []);
 
-  // Close on Escape key press
+  // Escape + Arrow Navigation
   useEffect(() => {
-    const handleEscape = (e) => {
-      if (e.key === 'Escape' && selectedImage) {
+    if (selectedIndex === null) return;
+
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
         handleCloseImage();
+      }
+
+      if (e.key === 'ArrowRight') {
+        setSelectedIndex(prev =>
+          prev < images.length - 1 ? prev + 1 : prev
+        );
+      }
+
+      if (e.key === 'ArrowLeft') {
+        setSelectedIndex(prev =>
+          prev > 0 ? prev - 1 : prev
+        );
       }
     };
 
-    document.addEventListener('keydown', handleEscape);
-    return () => document.removeEventListener('keydown', handleEscape);
-  }, [selectedImage, handleCloseImage]);
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedIndex, handleCloseImage]);
 
+  // Zoom handlers
   const handleZoomIn = () => {
     setZoomLevel(prev => Math.min(prev + 0.25, 3));
   };
@@ -113,16 +122,11 @@ function Gallery() {
 
   const handleWheel = (e) => {
     e.preventDefault();
-    if (e.deltaY < 0) {
-      handleZoomIn();
-    } else {
-      handleZoomOut();
-    }
+    e.deltaY < 0 ? handleZoomIn() : handleZoomOut();
   };
 
   return (
     <div className="gallery-page">
-      {/* Updated Header with wave pattern from Header component */}
       <div className="gallery-header-section">
         <div className="gallery-header-background">
           <div className="gallery-nature-overlay"></div>
@@ -137,17 +141,16 @@ function Gallery() {
       <div className="gallery-main-content">
         <div className="hex-gallery">
           {images.map((src, index) => (
-            <div 
-              key={index} 
-              className="hex" 
+            <div
+              key={index}
+              className="hex"
               ref={addToRefs}
-              onClick={() => handleImageClick(src)}
+              onClick={() => handleImageClick(index)}
             >
               <div className="hex-inner">
                 <div
                   className="hex-img"
                   style={{ backgroundImage: `url(${src})` }}
-                  loading="lazy"
                 ></div>
               </div>
             </div>
@@ -155,19 +158,22 @@ function Gallery() {
         </div>
       </div>
 
-      {/* Original Full-screen image viewer */}
-      {selectedImage && (
+      {selectedIndex !== null && (
         <div className="image-modal" onClick={handleBackdropClick}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <button className="close-btn" onClick={handleCloseImage}>{t.close}</button>
+            <button className="close-btn" onClick={handleCloseImage}>
+              {t.close}
+            </button>
+
             <div className="zoom-controls">
               <button onClick={handleZoomOut}>{t.zoomOut}</button>
               <span>{Math.round(zoomLevel * 100)}%</span>
               <button onClick={handleZoomIn}>{t.zoomIn}</button>
             </div>
-            <img 
-              src={selectedImage} 
-              alt={t.fullScreen} 
+
+            <img
+              src={images[selectedIndex]}
+              alt={t.fullScreen}
               style={{ transform: `scale(${zoomLevel})` }}
               onWheel={handleWheel}
             />
@@ -175,7 +181,6 @@ function Gallery() {
         </div>
       )}
 
-      {/* Imported Back to Top Button */}
       <BackToTop />
     </div>
   );
