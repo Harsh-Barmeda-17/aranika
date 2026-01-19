@@ -14,6 +14,7 @@ function Gallery() {
   const [selectedIndex, setSelectedIndex] = useState(null);
   const [zoomLevel, setZoomLevel] = useState(1);
   const observerRef = useRef(null);
+  const thumbnailBarRef = useRef(null);
 
   // Language translations
   const translations = {
@@ -56,6 +57,12 @@ function Gallery() {
     }
   }, [handleCloseImage]);
 
+  // Navigate to specific image
+  const navigateToImage = useCallback((index) => {
+    setSelectedIndex(index);
+    setZoomLevel(1);
+  }, []);
+
   // Intersection Observer
   useEffect(() => {
     const observerCallback = (entries) => {
@@ -84,6 +91,26 @@ function Gallery() {
       hexRefs.current.push(el);
     }
   }, []);
+
+  // Scroll thumbnail bar to current image
+  useEffect(() => {
+    if (selectedIndex !== null && thumbnailBarRef.current) {
+      const thumbnailContainer = thumbnailBarRef.current;
+      const thumbnails = thumbnailContainer.querySelectorAll('.thumbnail-item');
+      
+      if (thumbnails[selectedIndex]) {
+        const selectedThumbnail = thumbnails[selectedIndex];
+        const containerWidth = thumbnailContainer.offsetWidth;
+        const thumbnailWidth = selectedThumbnail.offsetWidth;
+        const thumbnailLeft = selectedThumbnail.offsetLeft;
+        
+        thumbnailContainer.scrollTo({
+          left: thumbnailLeft - (containerWidth / 2) + (thumbnailWidth / 2),
+          behavior: 'smooth'
+        });
+      }
+    }
+  }, [selectedIndex]);
 
   // Escape + Arrow Navigation
   useEffect(() => {
@@ -171,12 +198,34 @@ function Gallery() {
               <button onClick={handleZoomIn}>{t.zoomIn}</button>
             </div>
 
-            <img
-              src={images[selectedIndex]}
-              alt={t.fullScreen}
-              style={{ transform: `scale(${zoomLevel})` }}
-              onWheel={handleWheel}
-            />
+            <div className="main-image-container">
+              <img
+                src={images[selectedIndex]}
+                alt={t.fullScreen}
+                style={{ transform: `scale(${zoomLevel})` }}
+                onWheel={handleWheel}
+              />
+            </div>
+
+            {/* Thumbnail Navigation Bar */}
+            <div className="thumbnail-bar" ref={thumbnailBarRef}>
+              {images.map((src, index) => (
+                <div
+                  key={index}
+                  className={`thumbnail-item ${index === selectedIndex ? 'active' : ''}`}
+                  onClick={() => navigateToImage(index)}
+                >
+                  <img
+                    src={src}
+                    alt={`Thumbnail ${index + 1}`}
+                    loading="lazy"
+                  />
+                  <div className="thumbnail-overlay">
+                    <span className="thumbnail-number">{index + 1}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       )}
