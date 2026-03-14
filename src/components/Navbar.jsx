@@ -17,7 +17,7 @@ const Navbar = ({ currentPage, onNavigate, onLanguageChange }) => {
       tariff: "TARIFF",
       gallery: "GALLERY",
       services: "SERVICES",
-      bookNow: "BOOK NOW",
+      // bookNow: "BOOK NOW", // HIDDEN - Commented out
       reachUs: "REACH US"
     },
     hindi: {
@@ -26,7 +26,7 @@ const Navbar = ({ currentPage, onNavigate, onLanguageChange }) => {
       tariff: "टैरिफ",
       gallery: "चित्रकला",
       services: "सेवाएं",
-      bookNow: "बुक करें",
+      // bookNow: "बुक करें", // HIDDEN - Commented out
       reachUs: "संपर्क करें"
     }
   };
@@ -77,7 +77,7 @@ const Navbar = ({ currentPage, onNavigate, onLanguageChange }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollY]);
 
-  // Navigation links with translations
+  // Navigation links with translations - BOOK NOW link removed
   const getLinks = () => {
     const t = translations[language];
     return [
@@ -85,7 +85,7 @@ const Navbar = ({ currentPage, onNavigate, onLanguageChange }) => {
       { name: t.tariff, href: "#TARIFF", page: 'dhurwadera' },
       { name: t.gallery, href: "#GALLERY", page: 'gallery' },
       { name: t.services, href: "#SERVICES", page: 'services' },
-      { name: t.bookNow, href: "#BOOKNOW", page: 'booking' },
+      // { name: t.bookNow, href: "#BOOKNOW", page: 'booking' }, // HIDDEN - Commented out
       { name: t.reachUs, href: "#REACHUS", page: 'contact' },
     ];
   };

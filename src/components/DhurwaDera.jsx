@@ -47,7 +47,7 @@ const DhurwaDera = ({ onNavigate }) => {
             bestPriceGuarantee: "✓ Best Price Guarantee",
             easyBookingProcess: "✓ Easy Booking Process",
             adventurePackagesAvailable: "✓ Adventure Packages Available",
-            bookYourExperience: "Book Your Experience",
+            // bookYourExperience: "Book Your Experience", // HIDDEN - Commented out
             quote: "In the heart of nature, discover rooms that comfort your soul and peace that stays with you.",
             quoteAuthor: "- Dhurwa Dera Experience",
             close: "×",
@@ -113,7 +113,7 @@ const DhurwaDera = ({ onNavigate }) => {
             bestPriceGuarantee: "✓ सर्वोत्तम मूल्य गारंटी",
             easyBookingProcess: "✓ आसान बुकिंग प्रक्रिया",
             adventurePackagesAvailable: "✓ साहसिक पैकेज उपलब्ध",
-            bookYourExperience: "अपना अनुभव बुक करें",
+            // bookYourExperience: "अपना अनुभव बुक करें", // HIDDEN - Commented out
             quote: "प्रकृति की गोद में, ऐसे कमरे खोजें जो आपकी आत्मा को सुकून दें और ऐसी शांति जो आपके साथ रहती है।",
             quoteAuthor: "- धुरवा डेरा अनुभव",
             close: "×",
@@ -188,13 +188,13 @@ const DhurwaDera = ({ onNavigate }) => {
         };
     }, []);
 
-    const handleBookNow = () => {
-        // Navigate to booking page using the prop from App.js
-        if (onNavigate) {
-            onNavigate('booking');
-        }
-        // Scroll to top of the booking page (handled in App.js)
-    };
+    // const handleBookNow = () => {
+    //     // Navigate to booking page using the prop from App.js
+    //     if (onNavigate) {
+    //         onNavigate('booking');
+    //     }
+    //     // Scroll to top of the booking page (handled in App.js)
+    // };
 
     const handleImageClick = (imageSrc) => {
         setSelectedImage(imageSrc);
@@ -417,6 +417,7 @@ const DhurwaDera = ({ onNavigate }) => {
                         </section>
 
                         {/* Call to Action - Updated for better visibility */}
+                        {/* HIDDEN - Commented out the entire CTA section
                         <section className="form-section cta-section">
                             <div className="cta-content">
                                 <h3>{t.readyToExperience}</h3>
@@ -431,6 +432,7 @@ const DhurwaDera = ({ onNavigate }) => {
                                 </button>
                             </div>
                         </section>
+                        */}
                     </div>
                 </div>
             </main>

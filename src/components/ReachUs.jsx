@@ -26,7 +26,7 @@ Pin Code: 494223`,
 • Perfect for nature lovers`,
       contactTitle: "Contact Information",
       phoneTitle: "Phone & WhatsApp",
-      phoneNumber: "+91 98765 43210",
+      phoneNumber: "+91 79993 76721",
       whatsappNote: "Available on WhatsApp for quick responses",
       emailTitle: "Email",
       emailAddress: "info@dhurwadera.com",
@@ -49,7 +49,7 @@ Pin Code: 494223`,
       ctaFeature1: "UNWTO Award Winner",
       ctaFeature2: "Best Rural Tourism Village",
       ctaFeature3: "Sustainable Eco-Tourism",
-      bookNow: "Book Your Peaceful Getaway"
+      // bookNow: "Book Your Peaceful Getaway" // HIDDEN - Commented out
     },
     hindi: {
       headerTitle: "धुरवा डेरा",
@@ -92,18 +92,18 @@ Pin Code: 494223`,
       ctaFeature1: "यूएनडब्ल्यूटीओ पुरस्कार विजेता",
       ctaFeature2: "सर्वश्रेष्ठ ग्रामीण पर्यटन गांव",
       ctaFeature3: "स्थायी इको-टूरिज्म",
-      bookNow: "अपनी शांतिपूर्ण छुट्टी बुक करें"
+      // bookNow: "अपनी शांतिपूर्ण छुट्टी बुक करें" // HIDDEN - Commented out
     }
   };
 
   const t = translations[language];
 
-  const handleQuickBooking = () => {
-    if (onNavigate) {
-      onNavigate('booking');
-    }
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+  // const handleQuickBooking = () => {
+  //   if (onNavigate) {
+  //     onNavigate('booking');
+  //   }
+  //   window.scrollTo({ top: 0, behavior: 'smooth' });
+  // };
 
   const handleGetDirections = () => {
     // Open Google Maps with Dhurwa Dera location
@@ -255,7 +255,7 @@ Pin Code: 494223`,
                 </div>
               </section>
 
-              {/* Enhanced Quick Booking CTA */}
+              {/* Enhanced Quick Booking CTA - HIDDEN
               <section className="booking-cta-section">
                 <div className="cta-background"></div>
                 <div className="cta-content">
@@ -287,6 +287,7 @@ Pin Code: 494223`,
                   </button>
                 </div>
               </section>
+              */}
             </div>
           </div>
         </div>

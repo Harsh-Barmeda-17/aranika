@@ -36,7 +36,7 @@ const Footer = ({ onNavigate }) => {
             tariff: "Tariff",
             gallery: "Gallery",
             services: "Services",
-            bookNow: "Book Now",
+            // bookNow: "Book Now", // HIDDEN - Commented out
             reachUs: "Reach Us",
             establishmentSignature: "Dhurwa Dera",
             establishmentDescription: "A tribal homestay nestled in the forests of Bastar, offering an eco-friendly stay with authentic culture, food, and nature.",
@@ -57,7 +57,7 @@ const Footer = ({ onNavigate }) => {
             tariff: "टैरिफ",
             gallery: "चित्रकला",
             services: "सेवाएं",
-            bookNow: "बुक करें",
+            // bookNow: "बुक करें", // HIDDEN - Commented out
             reachUs: "हमसे संपर्क करें",
             establishmentSignature: "धुरवा डेरा",
             establishmentDescription: "बस्तर के जंगलों में स्थित एक आदिवासी होमस्टे, जो प्रामाणिक संस्कृति, भोजन और प्रकृति के साथ एक पर्यावरण-अनुकूल प्रवास प्रदान करता है।",
@@ -288,12 +288,14 @@ const Footer = ({ onNavigate }) => {
                         >
                             {t.services}
                         </button>
+                        {/* HIDDEN - Book Now button removed 
                         <button 
                             className="rapid-access-link" 
                             onClick={() => handleQuickLinkClick('booking')}
                         >
                             {t.bookNow}
                         </button>
+                        */}
                         <button 
                             className="rapid-access-link" 
                             onClick={() => handleQuickLinkClick('contact')}
